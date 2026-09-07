@@ -29,24 +29,23 @@ window.I18N = {
     "cta.how": "Ver como funciona",
 
     "hero.eyebrow": "Gestão de Alojamento Local · Algarve",
-    "hero.title": "A sua casa no Algarve,<br /><span class=\"grad\">gerida como um hotel.</span>",
-    "hero.sub":
-      "Tratamos de tudo — anúncios, preços, hóspedes, limpezas, manutenção e licenciamento. Você recebe o rendimento e um relatório claro todos os meses.",
-    "hero.channels": "Publicamos o seu imóvel em",
-    "hero.hint": "Mova o cursor sobre a cidade · clique para propagar o sinal",
-    "hero.hintTouch": "Arraste sobre a cidade · toque para propagar o sinal",
+    "hero.title": "A sua casa no Algarve, <em>operada como um hotel</em>",
+    "hero.sub": "Anúncios, preços, hóspedes, limpezas, manutenção e licenciamento ficam connosco. Você recebe o rendimento e um relatório claro todos os meses.",
+    "hero.channels": "Publicamos em",
+    "hero.hint": "Arraste a maquete · o sol segue o cursor",
+    "hero.hintTouch": "Arraste a maquete com o dedo para a rodar",
 
-    "metrics.title": "Números da HD Properties",
+    "metrics.title": "A HD Properties em números",
     "metrics.occupancy": "Ocupação média em época alta",
     "metrics.rating": "Avaliação média dos hóspedes",
     "metrics.units": "Imóveis sob gestão",
     "metrics.response": "Tempo médio de resposta a hóspedes",
 
-    "services.eyebrow": "01 · Serviços",
+    "services.eyebrow": "Serviços",
     "services.title": "Gestão completa, sem tirar tempo ao proprietário",
     "services.sub":
       "Da fotografia à declaração de hóspedes. Assumimos a operação inteira do seu alojamento local.",
-    "services.s1.title": "Anúncios e fotografia profissional",
+    "services.s1.title": "Anúncios e fotografia",
     "services.s1.text":
       "Sessão fotográfica, staging, textos otimizados e publicação sincronizada em todas as plataformas.",
     "services.s2.title": "Preços dinâmicos",
@@ -55,9 +54,8 @@ window.I18N = {
     "services.s3.title": "Hóspedes e check-in 24/7",
     "services.s3.text":
       "Comunicação em português e inglês, check-in flexível e apoio durante toda a estadia.",
-    "services.s4.title": "Limpeza e lavandaria hoteleira",
-    "services.s4.text":
-      "Equipas próprias, roupa de cama profissional, reposição de consumíveis e checklist fotográfico a cada saída.",
+    "services.s4.title": "Limpeza e lavandaria",
+    "services.s4.text": "Equipas próprias, roupa de cama hoteleira, reposição de consumíveis e checklist fotográfico a cada saída.",
     "services.s5.title": "Manutenção e assistência",
     "services.s5.text":
       "Rede de técnicos para intervenções rápidas e manutenção preventiva de piscina, AVAC e eletrodomésticos.",
@@ -71,7 +69,7 @@ window.I18N = {
     "services.s8.text":
       "Acompanhamento de reviews, resposta a comentários e melhoria contínua da pontuação do anúncio.",
 
-    "process.eyebrow": "02 · Como funciona",
+    "process.eyebrow": "Como funciona",
     "process.title": "Quatro passos até à primeira reserva",
     "process.sub":
       "Da primeira conversa ao check-in do primeiro hóspede, normalmente em duas a quatro semanas.",
@@ -88,7 +86,7 @@ window.I18N = {
     "process.p4.text":
       "Hóspedes, limpezas, manutenção e relatórios ficam connosco. Você acompanha tudo e recebe o rendimento.",
 
-    "sim.eyebrow": "03 · Simulador",
+    "sim.eyebrow": "Simulador",
     "sim.title": "Quanto pode render a sua casa?",
     "sim.sub":
       "Uma estimativa indicativa, calculada no seu browser a partir de pressupostos visíveis. Não é uma proposta nem uma garantia de rendimento.",
@@ -102,12 +100,12 @@ window.I18N = {
     "sim.pool": "Piscina privada",
     "sim.sea": "Vista mar",
     "sim.gross": "Receita bruta estimada / mês",
-    "sim.nights": "Noites ocupadas / mês",
+    "sim.nights": "Noites / mês",
     "sim.adr": "Diária média",
-    "sim.net": "Líquido após comissão",
+    "sim.net": "Após comissão",
     "sim.note":
       "Estimativa indicativa com valores de exemplo por calibrar. Não inclui impostos, taxa turística nem a limpeza cobrada ao hóspede.",
-    "sim.assumptionsTitle": "Ver pressupostos do cálculo",
+    "sim.assumptionsTitle": "Ver pressupostos",
     "sim.cta": "Quero uma avaliação real",
     "sim.a.base": "Diária base por tipologia: T0 70 € · T1 95 € · T2 135 € · T3 180 € · T4+ 240 €",
     "sim.a.zone":
@@ -117,9 +115,9 @@ window.I18N = {
     "sim.a.commission": "Comissão considerada: 20% da receita bruta (plano Completo)",
     "sim.a.month": "Mês médio de 30,4 noites",
 
-    "zones.eyebrow": "04 · Zonas",
+    "zones.eyebrow": "Zonas",
     "zones.title": "Onde operamos",
-    "zones.sub": "Equipas próprias no Algarve central — do litoral de Albufeira à ria de Olhão.",
+    "zones.sub": "Equipas próprias no Algarve central — do litoral de Albufeira à Ria Formosa, em Olhão.",
     "zones.mapAlt": "Mapa estilizado do Algarve central com as zonas cobertas",
     "zones.albufeira": "Praias, vida noturna e procura durante quase todo o ano.",
     "zones.vilamoura": "Marina, golfe e um hóspede internacional de estadia longa.",
@@ -128,7 +126,7 @@ window.I18N = {
     "zones.faro": "Aeroporto e centro histórico: estadias curtas todo o ano.",
     "zones.olhao": "Ria Formosa e um mercado em crescimento, com boa margem de entrada.",
 
-    "quotes.eyebrow": "05 · Proprietários",
+    "quotes.eyebrow": "Proprietários",
     "quotes.title": "O que dizem os proprietários",
     "quotes.sub": "Os textos abaixo são exemplos de demonstração, a substituir por testemunhos reais.",
     "quotes.q1":
@@ -144,7 +142,7 @@ window.I18N = {
     "common.example": "Exemplo",
     "common.placeholderTitle": "Valor de exemplo — substituir por dados reais",
 
-    "plans.eyebrow": "06 · Planos",
+    "plans.eyebrow": "Planos",
     "plans.title": "Comissão simples, sem custos fixos",
     "plans.sub":
       "Só ganhamos quando o seu imóvel gera receita. As percentagens abaixo são de exemplo, a confirmar na proposta.",
@@ -167,8 +165,8 @@ window.I18N = {
     "plans.p3.f3": "Concierge para hóspedes e proprietário",
     "plans.p3.f4": "Apoio contabilístico e fiscal do AL",
 
-    "faq.eyebrow": "07 · Perguntas",
-    "faq.title": "Perguntas frequentes",
+    "faq.eyebrow": "Perguntas",
+    "faq.title": "O que os proprietários perguntam primeiro",
     "faq.q1": "A minha casa precisa de licença de alojamento local?",
     "faq.a1":
       "Sim. Qualquer imóvel arrendado para estadias de curta duração tem de estar registado no RNAL. Tratamos do processo, do seguro obrigatório e das obrigações que se seguem.",
@@ -188,7 +186,7 @@ window.I18N = {
     "faq.a6":
       "Verificamos o imóvel a cada saída com registo fotográfico e acionamos a caução ou o seguro da plataforma, acompanhando o processo até à resolução.",
 
-    "contact.eyebrow": "08 · Contacto",
+    "contact.eyebrow": "Contacto",
     "contact.title": "Peça a sua avaliação de rendimento",
     "contact.sub":
       "Diga-nos onde fica o imóvel e respondemos com uma estimativa e uma proposta. Sem compromisso.",
@@ -248,12 +246,11 @@ window.I18N = {
     "cta.how": "See how it works",
 
     "hero.eyebrow": "Short-term rental management · Algarve",
-    "hero.title": "Your Algarve home,<br /><span class=\"grad\">run like a hotel.</span>",
-    "hero.sub":
-      "We handle everything — listings, pricing, guests, cleaning, maintenance and licensing. You get the income and a clear report every month.",
-    "hero.channels": "We list your property on",
-    "hero.hint": "Move your cursor over the city · click to send a pulse",
-    "hero.hintTouch": "Drag across the city · tap to send a pulse",
+    "hero.title": "Your Algarve home, <em>run like a hotel</em>",
+    "hero.sub": "Listings, pricing, guests, cleaning, maintenance and licensing stay with us. You get the income and a clear report every month.",
+    "hero.channels": "We list on",
+    "hero.hint": "Drag the model · the sun follows your cursor",
+    "hero.hintTouch": "Drag the model with your finger to turn it",
 
     "metrics.title": "HD Properties in numbers",
     "metrics.occupancy": "Average occupancy in high season",
@@ -261,11 +258,11 @@ window.I18N = {
     "metrics.units": "Properties under management",
     "metrics.response": "Average guest response time",
 
-    "services.eyebrow": "01 · Services",
+    "services.eyebrow": "Services",
     "services.title": "Full management, without taking up your time",
     "services.sub":
       "From photography to guest reporting. We take over the entire operation of your rental.",
-    "services.s1.title": "Listings and professional photography",
+    "services.s1.title": "Listings and photography",
     "services.s1.text":
       "Photo shoot, staging, optimised copy and synchronised publishing across every platform.",
     "services.s2.title": "Dynamic pricing",
@@ -274,9 +271,8 @@ window.I18N = {
     "services.s3.title": "Guests and 24/7 check-in",
     "services.s3.text":
       "Communication in Portuguese and English, flexible check-in and support throughout the stay.",
-    "services.s4.title": "Hotel-grade cleaning and laundry",
-    "services.s4.text":
-      "In-house teams, professional linen, restocked consumables and a photo checklist after every checkout.",
+    "services.s4.title": "Cleaning and laundry",
+    "services.s4.text": "In-house teams, hotel-grade linen, restocked consumables and a photo checklist after every checkout.",
     "services.s5.title": "Maintenance and repairs",
     "services.s5.text":
       "A network of technicians for fast call-outs, plus preventive care for pool, HVAC and appliances.",
@@ -290,7 +286,7 @@ window.I18N = {
     "services.s8.text":
       "Review monitoring, replies to guest feedback and continuous improvement of your listing score.",
 
-    "process.eyebrow": "02 · How it works",
+    "process.eyebrow": "How it works",
     "process.title": "Four steps to your first booking",
     "process.sub":
       "From the first conversation to your first guest check-in, usually within two to four weeks.",
@@ -307,7 +303,7 @@ window.I18N = {
     "process.p4.text":
       "Guests, cleaning, maintenance and reporting stay with us. You follow everything and collect the income.",
 
-    "sim.eyebrow": "03 · Calculator",
+    "sim.eyebrow": "Calculator",
     "sim.title": "What could your home earn?",
     "sim.sub":
       "An indicative estimate, computed in your browser from assumptions you can see. It is not a proposal or a guarantee of income.",
@@ -321,12 +317,12 @@ window.I18N = {
     "sim.pool": "Private pool",
     "sim.sea": "Sea view",
     "sim.gross": "Estimated gross revenue / month",
-    "sim.nights": "Booked nights / month",
+    "sim.nights": "Nights / month",
     "sim.adr": "Average nightly rate",
-    "sim.net": "Net after commission",
+    "sim.net": "After commission",
     "sim.note":
       "Indicative estimate built on example figures still to be calibrated. Excludes taxes, tourist tax and the cleaning fee charged to guests.",
-    "sim.assumptionsTitle": "See the assumptions",
+    "sim.assumptionsTitle": "See assumptions",
     "sim.cta": "Get a real assessment",
     "sim.a.base": "Base nightly rate by size: T0 €70 · T1 €95 · T2 €135 · T3 €180 · T4+ €240",
     "sim.a.zone":
@@ -336,9 +332,9 @@ window.I18N = {
     "sim.a.commission": "Commission applied: 20% of gross revenue (Complete plan)",
     "sim.a.month": "Average month of 30.4 nights",
 
-    "zones.eyebrow": "04 · Areas",
+    "zones.eyebrow": "Areas",
     "zones.title": "Where we operate",
-    "zones.sub": "Our own teams across the central Algarve — from the Albufeira coast to the Olhão lagoon.",
+    "zones.sub": "Our own teams across the central Algarve — from the Albufeira coast to the Ria Formosa at Olhão.",
     "zones.mapAlt": "Stylised map of the central Algarve showing the areas covered",
     "zones.albufeira": "Beaches, nightlife and demand for most of the year.",
     "zones.vilamoura": "Marina, golf and international guests who stay longer.",
@@ -347,7 +343,7 @@ window.I18N = {
     "zones.faro": "Airport and old town: short stays all year round.",
     "zones.olhao": "Ria Formosa and a growing market with room to enter.",
 
-    "quotes.eyebrow": "05 · Owners",
+    "quotes.eyebrow": "Owners",
     "quotes.title": "What owners say",
     "quotes.sub": "The texts below are demonstration examples, to be replaced with real testimonials.",
     "quotes.q1":
@@ -363,7 +359,7 @@ window.I18N = {
     "common.example": "Example",
     "common.placeholderTitle": "Example value — replace with real data",
 
-    "plans.eyebrow": "06 · Plans",
+    "plans.eyebrow": "Plans",
     "plans.title": "A simple commission, no fixed fees",
     "plans.sub":
       "We only earn when your property earns. The percentages below are examples, to be confirmed in your proposal.",
@@ -386,8 +382,8 @@ window.I18N = {
     "plans.p3.f3": "Concierge for guests and owner",
     "plans.p3.f4": "Accounting and tax support for your rental",
 
-    "faq.eyebrow": "07 · Questions",
-    "faq.title": "Frequently asked questions",
+    "faq.eyebrow": "Questions",
+    "faq.title": "What owners ask first",
     "faq.q1": "Does my home need a short-term rental licence?",
     "faq.a1":
       "Yes. Any property rented for short stays must be registered in the RNAL. We handle the process, the mandatory insurance and the obligations that follow.",
@@ -407,7 +403,7 @@ window.I18N = {
     "faq.a6":
       "We inspect the property after every checkout with photo evidence and claim the deposit or the platform's insurance, following the case through to resolution.",
 
-    "contact.eyebrow": "08 · Contact",
+    "contact.eyebrow": "Contact",
     "contact.title": "Request your revenue assessment",
     "contact.sub":
       "Tell us where the property is and we will come back with an estimate and a proposal. No commitment.",

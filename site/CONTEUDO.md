@@ -12,15 +12,17 @@ o logótipo e as cores oficiais.
 
 | O quê | Onde | Estado |
 |---|---|---|
-| Cores da marca | `styles.css` → `:root` (`--accent`, `--accent-2`, `--accent-3`) | placeholder ciano/violeta/areia |
-| Logótipo | `index.html` → dois blocos `class="brand"` (header e rodapé) | wordmark tipográfico |
+| Cores da marca | `styles.css` → `:root` (`--amber`, `--ink`, `--stone`) | direção "Noite atlântica": petróleo, cal e um âmbar |
+| Cores da maquete 3D | `hero3d.js` → objeto `COLOR` no topo | paredes, chaminés, água e sol |
+| Tipografia | `index.html` → link do Google Fonts; `styles.css` → `--font-display/body/mono` | Archivo + Manrope + DM Mono |
+| Logótipo | `index.html` → dois blocos `class="brand"` (header e rodapé) | wordmark desenhado em CSS |
 | Favicon | `index.html` → `<link rel="icon">` (SVG inline com "HD") | genérico |
 
 ## Números (secção de métricas)
 
 | Valor de exemplo | Onde | Substituir por |
 |---|---|---|
-| `82%` ocupação em época alta | `index.html` → `.metrics`, `data-count-to="82"` | ocupação real |
+| `82%` ocupação em época alta | `index.html` → `.figures`, `data-count-to="82"` | ocupação real |
 | `4,9/5` avaliação dos hóspedes | `data-count-to="4.9"` | média real das plataformas |
 | `120+` imóveis sob gestão | `data-count-to="120"` | número real |
 | `< 10 min` tempo de resposta | `data-count-to="10"` | tempo real |
@@ -42,7 +44,7 @@ Os três cartões são de demonstração, com um chip visível "Exemplo" e a sec
 em `i18n.js` (`quotes.q1`–`quotes.q3`) e autoria em `quotes.a1`–`quotes.a3`.
 
 Ao colocar testemunhos reais: use texto autorizado pelo cliente, remova o chip `Exemplo`
-(`<span class="chip">` em cada `<figure class="quote">`), ajuste o subtítulo da secção
+(`<span class="flag">` em cada `<figure class="quote">`), ajuste o subtítulo da secção
 (`quotes.sub`) e retire o `data-placeholder` dos `figcaption`.
 
 ## Contactos e dados legais
@@ -79,4 +81,4 @@ Ao mudar estes números, atualize também os textos que os mostram ao visitante:
 - **FAQ** (`faq.q1`–`q6` / `faq.a1`–`a6`): as respostas sobre contrato, pagamentos e danos têm de
   refletir o contrato real.
 - **Zonas**: Albufeira, Vilamoura, Quarteira, Almancil, Faro e Olhão. Se a área mudar, ajustar a
-  lista, os pontos do mapa SVG (`.zone-dot`) e as opções do simulador e do formulário.
+  lista, os pontos do mapa SVG (`.pin`) e as opções do simulador e do formulário.

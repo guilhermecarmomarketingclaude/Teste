@@ -1,23 +1,41 @@
 # HD Properties — landing page
 
 Landing page bilingue (PT/EN) para a **HD Properties**, gestão de alojamento local no Algarve.
-Design escuro e futurista, com uma cidade costeira em wireframe 3D no hero que reage ao ponteiro.
 
-Sem build, sem dependências: três ficheiros e um dicionário de traduções.
+O hero é uma **maquete 3D** de uma aldeia algarvia — volumes brancos, platibandas, chaminés — com
+um sol que o visitante move com o cursor: ao entardecer as sombras alongam-se e as janelas
+acendem-se. Arrastar roda a maquete; passar sobre uma casa mostra a sua etiqueta.
+
+## Direção de design — "Noite atlântica"
+
+- **Cor**: fundo verde-petróleo (`--ink #05100e`), texto cor de cal (`--stone #e8e3d6`) e **um só
+  acento**, o âmbar de sol poente (`--amber #e6a03c`). Os neutros têm viés verde para ficarem do
+  lado da cal e não do cinzento morto.
+- **Tipografia**: **Archivo** (variável, com eixo de largura) nos títulos e no monograma, **Manrope**
+  no corpo, **DM Mono** nas etiquetas e nos números.
+- **Estrutura**: a página é uma folha de desenho — réguas de 1px, coluna de etiquetas à esquerda,
+  conteúdo à direita. Os serviços são uma grelha de células com réguas partilhadas, não cartões
+  soltos; a numeração só aparece onde é informação (o processo, que é mesmo uma sequência).
+- **Contenção**: um único painel elevado (o simulador), cantos de 2px, sem vidro nem gradientes
+  decorativos.
+
+## Ficheiros
 
 ```
 site/
-├── index.html      marcação de todas as secções (atributos data-i18n)
-├── styles.css      sistema de design: tokens, vidro, brilhos, responsivo
-├── main.js         hero em canvas, i18n, reveals, contadores, simulador, formulário
-├── i18n.js         dicionário PT/EN
-├── CONTEUDO.md     checklist dos dados de exemplo a substituir
+├── index.html          marcação de todas as secções (atributos data-i18n)
+├── styles.css          tokens, tipografia e layout
+├── hero3d.js           a maquete: cena, luz, sombras, interação
+├── main.js             i18n, navegação, contadores, simulador, formulário
+├── i18n.js             dicionário PT/EN
+├── vendor/three.min.js three.js r147 (MIT), alojado aqui — sem CDN
+├── CONTEUDO.md         checklist dos dados de exemplo a substituir
 └── README.md
 ```
 
 ## Ver localmente
 
-Basta abrir `index.html` no browser. Para um servidor local:
+Abrir `index.html` chega. Para um servidor local:
 
 ```console
 python3 -m http.server 8000 --directory site
@@ -26,78 +44,75 @@ python3 -m http.server 8000 --directory site
 
 ## Publicar
 
-Qualquer alojamento estático serve — Netlify, Vercel, Cloudflare Pages, GitHub Pages, ou uma
-pasta num servidor. A raiz do site é `site/`; não há passo de compilação.
+Qualquer alojamento estático serve — Netlify, Vercel, Cloudflare Pages, GitHub Pages ou uma pasta
+num servidor. A raiz é `site/`; não há passo de compilação.
 
 ## O que mexer
 
 ### Cores da marca
 
-Todas as cores estão em tokens no topo de `styles.css`:
+Estão todas em `:root`, no topo de `styles.css`:
 
 ```css
-:root {
-  --accent: #22e0d0;    /* acento primário */
-  --accent-2: #7b5cff;  /* acento secundário */
-  --accent-3: #ffb86b;  /* acento quente */
-}
+--amber: #e6a03c;   /* acento único */
+--ink: #05100e;     /* fundo */
+--stone: #e8e3d6;   /* texto */
 ```
 
-O hero lê estes mesmos tokens em tempo de execução, por isso a animação acompanha a paleta.
-Se a paleta oficial for clara, mantenha-a nos acentos: a base escura é o que dá o aspeto
-futurista.
+Se a paleta oficial for clara ou corporativa, mantenha-a no acento — é a base escura que dá o
+carácter. As cores da maquete estão no objeto `COLOR`, no topo de `hero3d.js`.
 
 ### Logótipo
 
-O header e o rodapé usam um wordmark tipográfico (`.brand-mark` + `.brand-name`). Para colocar o
-logótipo real, substitua o `<span class="brand-mark">HD</span>` por um `<img>` ou por um SVG
-inline nos dois sítios onde aparece `class="brand"`.
+O header e o rodapé usam um wordmark desenhado em CSS: o monograma `HD` em Archivo larga, uma
+régua de 1px e o descritor. Para colocar o logótipo real, substitua o bloco `class="brand"` nos
+dois sítios onde aparece por um `<img>` ou por um SVG inline.
 
 ### Textos e idiomas
 
-Toda a cópia vive em `i18n.js`, com as mesmas chaves em `pt` e `en`. No HTML:
+Toda a cópia está em `i18n.js`, com as mesmas chaves em `pt` e `en`. No HTML:
 
-- `data-i18n="chave"` — substitui o texto do elemento;
+- `data-i18n="chave"` — texto do elemento;
 - `data-i18n-html="chave"` — idem, para valores com markup;
 - `data-i18n-attr="atributo:chave"` — traduz um atributo (`content`, `aria-label`, …).
 
-O idioma inicial vem do `localStorage`, senão do idioma do browser (`pt*` → PT, resto → EN).
-O HTML está escrito em português, por isso a página continua legível mesmo sem JavaScript.
+O idioma inicial vem do `localStorage`, senão do idioma do browser (`pt*` → PT, resto → EN). O
+HTML está escrito em português: sem JavaScript, a página continua legível.
 
 ### Simulador de receita
 
 Os pressupostos estão no objeto `SIM` em `main.js` (diária base por tipologia, multiplicadores de
-zona e de época, extras, comissão). São **valores de exemplo**: calibre-os com dados reais antes
-de publicar. Os mesmos números aparecem ao visitante em "Ver pressupostos do cálculo"
-(chaves `sim.a.*` em `i18n.js`) — ao mudar o objeto, mude também esses textos.
+zona e época, extras, comissão). São **valores de exemplo**: calibre-os antes de publicar. Os
+mesmos números aparecem ao visitante em "Ver pressupostos" — ao mudar o objeto, atualize também as
+chaves `sim.a.*` em `i18n.js`.
 
-### Formulário de contacto
+### Formulário
 
-Sem backend: por omissão compõe um `mailto:` para o endereço em `CONTACT_EMAIL` (topo de
-`main.js`). Para receber os pedidos automaticamente, troque esse bloco por um POST para o seu
-endpoint — há um `TODO` no `submit` a indicar o sítio exato e um exemplo com Formspree.
+Sem backend: compõe um `mailto:` para o endereço em `CONTACT_EMAIL` (topo de `main.js`). Para
+receber os pedidos automaticamente, troque esse bloco por um POST para o seu endpoint — há um
+`TODO` no `submit` a indicar o sítio e um exemplo com Formspree.
 
-## Animação do hero
+## A maquete (`hero3d.js`)
 
-Motor 3D minimalista em canvas 2D (~250 linhas, sem bibliotecas):
-
-- geometria com seed fixa, por isso a cidade é sempre a mesma;
-- a câmara segue o ponteiro (yaw/pitch interpolados) e faz uma órbita lenta quando está parado;
-- o edifício mais próximo do cursor acende, sobe e mostra um rótulo HUD;
-- clicar ou tocar lança uma onda que percorre a grelha do mar;
-- `prefers-reduced-motion: reduce` desenha um único fotograma estático, sem órbita nem partículas;
-- o `requestAnimationFrame` pára quando o hero sai do ecrã ou o separador fica em segundo plano.
+- three.js alojado no repositório (`vendor/three.min.js`, MIT) — sem dependência de CDN e funciona
+  offline. Se o ficheiro não carregar, o hero fica com o céu em CSS e a página funciona na mesma.
+- Geometria com semente fixa: a aldeia é sempre a mesma.
+- Sol direcional com sombras suaves; a posição segue o cursor (em cima é tarde, em baixo é poente),
+  e o entardecer acende as janelas através de um só material partilhado.
+- `Raycaster` para o realce e a etiqueta da casa sob o cursor; arrastar roda a câmara.
+- `prefers-reduced-motion: reduce` desenha um único fotograma, sem órbita nem sol em movimento.
+- O `requestAnimationFrame` pára quando o hero sai do ecrã ou o separador fica em segundo plano;
+  em ecrãs pequenos a câmara afasta-se e o canvas fica mais discreto, para o texto respirar.
 
 ## Acessibilidade
 
 Skip link, landmarks e uma só `<h1>`, foco visível em todos os interativos, acordeão e seletor de
-idioma operáveis por teclado, canvas marcado `aria-hidden` (o conteúdo do hero é HTML real), e
+idioma operáveis por teclado, canvas marcado `aria-hidden` (o conteúdo do hero é HTML real) e
 movimento reduzido respeitado em toda a página.
 
 ## Notas
 
-- As fontes (Space Grotesk e JetBrains Mono) vêm do Google Fonts com `display=swap` e uma stack de
-  sistema completa como alternativa — se a rede falhar, a página mantém-se correta.
-- Não há imagens: tudo é CSS, SVG e canvas.
-- Os valores factuais são de exemplo e estão assinalados na página com um sublinhado tracejado.
-  A lista completa está em [CONTEUDO.md](./CONTEUDO.md).
+- As fontes vêm do Google Fonts com `display=swap` e stacks de sistema como alternativa.
+- Sem imagens raster: tudo é CSS, SVG e WebGL.
+- Os valores factuais são de exemplo e estão assinalados com um sublinhado tracejado. A lista
+  completa está em [CONTEUDO.md](./CONTEUDO.md).
