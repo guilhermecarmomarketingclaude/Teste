@@ -6,6 +6,8 @@
    ========================================================= */
 
 :root {
+  color-scheme: dark;
+
   /* --- Cores da marca (substituir pelos hex oficiais) --- */
   --accent: #22e0d0;
   --accent-2: #7b5cff;
