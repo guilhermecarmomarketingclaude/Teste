@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.title">HD Properties — Gestão de Alojamento Local no Algarve</title>
+    <meta
+      name="description"
+      data-i18n-attr="content:meta.description"
+      content="Gestão completa de alojamento local no Algarve: anúncios, preços, hóspedes, limpezas, manutenção e licenciamento. Você recebe o rendimento e um relatório claro todos os meses."
+    />
+    <meta name="theme-color" content="#05100e" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" data-i18n-attr="content:meta.title" content="HD Properties — Gestão de Alojamento Local no Algarve" />
+    <meta
+      property="og:description"
+      data-i18n-attr="content:meta.description"
+      content="Gestão completa de alojamento local no Algarve, do licenciamento ao check-out."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2305100e'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial' font-size='30' font-weight='700' text-anchor='middle' fill='%23e6a03c'%3EHD%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=Manrope:wght@400..700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar para o conteúdo</a>
+
+    <!-- ================= CABEÇALHO ================= -->
+    <header class="site-header" id="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#inicio" aria-label="HD Properties">
+          <span class="brand-mono" aria-hidden="true">HD</span>
+          <span class="brand-rule" aria-hidden="true"></span>
+          <span class="brand-text">
+            <span class="brand-name">Properties</span>
+            <span class="brand-sub" data-i18n="brand.tag">Gestão AL · Algarve</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Principal">
+          <a href="#servicos" data-i18n="nav.services">Serviços</a>
+          <a href="#processo" data-i18n="nav.process">Como funciona</a>
+          <a href="#simulador" data-i18n="nav.simulator">Simulador</a>
+          <a href="#zonas" data-i18n="nav.zones">Zonas</a>
+          <a href="#planos" data-i18n="nav.plans">Planos</a>
+          <a href="#faq" data-i18n="nav.faq">Perguntas</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switch" role="group" data-i18n-attr="aria-label:a11y.langGroup" aria-label="Idioma">
+            <button type="button" class="lang-btn" data-lang="pt" aria-pressed="true">PT</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn-solid btn-sm" href="#contacto" data-i18n="cta.evaluation">Avaliação gratuita</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            data-i18n-attr="aria-label:a11y.menu"
+            aria-label="Abrir menu"
+          >
+            <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="inicio">
+        <div class="hero-sky" aria-hidden="true"></div>
+        <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-veil" aria-hidden="true"></div>
+        <div class="hero-tag mono" id="hero-tag" aria-hidden="true"></div>
+
+        <div class="shell hero-inner">
+          <p class="hero-eyebrow mono" data-i18n="hero.eyebrow">Gestão de alojamento local · Algarve</p>
+          <h1 class="hero-title" data-i18n-html="hero.title">
+            A sua casa no Algarve, <em>operada como um hotel</em>
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">
+            Anúncios, preços, hóspedes, limpezas, manutenção e licenciamento ficam connosco.
+            Você recebe o rendimento e um relatório claro todos os meses.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#contacto" data-i18n="cta.evaluationLong">Pedir avaliação de rendimento</a>
+            <a class="btn btn-line" href="#processo" data-i18n="cta.how">Ver como funciona</a>
+          </div>
+          <div class="hero-channels">
+            <span class="mono" data-i18n="hero.channels">Publicamos em</span>
+            <ul class="channels">
+              <li>Airbnb</li>
+              <li>Booking.com</li>
+              <li>Vrbo</li>
+              <li>Expedia</li>
+              <li>Google Vacation Rentals</li>
+            </ul>
+          </div>
+          <p class="hero-hint mono" data-i18n="hero.hint">Arraste a maquete · o sol segue o cursor</p>
+        </div>
+      </section>
+
+      <!-- ================= NÚMEROS ================= -->
+      <section class="figures" aria-labelledby="figures-title">
+        <h2 class="sr-only" id="figures-title" data-i18n="metrics.title">A HD Properties em números</h2>
+        <div class="shell figures-grid">
+          <div class="figure">
+            <span class="figure-value" data-placeholder data-count-to="82" data-count-suffix="%">82%</span>
+            <span class="figure-label" data-i18n="metrics.occupancy">Ocupação média em época alta</span>
+          </div>
+          <div class="figure">
+            <span class="figure-value" data-placeholder data-count-to="4.9" data-count-decimals="1" data-count-suffix="/5">4,9/5</span>
+            <span class="figure-label" data-i18n="metrics.rating">Avaliação média dos hóspedes</span>
+          </div>
+          <div class="figure">
+            <span class="figure-value" data-placeholder data-count-to="120" data-count-suffix="+">120+</span>
+            <span class="figure-label" data-i18n="metrics.units">Imóveis sob gestão</span>
+          </div>
+          <div class="figure">
+            <span class="figure-value" data-placeholder data-count-to="10" data-count-prefix="&lt; " data-count-suffix=" min">&lt; 10 min</span>
+            <span class="figure-label" data-i18n="metrics.response">Tempo médio de resposta a hóspedes</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SERVIÇOS ================= -->
+      <section class="sheet" id="servicos" aria-labelledby="servicos-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="services.eyebrow">Serviços</p>
+          <div class="sheet-body">
+            <div class="sheet-head rise">
+              <h2 class="sheet-title" id="servicos-title" data-i18n="services.title">
+                Gestão completa, sem tirar tempo ao proprietário
+              </h2>
+              <p class="lede" data-i18n="services.sub">
+                Da fotografia à declaração de hóspedes. Assumimos a operação inteira do seu alojamento local.
+              </p>
+            </div>
+
+            <div class="matrix rise">
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s1.title">Anúncios e fotografia</h3>
+                <p data-i18n="services.s1.text">
+                  Sessão fotográfica, staging, textos otimizados e publicação sincronizada em todas as plataformas.
+                </p>
+              </article>
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s2.title">Preços dinâmicos</h3>
+                <p data-i18n="services.s2.text">
+                  Tarifas revistas todos os dias em função da procura, da época, de eventos e da concorrência direta.
+                </p>
+              </article>
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s3.title">Hóspedes e check-in 24/7</h3>
+                <p data-i18n="services.s3.text">
+                  Comunicação em português e inglês, check-in flexível e apoio durante toda a estadia.
+                </p>
+              </article>
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s4.title">Limpeza e lavandaria</h3>
+                <p data-i18n="services.s4.text">
+                  Equipas próprias, roupa de cama hoteleira, reposição de consumíveis e checklist fotográfico a cada saída.
+                </p>
+              </article>
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s5.title">Manutenção e assistência</h3>
+                <p data-i18n="services.s5.text">
+                  Rede de técnicos para intervenções rápidas e manutenção preventiva de piscina, AVAC e eletrodomésticos.
+                </p>
+              </article>
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s6.title">Licenciamento e conformidade</h3>
+                <p data-i18n="services.s6.text">
+                  Registo no RNAL, seguros, livro de reclamações eletrónico, comunicação de hóspedes e taxa turística.
+                </p>
+              </article>
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s7.title">Relatórios e pagamentos</h3>
+                <p data-i18n="services.s7.text">
+                  Extrato mensal transparente com receitas, despesas e ocupação, e transferência em data fixa.
+                </p>
+              </article>
+              <article class="matrix-cell">
+                <h3 data-i18n="services.s8.title">Reputação e avaliações</h3>
+                <p data-i18n="services.s8.text">
+                  Acompanhamento de reviews, resposta a comentários e melhoria contínua da pontuação do anúncio.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROCESSO ================= -->
+      <section class="sheet" id="processo" aria-labelledby="processo-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="process.eyebrow">Como funciona</p>
+          <div class="sheet-body">
+            <div class="sheet-head rise">
+              <h2 class="sheet-title" id="processo-title" data-i18n="process.title">Quatro passos até à primeira reserva</h2>
+              <p class="lede" data-i18n="process.sub">
+                Da primeira conversa ao check-in do primeiro hóspede, normalmente em duas a quatro semanas.
+              </p>
+            </div>
+
+            <ol class="steps rise">
+              <li class="step">
+                <span class="step-n" aria-hidden="true">01</span>
+                <h3 data-i18n="process.p1.title">Avaliação gratuita</h3>
+                <p data-i18n="process.p1.text">
+                  Analisamos o imóvel, a zona e a concorrência. Recebe uma estimativa de receita e uma proposta clara, sem compromisso.
+                </p>
+              </li>
+              <li class="step">
+                <span class="step-n" aria-hidden="true">02</span>
+                <h3 data-i18n="process.p2.title">Onboarding e licenciamento</h3>
+                <p data-i18n="process.p2.text">
+                  Tratamos do registo AL, seguros, inventário, fotografia e preparação da casa para receber hóspedes.
+                </p>
+              </li>
+              <li class="step">
+                <span class="step-n" aria-hidden="true">03</span>
+                <h3 data-i18n="process.p3.title">Publicação e otimização</h3>
+                <p data-i18n="process.p3.text">
+                  O anúncio entra no ar nas principais plataformas, com calendários e preços sincronizados em tempo real.
+                </p>
+              </li>
+              <li class="step">
+                <span class="step-n" aria-hidden="true">04</span>
+                <h3 data-i18n="process.p4.title">Gestão contínua</h3>
+                <p data-i18n="process.p4.text">
+                  Hóspedes, limpezas, manutenção e relatórios ficam connosco. Você acompanha tudo e recebe o rendimento.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SIMULADOR ================= -->
+      <section class="sheet" id="simulador" aria-labelledby="simulador-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="sim.eyebrow">Simulador</p>
+          <div class="sheet-body">
+            <div class="sheet-head rise">
+              <h2 class="sheet-title" id="simulador-title" data-i18n="sim.title">Quanto pode render a sua casa?</h2>
+              <p class="lede" data-i18n="sim.sub">
+                Uma estimativa indicativa, calculada no seu browser a partir de pressupostos visíveis. Não é uma proposta nem uma garantia de rendimento.
+              </p>
+            </div>
+
+            <div class="rig rise">
+              <form class="rig-controls" id="sim-form">
+                <fieldset class="rig-group">
+                  <legend class="mono" data-i18n="sim.typology">Tipologia</legend>
+                  <div class="opts">
+                    <input type="radio" name="typology" id="ty-t0" value="t0" /><label for="ty-t0">T0</label>
+                    <input type="radio" name="typology" id="ty-t1" value="t1" /><label for="ty-t1">T1</label>
+                    <input type="radio" name="typology" id="ty-t2" value="t2" checked /><label for="ty-t2">T2</label>
+                    <input type="radio" name="typology" id="ty-t3" value="t3" /><label for="ty-t3">T3</label>
+                    <input type="radio" name="typology" id="ty-t4" value="t4" /><label for="ty-t4">T4+</label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="rig-group">
+                  <legend class="mono" data-i18n="sim.zone">Zona</legend>
+                  <div class="opts">
+                    <input type="radio" name="zone" id="zo-albufeira" value="albufeira" checked /><label for="zo-albufeira">Albufeira</label>
+                    <input type="radio" name="zone" id="zo-vilamoura" value="vilamoura" /><label for="zo-vilamoura">Vilamoura</label>
+                    <input type="radio" name="zone" id="zo-quarteira" value="quarteira" /><label for="zo-quarteira">Quarteira</label>
+                    <input type="radio" name="zone" id="zo-almancil" value="almancil" /><label for="zo-almancil">Almancil</label>
+                    <input type="radio" name="zone" id="zo-faro" value="faro" /><label for="zo-faro">Faro</label>
+                    <input type="radio" name="zone" id="zo-olhao" value="olhao" /><label for="zo-olhao">Olhão</label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="rig-group">
+                  <legend class="mono" data-i18n="sim.season">Época</legend>
+                  <div class="opts">
+                    <input type="radio" name="season" id="se-low" value="low" /><label for="se-low" data-i18n="sim.seasonLow">Baixa</label>
+                    <input type="radio" name="season" id="se-mid" value="mid" checked /><label for="se-mid" data-i18n="sim.seasonMid">Média</label>
+                    <input type="radio" name="season" id="se-high" value="high" /><label for="se-high" data-i18n="sim.seasonHigh">Alta</label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="rig-group">
+                  <legend class="mono" data-i18n="sim.extras">Extras</legend>
+                  <div class="opts">
+                    <input type="checkbox" name="pool" id="ex-pool" /><label for="ex-pool" data-i18n="sim.pool">Piscina privada</label>
+                    <input type="checkbox" name="sea" id="ex-sea" /><label for="ex-sea" data-i18n="sim.sea">Vista mar</label>
+                  </div>
+                </fieldset>
+              </form>
+
+              <div class="rig-readout" aria-live="polite">
+                <div>
+                  <span class="readout-label mono" data-i18n="sim.gross">Receita bruta estimada / mês</span>
+                  <strong class="readout-main" id="sim-gross">—</strong>
+                </div>
+                <div class="readout-row">
+                  <div>
+                    <span class="readout-label mono" data-i18n="sim.nights">Noites / mês</span>
+                    <strong id="sim-nights">—</strong>
+                  </div>
+                  <div>
+                    <span class="readout-label mono" data-i18n="sim.adr">Diária média</span>
+                    <strong id="sim-adr">—</strong>
+                  </div>
+                  <div>
+                    <span class="readout-label mono" data-i18n="sim.net">Após comissão</span>
+                    <strong id="sim-net">—</strong>
+                  </div>
+                </div>
+                <p class="rig-note" data-i18n="sim.note">
+                  Estimativa indicativa com valores de exemplo por calibrar. Não inclui impostos, taxa turística nem a limpeza cobrada ao hóspede.
+                </p>
+                <details class="rig-assumptions">
+                  <summary data-i18n="sim.assumptionsTitle">Ver pressupostos</summary>
+                  <ul id="sim-assumptions-list"></ul>
+                </details>
+                <a class="btn btn-solid" href="#contacto" data-i18n="sim.cta">Quero uma avaliação real</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ZONAS ================= -->
+      <section class="sheet" id="zonas" aria-labelledby="zonas-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="zones.eyebrow">Zonas</p>
+          <div class="sheet-body">
+            <div class="sheet-head rise">
+              <h2 class="sheet-title" id="zonas-title" data-i18n="zones.title">Onde operamos</h2>
+              <p class="lede" data-i18n="zones.sub">
+                Equipas próprias no Algarve central — do litoral de Albufeira à Ria Formosa, em Olhão.
+              </p>
+            </div>
+
+            <svg
+              class="map rise"
+              viewBox="0 0 960 250"
+              role="img"
+              data-i18n-attr="aria-label:zones.mapAlt"
+              aria-label="Mapa estilizado do Algarve central com as zonas cobertas"
+            >
+              <g class="map-grid" aria-hidden="true">
+                <line x1="0" y1="70" x2="960" y2="70" />
+                <line x1="0" y1="140" x2="960" y2="140" />
+                <line x1="0" y1="210" x2="960" y2="210" />
+                <line x1="160" y1="0" x2="160" y2="250" />
+                <line x1="480" y1="0" x2="480" y2="250" />
+                <line x1="800" y1="0" x2="800" y2="250" />
+              </g>
+              <path
+                class="map-land"
+                d="M20 168C120 150 180 176 260 160S380 150 460 168S600 176 700 160S860 150 940 172L940 250L20 250Z"
+              />
+              <path class="map-coast" d="M20 168C120 150 180 176 260 160S380 150 460 168S600 176 700 160S860 150 940 172" />
+              <path class="map-ria" d="M600 190C680 180 760 200 940 190" />
+              <g class="pin" data-zone="albufeira" transform="translate(120,158)">
+                <circle r="5" /><text y="-16" text-anchor="middle">Albufeira</text>
+              </g>
+              <g class="pin" data-zone="vilamoura" transform="translate(300,161)">
+                <circle r="5" /><text y="-16" text-anchor="middle">Vilamoura</text>
+              </g>
+              <g class="pin" data-zone="quarteira" transform="translate(392,164)">
+                <circle r="5" /><text y="22" text-anchor="middle">Quarteira</text>
+              </g>
+              <g class="pin" data-zone="almancil" transform="translate(470,104)">
+                <circle r="5" /><text y="-16" text-anchor="middle">Almancil</text>
+              </g>
+              <g class="pin" data-zone="faro" transform="translate(660,164)">
+                <circle r="5" /><text y="-16" text-anchor="middle">Faro</text>
+              </g>
+              <g class="pin" data-zone="olhao" transform="translate(790,161)">
+                <circle r="5" /><text y="-16" text-anchor="middle">Olhão</text>
+              </g>
+            </svg>
+
+            <ul class="zone-list rise">
+              <li data-zone="albufeira">
+                <h3>Albufeira</h3>
+                <p data-i18n="zones.albufeira">Praias, vida noturna e procura durante quase todo o ano.</p>
+              </li>
+              <li data-zone="vilamoura">
+                <h3>Vilamoura</h3>
+                <p data-i18n="zones.vilamoura">Marina, golfe e um hóspede internacional de estadia longa.</p>
+              </li>
+              <li data-zone="quarteira">
+                <h3>Quarteira</h3>
+                <p data-i18n="zones.quarteira">Frente de mar e famílias — forte procura de junho a setembro.</p>
+              </li>
+              <li data-zone="almancil">
+                <h3>Almancil</h3>
+                <p data-i18n="zones.almancil">Porta do Triângulo Dourado, moradias e segmento premium.</p>
+              </li>
+              <li data-zone="faro">
+                <h3>Faro</h3>
+                <p data-i18n="zones.faro">Aeroporto e centro histórico: estadias curtas todo o ano.</p>
+              </li>
+              <li data-zone="olhao">
+                <h3>Olhão</h3>
+                <p data-i18n="zones.olhao">Ria Formosa e um mercado em crescimento, com boa margem de entrada.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROPRIETÁRIOS ================= -->
+      <section class="sheet" id="testemunhos" aria-labelledby="testemunhos-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="quotes.eyebrow">Proprietários</p>
+          <div class="sheet-body">
+            <div class="sheet-head rise">
+              <h2 class="sheet-title" id="testemunhos-title" data-i18n="quotes.title">O que dizem os proprietários</h2>
+              <p class="lede" data-i18n="quotes.sub">
+                Os textos abaixo são exemplos de demonstração, a substituir por testemunhos reais.
+              </p>
+            </div>
+
+            <div class="quotes rise">
+              <figure class="quote">
+                <blockquote data-i18n="quotes.q1">
+                  Passei de gerir tudo sozinho a receber um relatório por mês. A casa está mais cuidada do que quando eu tratava dela.
+                </blockquote>
+                <figcaption>
+                  <span class="flag" data-i18n="common.example">Exemplo</span>
+                  <span data-placeholder data-i18n="quotes.a1">Proprietário · T2 em Quarteira</span>
+                </figcaption>
+              </figure>
+              <figure class="quote">
+                <blockquote data-i18n="quotes.q2">
+                  Vivo fora de Portugal e precisava de alguém em quem confiar. O licenciamento e as limpezas deixaram de ser problema meu.
+                </blockquote>
+                <figcaption>
+                  <span class="flag" data-i18n="common.example">Exemplo</span>
+                  <span data-placeholder data-i18n="quotes.a2">Proprietária · Moradia em Almancil</span>
+                </figcaption>
+              </figure>
+              <figure class="quote">
+                <blockquote data-i18n="quotes.q3">
+                  O que mais valorizo é a transparência das contas e a rapidez a responder quando algo corre mal.
+                </blockquote>
+                <figcaption>
+                  <span class="flag" data-i18n="common.example">Exemplo</span>
+                  <span data-placeholder data-i18n="quotes.a3">Proprietário · T1 em Faro</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PLANOS ================= -->
+      <section class="sheet" id="planos" aria-labelledby="planos-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="plans.eyebrow">Planos</p>
+          <div class="sheet-body">
+            <div class="sheet-head rise">
+              <h2 class="sheet-title" id="planos-title" data-i18n="plans.title">Comissão simples, sem custos fixos</h2>
+              <p class="lede" data-i18n="plans.sub">
+                Só ganhamos quando o seu imóvel gera receita. As percentagens abaixo são de exemplo, a confirmar na proposta.
+              </p>
+            </div>
+
+            <div class="plans rise">
+              <article class="plan">
+                <div class="plan-head">
+                  <h3 data-i18n="plans.p1.title">Essencial</h3>
+                </div>
+                <p class="plan-rate"><span data-placeholder>15%</span><span data-i18n="plans.perBooking">da receita</span></p>
+                <ul>
+                  <li data-i18n="plans.p1.f1">Anúncio e fotografia profissional</li>
+                  <li data-i18n="plans.p1.f2">Preços dinâmicos e calendários sincronizados</li>
+                  <li data-i18n="plans.p1.f3">Comunicação com hóspedes</li>
+                  <li data-i18n="plans.p1.f4">Relatório mensal</li>
+                </ul>
+                <a class="btn btn-line" href="#contacto" data-i18n="plans.cta">Falar connosco</a>
+              </article>
+
+              <article class="plan plan-pick">
+                <div class="plan-head">
+                  <h3 data-i18n="plans.p2.title">Completo</h3>
+                  <span class="flag" data-i18n="plans.popular">Mais escolhido</span>
+                </div>
+                <p class="plan-rate"><span data-placeholder>20%</span><span data-i18n="plans.perBooking">da receita</span></p>
+                <ul>
+                  <li data-i18n="plans.p2.f1">Tudo o que inclui o Essencial</li>
+                  <li data-i18n="plans.p2.f2">Limpezas e lavandaria hoteleira</li>
+                  <li data-i18n="plans.p2.f3">Check-in presencial e apoio 24/7</li>
+                  <li data-i18n="plans.p2.f4">Manutenção e licenciamento AL</li>
+                </ul>
+                <a class="btn btn-solid" href="#contacto" data-i18n="plans.cta">Falar connosco</a>
+              </article>
+
+              <article class="plan">
+                <div class="plan-head">
+                  <h3 data-i18n="plans.p3.title">Premium</h3>
+                </div>
+                <p class="plan-rate"><span data-placeholder>25%</span><span data-i18n="plans.perBooking">da receita</span></p>
+                <ul>
+                  <li data-i18n="plans.p3.f1">Tudo o que inclui o Completo</li>
+                  <li data-i18n="plans.p3.f2">Decoração, obras e requalificação</li>
+                  <li data-i18n="plans.p3.f3">Concierge para hóspedes e proprietário</li>
+                  <li data-i18n="plans.p3.f4">Apoio contabilístico e fiscal do AL</li>
+                </ul>
+                <a class="btn btn-line" href="#contacto" data-i18n="plans.cta">Falar connosco</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PERGUNTAS ================= -->
+      <section class="sheet" id="faq" aria-labelledby="faq-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="faq.eyebrow">Perguntas</p>
+          <div class="sheet-body">
+            <div class="sheet-head rise">
+              <h2 class="sheet-title" id="faq-title" data-i18n="faq.title">O que os proprietários perguntam primeiro</h2>
+            </div>
+
+            <div class="faq rise">
+              <details class="faq-item">
+                <summary data-i18n="faq.q1">A minha casa precisa de licença de alojamento local?</summary>
+                <p data-i18n="faq.a1">
+                  Sim. Qualquer imóvel arrendado para estadias de curta duração tem de estar registado no RNAL. Tratamos do processo, do seguro obrigatório e das obrigações que se seguem.
+                </p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq.q2">Existe contrato de fidelização?</summary>
+                <p data-i18n="faq.a2">
+                  O contrato é anual e renovável, com pré-aviso de rescisão. As condições exatas ficam na proposta que lhe apresentamos.
+                </p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq.q3">Posso continuar a usar a minha casa?</summary>
+                <p data-i18n="faq.a3">
+                  Pode. Bloqueia as datas que quiser no calendário de proprietário e nós tratamos da limpeza antes e depois da sua estadia.
+                </p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq.q4">Quem paga as limpezas e os consumíveis?</summary>
+                <p data-i18n="faq.a4">
+                  A limpeza entre estadias é cobrada ao hóspede. Os consumíveis e a lavandaria entram nos custos operacionais, discriminados no relatório mensal.
+                </p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq.q5">Quando recebo o meu dinheiro?</summary>
+                <p data-i18n="faq.a5">
+                  Enviamos o extrato no início de cada mês e transferimos o valor líquido do mês anterior em data fixa, acordada no contrato.
+                </p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq.q6">E se um hóspede danificar alguma coisa?</summary>
+                <p data-i18n="faq.a6">
+                  Verificamos o imóvel a cada saída com registo fotográfico e acionamos a caução ou o seguro da plataforma, acompanhando o processo até à resolução.
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACTO ================= -->
+      <section class="sheet" id="contacto" aria-labelledby="contacto-title">
+        <div class="shell sheet-grid">
+          <p class="sheet-label mono rise" data-i18n="contact.eyebrow">Contacto</p>
+          <div class="sheet-body">
+            <div class="contact-grid">
+              <div class="rise">
+                <h2 class="sheet-title" id="contacto-title" data-i18n="contact.title">Peça a sua avaliação de rendimento</h2>
+                <p class="lede" data-i18n="contact.sub">
+                  Diga-nos onde fica o imóvel e respondemos com uma estimativa e uma proposta. Sem compromisso.
+                </p>
+
+                <ul class="contact-list">
+                  <li>
+                    <span class="mono" data-i18n="contact.phone">Telefone</span>
+                    <a href="tel:+351000000000" data-placeholder>+351 000 000 000</a>
+                  </li>
+                  <li>
+                    <span class="mono" data-i18n="contact.email">Email</span>
+                    <a href="mailto:info@hdproperties.pt" data-placeholder>info@hdproperties.pt</a>
+                  </li>
+                  <li>
+                    <span class="mono">WhatsApp</span>
+                    <a href="https://wa.me/351000000000" data-placeholder>+351 000 000 000</a>
+                  </li>
+                  <li>
+                    <span class="mono" data-i18n="contact.hours">Horário</span>
+                    <span data-placeholder data-i18n="contact.hoursValue">Segunda a sábado, 9h–19h</span>
+                  </li>
+                </ul>
+              </div>
+
+              <form class="form rise" id="contact-form" novalidate>
+                <div class="field">
+                  <label for="f-name" data-i18n="form.name">Nome</label>
+                  <input id="f-name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div class="field-pair">
+                  <div class="field">
+                    <label for="f-email" data-i18n="form.email">Email</label>
+                    <input id="f-email" name="email" type="email" autocomplete="email" required />
+                  </div>
+                  <div class="field">
+                    <label for="f-phone" data-i18n="form.phone">Telefone</label>
+                    <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+                  </div>
+                </div>
+                <div class="field-pair">
+                  <div class="field">
+                    <label for="f-zone" data-i18n="form.zone">Zona do imóvel</label>
+                    <select id="f-zone" name="zone">
+                      <option value="Albufeira">Albufeira</option>
+                      <option value="Vilamoura">Vilamoura</option>
+                      <option value="Quarteira">Quarteira</option>
+                      <option value="Almancil">Almancil</option>
+                      <option value="Faro">Faro</option>
+                      <option value="Olhão">Olhão</option>
+                      <option value="Outra" data-i18n="form.other">Outra</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="f-typology" data-i18n="form.typology">Tipologia</label>
+                    <select id="f-typology" name="typology">
+                      <option value="T0">T0</option>
+                      <option value="T1">T1</option>
+                      <option value="T2" selected>T2</option>
+                      <option value="T3">T3</option>
+                      <option value="T4+">T4+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-message" data-i18n="form.message">Mensagem</label>
+                  <textarea id="f-message" name="message" rows="4"></textarea>
+                </div>
+                <label class="consent">
+                  <input type="checkbox" id="f-consent" name="consent" required />
+                  <span data-i18n="form.consent">Autorizo o contacto da HD Properties sobre este pedido.</span>
+                </label>
+                <button type="submit" class="btn btn-solid" data-i18n="form.submit">Enviar pedido</button>
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                <p class="form-note" data-i18n-html="form.note">
+                  O formulário abre o seu programa de email com os dados preenchidos. Para receber os pedidos automaticamente, ligue um serviço de formulários em <code>main.js</code>.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= RODAPÉ ================= -->
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <a class="brand" href="#inicio" aria-label="HD Properties">
+            <span class="brand-mono" aria-hidden="true">HD</span>
+            <span class="brand-rule" aria-hidden="true"></span>
+            <span class="brand-text">
+              <span class="brand-name">Properties</span>
+              <span class="brand-sub" data-i18n="brand.tag">Gestão AL · Algarve</span>
+            </span>
+          </a>
+          <p class="footer-note" data-i18n="footer.note">
+            Gestão de alojamento local no Algarve — Albufeira, Vilamoura, Quarteira, Almancil, Faro e Olhão.
+          </p>
+        </div>
+
+        <nav class="footer-nav" data-i18n-attr="aria-label:footer.navLabel" aria-label="Rodapé">
+          <a href="#servicos" data-i18n="nav.services">Serviços</a>
+          <a href="#processo" data-i18n="nav.process">Como funciona</a>
+          <a href="#simulador" data-i18n="nav.simulator">Simulador</a>
+          <a href="#zonas" data-i18n="nav.zones">Zonas</a>
+          <a href="#planos" data-i18n="nav.plans">Planos</a>
+          <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+        </nav>
+
+        <div class="footer-legal">
+          <p><span data-i18n="footer.vat">NIF</span> <span data-placeholder>000 000 000</span></p>
+          <p><span data-i18n="footer.rnal">Registo RNAL</span> <span data-placeholder>00000/AL</span></p>
+          <p><a href="https://www.livroreclamacoes.pt/" rel="noopener">Livro de Reclamações</a></p>
+          <p>© <span id="year">2026</span> HD Properties</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="vendor/three.min.js"></script>
+    <script src="i18n.js"></script>
+    <script src="hero3d.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
