@@ -5,3 +5,7 @@ dist
 
 # Ignore the output video from Git but not videos you import into src/.
 out
+
+# Longstay reel: the mix contains licensed music, keep it out of the repo
+public/longstay/mix/
+public/longstay/music/
