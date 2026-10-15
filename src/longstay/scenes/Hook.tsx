@@ -10,15 +10,16 @@ const DAYS = ["SEG", "TER", "QUA", "QUI", "SEX", "SÁB", "DOM"];
 const ICONS = [ISuitcase, ISun, IPin, IFlag, IHome, ISun, IMoon];
 
 // 0–3.2 s: seven day cards on a 3D carousel; on "passa a voar" they tear off and fly away.
-export const Hook: React.FC<{ t: number }> = ({ t }) => {
+export const Hook: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, t1 }) => {
+  const lt = t - t0;
   const passa = wordTime("L01", "passa").a;
   const voar = wordTime("L01", "voar.");
   const words = wordsAt("L01");
   const line1 = words.slice(0, 4); // Uma semana no Algarve
   const line2 = words.slice(4); // passa a voar.
-  const exit = 3.0;
-  const camZ = mix(0, 260, ease.inOut(clamp01(t / 2.4)));
-  const camRot = mix(-10, 6, ease.inOut(clamp01(t / 2.6)));
+  const exit = t1 - 0.28;
+  const camZ = mix(0, 260, ease.inOut(clamp01(lt / 2.4)));
+  const camRot = mix(-10, 6, ease.inOut(clamp01(lt / 2.6)));
   return (
     <AbsoluteFill>
       {/* cards: a fanned hand of seven days */}
@@ -29,13 +30,13 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
             left: 540,
             top: 1240,
             transformStyle: "preserve-3d",
-            transform: `translateZ(${camZ * 0.6}px) rotateX(${mix(22, 12, ease.inOut(clamp01(t / 2.4)))}deg) rotateY(${camRot * 0.6}deg)`,
+            transform: `translateZ(${camZ * 0.6}px) rotateX(${mix(22, 12, ease.inOut(clamp01(lt / 2.4)))}deg) rotateY(${camRot * 0.6}deg)`,
           }}
         >
           {DAYS.map((d, i) => {
             const k = i - 3;
-            const open = ease.out(clamp01((t - 0.05 - i * 0.045) / 0.6));
-            const pin = ease.out(clamp01((t - 0.0 - i * 0.03) / 0.45));
+            const open = ease.out(clamp01((lt - 0.05 - i * 0.045) / 0.6));
+            const pin = ease.out(clamp01((lt - 0.0 - i * 0.03) / 0.45));
             const tOff = passa - 0.1 + (6 - i) * 0.12;
             const po = clamp01((t - tOff) / 0.7);
             const fly = ease.in(po);
@@ -132,7 +133,7 @@ export const Hook: React.FC<{ t: number }> = ({ t }) => {
           top: 1205,
           display: "flex",
           justifyContent: "center",
-          opacity: ease.out(clamp01((t - 0.3) / 0.4)) * (1 - clamp01((t - passa) / 0.3)),
+          opacity: ease.out(clamp01((lt - 0.3) / 0.4)) * (1 - clamp01((t - passa) / 0.3)),
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12, fontFamily: FONT.body, fontWeight: 600, fontSize: 26, color: C.muted }}>

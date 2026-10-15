@@ -22,6 +22,7 @@ export const C = {
 export const FONT = {
   display: "Montserrat",
   body: "Poppins",
+  hand: "Caveat",
 };
 
 export const W = 1080;

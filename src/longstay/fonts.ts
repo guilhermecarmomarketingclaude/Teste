@@ -11,6 +11,8 @@ const faces: Array<[string, string, string]> = [
   ["Poppins", "500", "Poppins-500.ttf"],
   ["Poppins", "600", "Poppins-600.ttf"],
   ["Poppins", "700", "Poppins-700.ttf"],
+  ["Caveat", "600", "Caveat-600.woff2"],
+  ["Caveat", "700", "Caveat-700.woff2"],
 ];
 
 let loaded = false;
@@ -23,7 +25,7 @@ export const loadFonts = () => {
     faces.map(([family, weight, file]) => {
       const face = new FontFace(
         family,
-        `url(${staticFile(`longstay/fonts/${file}`)}) format("truetype")`,
+        `url(${staticFile(`longstay/fonts/${file}`)}) format("${file.endsWith(".woff2") ? "woff2" : "truetype"}")`,
         { weight, style: "normal" },
       );
       return face.load().then((f) => {

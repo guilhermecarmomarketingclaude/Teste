@@ -1,1311 +1,1460 @@
 {
  "fps": 60,
- "duration": 48.0,
+ "duration": 54.0,
  "vo": [
   {
    "id": "L01",
-   "file": "longstay/narration/L01.wav",
-   "start": 0.12,
-   "dur": 2.35,
+   "file": "longstay/narration2/L01.wav",
+   "start": 3.95,
+   "dur": 2.188,
    "text": "Uma semana no Algarve passa a voar."
   },
   {
    "id": "L02",
-   "file": "longstay/narration/L02.wav",
-   "start": 3.3,
-   "dur": 3.16,
+   "file": "longstay/narration2/L02.wav",
+   "start": 7.02,
+   "dur": 2.938,
    "text": "E se ficasse um mês… e pagasse menos por noite?"
   },
   {
    "id": "L03",
-   "file": "longstay/narration/L03.wav",
-   "start": 7.72,
-   "dur": 2.0,
-   "text": "Para quem foge ao frio do inverno."
+   "file": "longstay/narration2/L03.wav",
+   "start": 11.56,
+   "dur": 2.263,
+   "text": "Para quem quer fugir ao frio do inverno."
   },
   {
    "id": "L04",
-   "file": "longstay/narration/L04.wav",
-   "start": 9.86,
-   "dur": 2.1,
+   "file": "longstay/narration2/L04.wav",
+   "start": 13.96,
+   "dur": 1.956,
    "text": "Para quem joga golfe o ano inteiro."
   },
   {
    "id": "L05",
-   "file": "longstay/narration/L05.wav",
-   "start": 12.1,
-   "dur": 1.85,
+   "file": "longstay/narration2/L05.wav",
+   "start": 16.36,
+   "dur": 1.722,
    "text": "Para quem trabalha de qualquer lado."
   },
   {
    "id": "L06",
-   "file": "longstay/narration/L06.wav",
-   "start": 14.08,
-   "dur": 1.77,
+   "file": "longstay/narration2/L06.wav",
+   "start": 18.28,
+   "dur": 1.653,
    "text": "Para quem está entre casas."
   },
   {
    "id": "L07",
-   "file": "longstay/narration/L07.wav",
-   "start": 15.98,
-   "dur": 1.16,
+   "file": "longstay/narration2/L07.wav",
+   "start": 20.2,
+   "dur": 1.084,
    "text": "Para quem vem estudar."
   },
   {
    "id": "L08",
-   "file": "longstay/narration/L08.wav",
-   "start": 17.4,
-   "dur": 2.89,
+   "file": "longstay/narration2/L08.wav",
+   "start": 21.64,
+   "dur": 2.679,
    "text": "Ou para quem, simplesmente, quer ficar mais tempo."
   },
   {
    "id": "E01",
-   "file": "longstay/narration/E01.wav",
-   "start": 21.3,
-   "dur": 2.76,
+   "file": "longstay/narration2/E01.wav",
+   "start": 25.06,
+   "dur": 2.566,
    "text": "O Algarve sabe melhor… sem pressa."
   },
   {
    "id": "L09",
-   "file": "longstay/narration/L09.wav",
-   "start": 25.25,
+   "file": "longstay/narration2/L09.wav",
+   "start": 29.22,
    "dur": 4.43,
    "text": "Na HD Properties, temos casas prontas a viver, de Vilamoura a Olhão."
   },
   {
    "id": "L10",
-   "file": "longstay/narration/L10.wav",
-   "start": 29.9,
-   "dur": 3.57,
+   "file": "longstay/narration2/L10.wav",
+   "start": 34.62,
+   "dur": 3.312,
    "text": "Totalmente equipadas, com apoio local 24 horas por dia."
   },
   {
    "id": "L11",
-   "file": "longstay/narration/L11.wav",
-   "start": 33.75,
-   "dur": 2.29,
+   "file": "longstay/narration2/L11.wav",
+   "start": 39.4,
+   "dur": 2.134,
    "text": "E quanto mais tempo fica, menos paga:"
   },
   {
    "id": "L12",
-   "file": "longstay/narration/L12.wav",
-   "start": 36.05,
-   "dur": 3.87,
+   "file": "longstay/narration2/L12.wav",
+   "start": 41.984,
+   "dur": 3.599,
    "text": "em estadias com mais de 28 dias, tem 30% de desconto."
   },
   {
    "id": "L13",
-   "file": "longstay/narration/L13.wav",
-   "start": 40.4,
-   "dur": 1.62,
+   "file": "longstay/narration2/L13.wav",
+   "start": 46.22,
+   "dur": 1.506,
    "text": "Reserve já a sua estadia."
   },
   {
    "id": "L14",
-   "file": "longstay/narration/L14.wav",
-   "start": 42.6,
-   "dur": 3.21,
-   "text": "HD Properties. Fique o tempo que quiser."
+   "file": "longstay/narration2/L14.wav",
+   "start": 48.22,
+   "dur": 2.24,
+   "text": "HD Properties. Fale connosco."
   }
  ],
  "words": {
   "L01": [
    [
     "Uma",
-    -0.05,
-    0.19
+    -0.046,
+    0.176
    ],
    [
     "semana",
-    0.27,
-    0.59
+    0.25,
+    0.546
    ],
    [
     "no",
-    0.67,
-    0.75
+    0.62,
+    0.694
    ],
    [
     "Algarve",
-    0.83,
-    1.39
+    0.769,
+    1.287
    ],
    [
     "passa",
-    1.47,
-    1.75
+    1.361,
+    1.62
    ],
    [
     "a",
-    1.79,
-    1.87
+    1.657,
+    1.731
    ],
    [
     "voar.",
-    1.99,
-    2.67
+    1.843,
+    2.472
    ]
   ],
   "L02": [
    [
     "E",
-    0.04,
-    0.12
+    0.037,
+    0.111
    ],
    [
     "se",
-    0.16,
-    0.2
+    0.148,
+    0.185
    ],
    [
     "ficasse",
-    0.28,
-    0.6
+    0.259,
+    0.556
    ],
    [
     "um",
-    0.68,
-    0.76
+    0.63,
+    0.704
    ],
    [
     "mês…",
-    0.84,
-    1.64
+    0.778,
+    1.519
    ],
    [
     "e",
-    1.72,
-    1.76
+    1.593,
+    1.63
    ],
    [
     "pagasse",
-    1.8,
-    2.12
+    1.667,
+    1.963
    ],
    [
     "menos",
-    2.2,
-    2.44
+    2.037,
+    2.259
    ],
    [
     "por",
-    2.52,
-    2.6
+    2.333,
+    2.407
    ],
    [
     "noite?",
-    2.68,
-    3.08
+    2.481,
+    2.852
    ]
   ],
   "L03": [
    [
     "Para",
-    0.06,
-    0.14
+    0.046,
+    0.194
    ],
    [
     "quem",
-    0.22,
-    0.3
+    0.213,
+    0.343
    ],
    [
-    "foge",
-    0.46,
-    0.78
+    "quer",
+    0.398,
+    0.509
+   ],
+   [
+    "fugir",
+    0.62,
+    0.972
    ],
    [
     "ao",
-    0.86,
-    0.94
+    1.009,
+    1.083
    ],
    [
     "frio",
-    1.02,
-    1.26
+    1.269,
+    1.472
    ],
    [
     "do",
-    1.34,
-    1.42
+    1.509,
+    1.565
    ],
    [
     "inverno.",
-    1.5,
-    2.14
+    1.639,
+    2.083
    ]
   ],
   "L04": [
    [
     "Para",
-    0.06,
-    0.14
+    0.056,
+    0.13
    ],
    [
     "quem",
-    0.22,
-    0.3
+    0.204,
+    0.278
    ],
    [
     "joga",
-    0.38,
-    0.62
+    0.352,
+    0.574
    ],
    [
     "golfe",
-    0.7,
-    1.1
+    0.648,
+    1.019
    ],
    [
     "o",
-    1.18,
-    1.26
+    1.093,
+    1.167
    ],
    [
     "ano",
-    1.34,
-    1.5
+    1.241,
+    1.389
    ],
    [
     "inteiro.",
-    1.66,
-    2.22
+    1.537,
+    2.056
    ]
   ],
   "L05": [
    [
     "Para",
-    0.04,
-    0.12
+    0.037,
+    0.111
    ],
    [
     "quem",
-    0.2,
-    0.28
+    0.185,
+    0.259
    ],
    [
     "trabalha",
-    0.36,
-    0.76
+    0.333,
+    0.704
    ],
    [
     "de",
-    0.84,
-    0.92
+    0.778,
+    0.852
    ],
    [
     "qualquer",
-    1.0,
-    1.32
+    0.926,
+    1.222
    ],
    [
     "lado.",
-    1.4,
-    1.96
+    1.296,
+    1.815
    ]
   ],
   "L06": [
    [
     "Para",
-    0.07,
-    0.15
+    0.065,
+    0.139
    ],
    [
     "quem",
-    0.23,
-    0.31
+    0.213,
+    0.287
    ],
    [
     "está",
-    0.39,
-    0.63
+    0.361,
+    0.583
    ],
    [
     "entre",
-    0.79,
-    1.03
+    0.731,
+    0.954
    ],
    [
     "casas.",
-    1.11,
-    1.83
+    1.028,
+    1.694
    ]
   ],
   "L07": [
    [
     "Para",
-    0.07,
-    0.15
+    0.065,
+    0.139
    ],
    [
     "quem",
-    0.23,
-    0.31
+    0.213,
+    0.287
    ],
    [
     "vem",
-    0.39,
-    0.55
+    0.361,
+    0.509
    ],
    [
     "estudar.",
-    0.63,
-    1.27
+    0.583,
+    1.176
    ]
   ],
   "L08": [
    [
     "Ou",
-    0.09,
-    0.143
+    0.083,
+    0.132
    ],
    [
     "para",
-    0.17,
-    0.33
+    0.157,
+    0.306
    ],
    [
     "quem,",
-    0.37,
-    0.65
+    0.343,
+    0.602
    ],
    [
     "simplesmente,",
-    0.81,
-    1.65
+    0.75,
+    1.528
    ],
    [
     "quer",
-    1.77,
-    1.93
+    1.639,
+    1.787
    ],
    [
     "ficar",
-    2.05,
-    2.25
+    1.898,
+    2.083
    ],
    [
     "mais",
-    2.33,
-    2.49
+    2.157,
+    2.306
    ],
    [
     "tempo.",
-    2.57,
-    2.97
-   ]
-  ],
-  "L09": [
-   [
-    "Na",
-    0.14,
-    0.22
-   ],
-   [
-    "HD",
-    0.34,
-    0.62
-   ],
-   [
-    "Properties,",
-    0.94,
-    1.3
-   ],
-   [
-    "temos",
-    1.34,
-    1.58
-   ],
-   [
-    "casas",
-    1.7,
-    1.9
-   ],
-   [
-    "prontas",
-    2.06,
-    2.38
-   ],
-   [
-    "a",
-    2.46,
-    2.5
-   ],
-   [
-    "viver,",
-    2.54,
-    3.02
-   ],
-   [
-    "de",
-    3.06,
-    3.1
-   ],
-   [
-    "Vilamoura",
-    3.18,
-    3.74
-   ],
-   [
-    "a",
-    3.82,
-    3.9
-   ],
-   [
-    "Olhão.",
-    3.98,
-    4.54
-   ]
-  ],
-  "L10": [
-   [
-    "Totalmente",
-    -0.04,
-    0.44
-   ],
-   [
-    "equipadas,",
-    0.6,
-    1.16
-   ],
-   [
-    "com",
-    1.24,
-    1.32
-   ],
-   [
-    "apoio",
-    1.44,
-    1.6
-   ],
-   [
-    "local",
-    1.64,
-    1.96
-   ],
-   [
-    "24",
-    2.12,
-    2.28
-   ],
-   [
-    "horas",
-    2.36,
-    2.92
-   ],
-   [
-    "por",
-    3.08,
-    3.16
-   ],
-   [
-    "dia.",
-    3.32,
-    3.64
-   ]
-  ],
-  "L11": [
-   [
-    "E",
-    0.12,
-    0.16
-   ],
-   [
-    "quanto",
-    0.2,
-    0.44
-   ],
-   [
-    "mais",
-    0.48,
-    0.6
-   ],
-   [
-    "tempo",
-    0.68,
-    0.84
-   ],
-   [
-    "fica,",
-    0.88,
-    1.4
-   ],
-   [
-    "menos",
-    1.48,
-    1.72
-   ],
-   [
-    "paga:",
-    1.8,
-    2.44
-   ]
-  ],
-  "L12": [
-   [
-    "em",
-    0.11,
-    0.15
-   ],
-   [
-    "estadias",
-    0.23,
-    0.63
-   ],
-   [
-    "com",
-    0.71,
-    0.79
-   ],
-   [
-    "mais",
-    0.83,
-    0.95
-   ],
-   [
-    "de",
-    1.03,
-    1.11
-   ],
-   [
-    "28",
-    1.15,
-    1.35
-   ],
-   [
-    "dias,",
-    1.39,
-    2.03
-   ],
-   [
-    "tem",
-    2.07,
-    2.31
-   ],
-   [
-    "30%",
-    2.35,
-    2.55
-   ],
-   [
-    "de",
-    2.71,
-    3.19
-   ],
-   [
-    "desconto.",
-    3.27,
-    4.07
-   ]
-  ],
-  "L13": [
-   [
-    "Reserve",
-    0.15,
-    0.47
-   ],
-   [
-    "já",
-    0.55,
-    0.71
-   ],
-   [
-    "a",
-    0.75,
-    0.79
-   ],
-   [
-    "sua",
-    0.87,
-    1.03
-   ],
-   [
-    "estadia.",
-    1.11,
-    1.83
-   ]
-  ],
-  "L14": [
-   [
-    "HD",
-    0.12,
-    0.52
-   ],
-   [
-    "Properties.",
-    0.6,
-    1.48
-   ],
-   [
-    "Fique",
-    1.56,
-    1.88
-   ],
-   [
-    "o",
-    2.04,
-    2.2
-   ],
-   [
-    "tempo",
-    2.32,
-    2.48
-   ],
-   [
-    "que",
-    2.52,
-    2.6
-   ],
-   [
-    "quiser.",
-    2.68,
-    3.32
+    2.38,
+    2.75
    ]
   ],
   "E01": [
    [
     "O",
-    0.05,
-    0.16
+    0.046,
+    0.148
    ],
    [
     "Algarve",
-    0.18,
-    0.72
+    0.167,
+    0.667
    ],
    [
     "sabe",
-    0.76,
-    1.02
+    0.704,
+    0.944
    ],
    [
     "melhor…",
-    1.04,
-    1.5
+    0.963,
+    1.389
    ],
    [
     "sem",
-    1.94,
-    2.16
+    1.796,
+    2.0
    ],
    [
     "pressa.",
-    2.2,
-    2.7
+    2.037,
+    2.5
+   ]
+  ],
+  "L09": [
+   [
+    "Na",
+    0.046,
+    0.12
+   ],
+   [
+    "HD",
+    0.25,
+    0.491
+   ],
+   [
+    "Properties,",
+    0.583,
+    1.12
+   ],
+   [
+    "temos",
+    1.269,
+    1.509
+   ],
+   [
+    "casas",
+    1.528,
+    1.824
+   ],
+   [
+    "prontas",
+    1.954,
+    2.287
+   ],
+   [
+    "a",
+    2.324,
+    2.361
+   ],
+   [
+    "viver,",
+    2.417,
+    2.787
+   ],
+   [
+    "de",
+    3.046,
+    3.12
+   ],
+   [
+    "Vilamoura",
+    3.139,
+    3.639
+   ],
+   [
+    "a",
+    3.806,
+    3.88
+   ],
+   [
+    "Olhão.",
+    3.917,
+    4.25
+   ]
+  ],
+  "L10": [
+   [
+    "Totalmente",
+    -0.037,
+    0.407
+   ],
+   [
+    "equipadas,",
+    0.556,
+    1.074
+   ],
+   [
+    "com",
+    1.148,
+    1.222
+   ],
+   [
+    "apoio",
+    1.333,
+    1.481
+   ],
+   [
+    "local",
+    1.519,
+    1.815
+   ],
+   [
+    "24",
+    1.963,
+    2.111
+   ],
+   [
+    "horas",
+    2.185,
+    2.704
+   ],
+   [
+    "por",
+    2.852,
+    2.926
+   ],
+   [
+    "dia.",
+    3.074,
+    3.37
+   ]
+  ],
+  "L11": [
+   [
+    "E",
+    0.111,
+    0.148
+   ],
+   [
+    "quanto",
+    0.185,
+    0.407
+   ],
+   [
+    "mais",
+    0.444,
+    0.556
+   ],
+   [
+    "tempo",
+    0.63,
+    0.778
+   ],
+   [
+    "fica,",
+    0.815,
+    1.296
+   ],
+   [
+    "menos",
+    1.37,
+    1.593
+   ],
+   [
+    "paga:",
+    1.667,
+    2.259
+   ]
+  ],
+  "L12": [
+   [
+    "em",
+    0.102,
+    0.139
+   ],
+   [
+    "estadias",
+    0.213,
+    0.583
+   ],
+   [
+    "com",
+    0.657,
+    0.731
+   ],
+   [
+    "mais",
+    0.769,
+    0.88
+   ],
+   [
+    "de",
+    0.954,
+    1.028
+   ],
+   [
+    "28",
+    1.065,
+    1.25
+   ],
+   [
+    "dias,",
+    1.287,
+    1.88
+   ],
+   [
+    "tem",
+    1.917,
+    2.139
+   ],
+   [
+    "30%",
+    2.176,
+    2.361
+   ],
+   [
+    "de",
+    2.509,
+    2.954
+   ],
+   [
+    "desconto.",
+    3.028,
+    3.769
+   ]
+  ],
+  "L13": [
+   [
+    "Reserve",
+    0.139,
+    0.435
+   ],
+   [
+    "já",
+    0.509,
+    0.657
+   ],
+   [
+    "a",
+    0.694,
+    0.731
+   ],
+   [
+    "sua",
+    0.806,
+    0.954
+   ],
+   [
+    "estadia.",
+    1.028,
+    1.694
+   ]
+  ],
+  "L14": [
+   [
+    "HD",
+    0.046,
+    0.306
+   ],
+   [
+    "Properties.",
+    0.398,
+    0.954
+   ],
+   [
+    "Fale",
+    1.398,
+    1.546
+   ],
+   [
+    "connosco.",
+    1.62,
+    2.065
    ]
   ]
  },
  "scenes": {
-  "hook": [
+  "cold": [
    0.0,
-   3.2
+   3.84
+  ],
+  "hook": [
+   3.84,
+   7.0
   ],
   "question": [
-   3.2,
-   7.68
+   7.0,
+   11.52
   ],
   "personas": [
-   7.68,
-   21.12
+   11.52,
+   21.5
   ],
-  "slow": [
-   21.12,
-   24.96
+  "memories": [
+   21.5,
+   28.8
   ],
   "brand": [
-   24.96,
-   29.8
+   28.8,
+   34.5
   ],
   "homes": [
-   29.8,
-   33.6
+   34.5,
+   38.6
   ],
   "offer": [
-   33.6,
-   40.2
+   38.6,
+   46.1
   ],
   "cta": [
-   40.2,
-   42.5
+   46.1,
+   48.15
   ],
   "end": [
-   42.5,
-   48.0
+   48.15,
+   54.0
   ]
  },
  "music": {
-  "file": "m2_firefire_innerbloom",
+  "file": "m3_firefire_shimza",
   "bpm": 125.0,
   "beat": 0.48,
   "bar": 1.92,
   "segments": [
    [
-    22.642,
-    30.322,
+    116.696,
+    120.536,
     0.0
    ],
    [
-    30.322,
-    43.762,
+    1.496,
+    5.336,
+    3.84
+   ],
+   [
+    36.056,
+    39.896,
     7.68
    ],
    [
-    88.402,
-    92.242,
-    21.12
+    39.896,
+    51.416,
+    11.52
    ],
    [
-    92.242,
-    96.082,
+    51.416,
+    53.336,
+    23.04
+   ],
+   [
+    85.976,
+    87.896,
     24.96
    ],
    [
-    99.922,
-    105.682,
+    114.776,
+    116.696,
+    26.88
+   ],
+   [
+    116.696,
+    126.296,
     28.8
    ],
    [
-    103.762,
-    107.602,
-    34.56
+    34.136,
+    39.896,
+    38.4
    ],
    [
-    107.602,
-    115.282,
-    38.4
+    39.896,
+    47.576,
+    44.16
    ]
   ],
-  "stop": 46.08,
+  "stop": 51.839999999999996,
   "drops": [
-   7.68,
-   24.96,
-   38.4
+   0.0,
+   11.52,
+   28.799999999999997,
+   44.16
   ],
-  "gapBar": [
-   5.76,
-   7.68
-  ],
-  "miniBreak": [
-   32.64,
-   38.4
+  "tapeStop": [
+   3.36,
+   3.84
   ]
  },
  "sfx": [
   {
+   "t": 0.0,
+   "name": "hit2_3",
+   "gain": -2,
+   "align": "onset"
+  },
+  {
+   "t": 0.0,
+   "name": "subdrop2_4",
+   "gain": -3,
+   "align": "onset"
+  },
+  {
    "t": 0.02,
+   "name": "glitch2_1",
+   "gain": -14,
+   "align": "onset",
+   "dur": 0.25
+  },
+  {
+   "t": 0.48,
+   "name": "snap2_1",
+   "gain": 0,
+   "align": "peak"
+  },
+  {
+   "t": 0.96,
+   "name": "snap2_2",
+   "gain": 0,
+   "align": "peak"
+  },
+  {
+   "t": 1.44,
+   "name": "shutter2_1",
+   "gain": -4,
+   "align": "onset"
+  },
+  {
+   "t": 1.92,
+   "name": "shutter2_1",
+   "gain": -4,
+   "align": "onset"
+  },
+  {
+   "t": 2.4,
+   "name": "pop_b",
+   "gain": -6,
+   "align": "onset"
+  },
+  {
+   "t": 2.44,
+   "name": "sparkle_b",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 2.88,
+   "name": "shutter2_1",
+   "gain": -4,
+   "align": "onset"
+  },
+  {
+   "t": 3.12,
+   "name": "snap2_1",
+   "gain": -3,
+   "align": "peak"
+  },
+  {
+   "t": 3.84,
+   "name": "suck2_1",
+   "gain": -4,
+   "align": 0.7
+  },
+  {
+   "t": 3.86,
+   "name": "snap2_4",
+   "gain": -4,
+   "align": "onset",
+   "dur": 0.6
+  },
+  {
+   "t": 3.9,
    "name": "whoosh_short_b",
    "gain": -14,
    "align": "onset"
   },
   {
-   "t": 0.18,
+   "t": 4.02,
    "name": "pages_b",
-   "gain": -16,
+   "gain": -17,
    "align": "onset",
    "dur": 0.6
   },
   {
-   "t": 1.54,
+   "t": 5.261,
    "name": "whoosh_deep_a",
-   "gain": -10
+   "gain": -11
   },
   {
-   "t": 1.64,
+   "t": 5.361,
    "name": "pages_a",
-   "gain": -12,
+   "gain": -13,
    "align": "onset",
    "dur": 1.0,
    "fadein": 0.05
   },
   {
-   "t": 2.91,
-   "name": "swoosh_a",
-   "gain": -11
+   "t": 6.542,
+   "name": "swish2_1",
+   "gain": -9
   },
   {
-   "t": 3.1,
-   "name": "whoosh_short_a",
-   "gain": -12
+   "t": 6.84,
+   "name": "swish2_3",
+   "gain": -12,
+   "align": "onset"
   },
   {
-   "t": 3.28,
+   "t": 7.1,
    "name": "ticks_b",
    "gain": -23,
    "align": "onset",
    "dur": 0.8
   },
   {
-   "t": 4.04,
+   "t": 7.698,
    "name": "swoosh_b",
    "gain": -21,
    "align": "onset"
   },
   {
-   "t": 4.9,
+   "t": 8.487,
    "name": "pop_b",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 4.99,
+   "t": 8.648,
    "name": "chime_b",
-   "gain": -16,
+   "gain": -17,
    "align": "onset"
   },
   {
-   "t": 7.4,
-   "name": "whoosh_deep_b",
-   "gain": -10
-  },
-  {
-   "t": 7.68,
+   "t": 11.52,
    "name": "riser_a",
-   "gain": -11,
-   "from": 6.42
+   "gain": -12,
+   "from": 10.0
   },
   {
-   "t": 7.68,
-   "name": "impact_a",
-   "gain": -7,
+   "t": 11.52,
+   "name": "suck2_2",
+   "gain": -6,
+   "align": 1.45
+  },
+  {
+   "t": 11.52,
+   "name": "subdrop2_4",
+   "gain": -2,
    "align": "onset"
   },
   {
-   "t": 7.72,
-   "name": "pop_b",
-   "gain": -14,
-   "align": "onset"
-  },
-  {
-   "t": 7.8,
-   "name": "wind_b",
-   "gain": -16,
+   "t": 11.53,
+   "name": "hit2_2",
+   "gain": -9,
    "align": "onset",
-   "dur": 1.0,
    "lp": 3000
   },
   {
-   "t": 8.28,
-   "name": "sparkle_b",
+   "t": 11.66,
+   "name": "wind_b",
    "gain": -19,
+   "align": "onset",
+   "dur": 0.9,
+   "lp": 3000
+  },
+  {
+   "t": 12.23,
+   "name": "sparkle_b",
+   "gain": -18,
    "align": "onset"
   },
   {
-   "t": 8.53,
+   "t": 12.48,
    "name": "ticks_a",
    "gain": -24,
    "align": "onset",
    "dur": 0.6
   },
   {
-   "t": 9.75,
-   "name": "whoosh_short_b",
-   "gain": -13,
+   "t": 13.9,
+   "name": "swish2_3",
+   "gain": -15,
    "align": "onset"
   },
   {
-   "t": 10.01,
+   "t": 13.92,
+   "name": "snap2_1",
+   "gain": -2,
+   "align": "peak"
+  },
+  {
+   "t": 14.108,
    "name": "golf_b",
    "gain": 4,
    "align": "onset"
   },
   {
-   "t": 11.1,
+   "t": 14.678,
+   "name": "typing_b",
+   "gain": -17,
+   "align": "onset",
+   "dur": 0.45
+  },
+  {
+   "t": 15.101,
    "name": "ticks_b",
    "gain": -22,
    "align": "onset",
-   "dur": 0.9
+   "dur": 0.8
   },
   {
-   "t": 11.13,
+   "t": 15.108,
    "name": "click_a",
-   "gain": -8,
+   "gain": -9,
    "align": "onset"
   },
   {
-   "t": 12.0,
-   "name": "whoosh_short_b",
-   "gain": -13,
+   "t": 16.3,
+   "name": "swish2_3",
+   "gain": -15,
    "align": "onset"
   },
   {
-   "t": 12.38,
+   "t": 16.32,
+   "name": "snap2_2",
+   "gain": -2,
+   "align": "peak"
+  },
+  {
+   "t": 16.643,
    "name": "pop_b",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 12.56,
+   "t": 16.793,
    "name": "typing_b",
-   "gain": -18,
+   "gain": -19,
    "align": "onset",
-   "dur": 0.9
+   "dur": 0.8
   },
   {
-   "t": 13.02,
+   "t": 17.236,
    "name": "notify_a",
    "gain": -13,
    "align": "onset"
   },
   {
-   "t": 14.01,
-   "name": "whoosh_short_b",
-   "gain": -13,
+   "t": 18.22,
+   "name": "swish2_3",
+   "gain": -15,
    "align": "onset"
   },
   {
-   "t": 14.604,
+   "t": 18.24,
+   "name": "snap2_1",
+   "gain": -2,
+   "align": "peak"
+  },
+  {
+   "t": 18.834,
    "name": "box_b",
-   "gain": -9,
-   "align": "onset"
-  },
-  {
-   "t": 14.854,
-   "name": "box_a",
-   "gain": -9,
-   "align": "onset"
-  },
-  {
-   "t": 15.04,
-   "name": "keys_a",
    "gain": -10,
    "align": "onset"
   },
   {
-   "t": 15.114,
+   "t": 19.054,
+   "name": "box_a",
+   "gain": -10,
+   "align": "onset"
+  },
+  {
+   "t": 19.188,
+   "name": "keys_a",
+   "gain": -11,
+   "align": "onset"
+  },
+  {
+   "t": 19.255,
    "name": "box_b",
-   "gain": -9,
+   "gain": -10,
    "align": "onset"
   },
   {
-   "t": 15.91,
-   "name": "whoosh_short_b",
-   "gain": -13,
+   "t": 20.14,
+   "name": "swish2_3",
+   "gain": -15,
    "align": "onset"
   },
   {
-   "t": 16.06,
+   "t": 20.16,
+   "name": "snap2_2",
+   "gain": -2,
+   "align": "peak"
+  },
+  {
+   "t": 20.34,
    "name": "book_b",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 16.41,
+   "t": 20.583,
    "name": "swoosh_b",
-   "gain": -14,
-   "align": "onset"
-  },
-  {
-   "t": 17.32,
-   "name": "whoosh_deep_a",
-   "gain": -12
-  },
-  {
-   "t": 17.55,
-   "name": "pop_b",
-   "gain": -20,
-   "align": "onset",
-   "pan": -0.6
-  },
-  {
-   "t": 17.62,
-   "name": "pop_b",
-   "gain": -20,
-   "align": "onset",
-   "pan": 0.6
-  },
-  {
-   "t": 17.69,
-   "name": "pop_b",
-   "gain": -20,
-   "align": "onset",
-   "pan": -0.5
-  },
-  {
-   "t": 17.76,
-   "name": "pop_b",
-   "gain": -20,
-   "align": "onset",
-   "pan": 0.5
-  },
-  {
-   "t": 17.83,
-   "name": "pop_b",
-   "gain": -20,
-   "align": "onset",
-   "pan": 0
-  },
-  {
-   "t": 19.18,
-   "name": "whoosh_deep_b",
-   "gain": -11,
-   "align": "onset"
-  },
-  {
-   "t": 19.3,
-   "name": "sparkle_b",
-   "gain": -14,
-   "align": "onset"
-  },
-  {
-   "t": 21.1,
-   "name": "waves_b",
    "gain": -15,
-   "align": "onset",
-   "fadein": 0.8,
-   "dur": 3.9
+   "align": "onset"
   },
   {
-   "t": 24.72,
+   "t": 21.6,
    "name": "whoosh_deep_a",
-   "gain": -8
+   "gain": -10
+  },
+  {
+   "t": 21.6,
+   "name": "snap2_2",
+   "gain": -3,
+   "align": "peak"
+  },
+  {
+   "t": 22.08,
+   "name": "shutter2_1",
+   "gain": -7.0,
+   "align": "onset",
+   "pan": -0.4
+  },
+  {
+   "t": 22.44,
+   "name": "shutter2_1",
+   "gain": -7.6,
+   "align": "onset",
+   "pan": 0.4
+  },
+  {
+   "t": 22.8,
+   "name": "shutter2_1",
+   "gain": -8.2,
+   "align": "onset",
+   "pan": -0.2
+  },
+  {
+   "t": 23.16,
+   "name": "shutter2_1",
+   "gain": -8.8,
+   "align": "onset",
+   "pan": 0.3
+  },
+  {
+   "t": 23.52,
+   "name": "shutter2_1",
+   "gain": -9.4,
+   "align": "onset",
+   "pan": -0.3
+  },
+  {
+   "t": 23.88,
+   "name": "shutter2_1",
+   "gain": -10.0,
+   "align": "onset",
+   "pan": 0.2
+  },
+  {
+   "t": 23.97,
+   "name": "sparkle_a",
+   "gain": -12,
+   "align": "onset"
   },
   {
    "t": 24.96,
+   "name": "waves_b",
+   "gain": -16,
+   "align": "onset",
+   "fadein": 0.9,
+   "dur": 3.6
+  },
+  {
+   "t": 28.8,
    "name": "riser_b",
    "gain": -11
   },
   {
-   "t": 24.96,
-   "name": "impact_a",
+   "t": 28.8,
+   "name": "suck2_2",
+   "gain": -5,
+   "align": 1.45
+  },
+  {
+   "t": 28.8,
+   "name": "hit2_3",
    "gain": -6,
+   "align": "onset",
+   "lp": 2500
+  },
+  {
+   "t": 28.8,
+   "name": "subdrop2_4",
+   "gain": -2,
    "align": "onset"
   },
   {
-   "t": 25.0,
+   "t": 28.83,
    "name": "swoosh_a",
    "gain": -12
   },
   {
-   "t": 25.75,
+   "t": 29.58,
    "name": "sparkle_a",
    "gain": -11,
    "align": "onset"
   },
   {
-   "t": 26.3,
+   "t": 30.1,
    "name": "whoosh_deep_a",
    "gain": -14
   },
   {
-   "t": 28.43,
+   "t": 32.359,
    "name": "swoosh_b",
    "gain": -18,
    "align": "onset"
   },
   {
-   "t": 28.5,
+   "t": 32.429,
    "name": "pop_b",
-   "gain": -14,
+   "gain": -13,
    "align": "onset"
   },
   {
-   "t": 28.75,
+   "t": 32.673,
    "name": "tap_a",
-   "gain": -9,
+   "gain": -8,
    "align": "onset"
   },
   {
-   "t": 28.95,
+   "t": 32.868,
    "name": "tap_a",
-   "gain": -9,
+   "gain": -8,
    "align": "onset"
   },
   {
-   "t": 29.15,
+   "t": 33.062,
    "name": "tap_a",
-   "gain": -9,
+   "gain": -8,
    "align": "onset"
   },
   {
-   "t": 29.3,
+   "t": 33.207,
    "name": "pop_b",
-   "gain": -14,
+   "gain": -13,
    "align": "onset"
   },
   {
-   "t": 29.62,
-   "name": "whoosh_short_a",
-   "gain": -11
+   "t": 34.3,
+   "name": "swish2_1",
+   "gain": -10
   },
   {
-   "t": 30.35,
+   "t": 35.05,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 30.52,
+   "t": 35.22,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 30.69,
+   "t": 35.39,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 31.09,
+   "t": 35.718,
    "name": "whoosh_short_b",
    "gain": -13,
    "align": "onset"
   },
   {
-   "t": 31.46,
+   "t": 36.088,
    "name": "pop_b",
    "gain": -14,
    "align": "onset"
   },
   {
-   "t": 31.9,
+   "t": 36.463,
    "name": "ticks_a",
    "gain": -21,
    "align": "onset",
    "dur": 0.9
   },
   {
-   "t": 32.32,
+   "t": 36.883,
    "name": "notify_a",
    "gain": -11,
    "align": "onset"
   },
   {
-   "t": 33.52,
-   "name": "whoosh_short_a",
-   "gain": -16
+   "t": 38.45,
+   "name": "swish2_3",
+   "gain": -12,
+   "align": "onset"
   },
   {
-   "t": 33.78,
+   "t": 38.75,
    "name": "swoosh_b",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 34.2,
+   "t": 39.2,
    "name": "ticks_b",
    "gain": -24,
    "align": "onset",
    "dur": 1.4
   },
   {
-   "t": 35.2,
+   "t": 40.74,
    "name": "pop_b",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 35.91,
-   "name": "whoosh_short_b",
-   "gain": -13,
+   "t": 41.836,
+   "name": "swish2_3",
+   "gain": -11,
    "align": "onset"
   },
   {
-   "t": 36.21,
+   "t": 42.136,
    "name": "ticks_a",
-   "gain": -23,
+   "gain": -26,
    "align": "onset",
-   "dur": 1.15,
+   "dur": 0.9,
    "lp": 5000
   },
   {
-   "t": 37.32,
+   "t": 43.169,
    "name": "pop_b",
    "gain": -16,
    "align": "onset"
   },
   {
-   "t": 38.1,
-   "name": "whoosh_deep_b",
-   "gain": -12,
+   "t": 44.14,
+   "name": "subdrop2_4",
+   "gain": -1,
    "align": "onset"
   },
   {
-   "t": 38.38,
-   "name": "impact_a",
-   "gain": -3,
+   "t": 44.14,
+   "name": "hit2_3",
+   "gain": -6,
    "align": "onset",
-   "lp": 180
+   "lp": 700
   },
   {
-   "t": 38.4,
+   "t": 44.16,
    "name": "riser_a",
-   "gain": -13,
-   "from": 37.95
+   "gain": -17,
+   "from": 43.45
   },
   {
-   "t": 38.65,
-   "name": "sparkle_b",
-   "gain": -15,
-   "align": "onset"
+   "t": 44.16,
+   "name": "suck2_1",
+   "gain": -7,
+   "align": 0.7
   },
   {
-   "t": 38.71,
+   "t": 44.443,
    "name": "pop_b",
    "gain": -14,
    "align": "onset"
   },
   {
-   "t": 39.26,
+   "t": 44.46,
+   "name": "sparkle_b",
+   "gain": -15,
+   "align": "onset"
+  },
+  {
+   "t": 44.993,
    "name": "pop_b",
    "gain": -19,
    "align": "onset"
   },
   {
-   "t": 40.2,
+   "t": 46.1,
    "name": "whoosh_deep_a",
    "gain": -10
   },
   {
-   "t": 40.45,
+   "t": 46.35,
    "name": "swoosh_b",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 41.63,
+   "t": 47.368,
    "name": "tap_a",
    "gain": -8,
    "align": "onset"
   },
   {
-   "t": 41.65,
+   "t": 47.388,
    "name": "click_a",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 42.3,
-   "name": "whoosh_short_a",
-   "gain": -12
-  },
-  {
-   "t": 42.6,
+   "t": 48.146,
    "name": "swoosh_a",
    "gain": -13
   },
   {
-   "t": 45.2,
+   "t": 48.15,
+   "name": "snap2_1",
+   "gain": -4,
+   "align": "peak"
+  },
+  {
+   "t": 49.568,
+   "name": "pop_b",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 49.968,
    "name": "pop_b",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 45.45,
-   "name": "pop_b",
-   "gain": -15,
+   "t": 51.84,
+   "name": "hit2_3",
+   "gain": -3,
    "align": "onset"
   },
   {
-   "t": 46.03,
+   "t": 51.84,
+   "name": "subdrop2_4",
+   "gain": -3,
+   "align": "onset"
+  },
+  {
+   "t": 51.89,
    "name": "sparkle_b",
    "gain": -10,
-   "align": "onset"
-  },
-  {
-   "t": 46.08,
-   "name": "impact_a",
-   "gain": -7,
    "align": "onset"
   }
  ]

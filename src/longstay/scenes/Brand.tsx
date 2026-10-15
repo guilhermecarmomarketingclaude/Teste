@@ -5,7 +5,7 @@ import { Kinetic } from "../components/Kinetic";
 import { Logo } from "../components/Logo";
 import { Cam, MapTerrain, lonLatToWorld, projector } from "../components/MapTerrain";
 import { shadow } from "../components/UI";
-import { wordTime, wordsAt } from "../data/timeline";
+import { TL, wordTime, wordsAt } from "../data/timeline";
 
 // 24.96–29.8 s: logo on the drop, then the camera drops onto a 3D relief of the coast
 // and the route from Vilamoura to Olhão draws itself, town by town.
@@ -36,16 +36,22 @@ const PIN_Y = 2.4;
 
 type Key = { t: number; pos: [number, number, number]; target: [number, number, number]; fov: number };
 // Camera sits west of Vilamoura looking east, so the coast runs bottom (Vilamoura) to top (Olhão),
-// land on the left, sea on the right.
-const KEYS: Key[] = [
-  { t: 26.3, pos: [-150, 820, 6], target: [-40, 0, 6], fov: 40 },
-  { t: 28.2, pos: [-500, 430, 8], target: [-62, 0, 6], fov: 40 },
-  { t: 29.8, pos: [-455, 395, 10], target: [-40, 0, 6], fov: 40 },
-];
+// land on the left, sea on the right. Keys are tied to the narration.
+const keysFor = (): Key[] => {
+  const temos = wordTime("L09", "temos").a;
+  const vil = wordTime("L09", "Vilamoura").a;
+  const end = TL.scenes.brand[1];
+  return [
+    { t: temos - 0.25, pos: [-150, 820, 6], target: [-40, 0, 6], fov: 40 },
+    { t: vil - 0.15, pos: [-500, 430, 8], target: [-62, 0, 6], fov: 40 },
+    { t: end, pos: [-450, 392, 10], target: [-38, 0, 6], fov: 40 },
+  ];
+};
 
 const lerp3 = (a: number[], b: number[], p: number) => a.map((v, i) => v + (b[i] - v) * p) as [number, number, number];
 
 export const camAt = (t: number): Cam => {
+  const KEYS = keysFor();
   if (t <= KEYS[0].t) return KEYS[0];
   for (let i = 0; i < KEYS.length - 1; i++) {
     const a = KEYS[i];
@@ -62,8 +68,9 @@ export const Brand: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, 
   const words = wordsAt("L09");
   const head1 = words.slice(4, 8); // casas prontas a viver,
   const head2 = words.slice(8); // de Vilamoura a Olhão.
-  const shrink = ease.inOut(clamp01((t - 26.2) / 0.55));
-  const mapIn = ease.out(clamp01((t - 26.3) / 1.0));
+  const temos = wordTime("L09", "temos").a;
+  const shrink = ease.inOut(clamp01((t - (temos - 0.35)) / 0.55));
+  const mapIn = ease.out(clamp01((t - (temos - 0.25)) / 1.0));
   const cam = camAt(t);
   const exit = ease.in(clamp01((t - (t1 - 0.3)) / 0.3));
   // logo build on the drop
@@ -71,11 +78,11 @@ export const Brand: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, 
   const logoW = mix(600, 200, shrink);
   const logoH = (logoW * 474) / 528;
   const logoCY = mix(780, 330, shrink);
-  const logoFade = 1 - clamp01((t - 26.5) / 0.28);
+  const logoFade = 1 - clamp01((t - (temos - 0.05)) / 0.28);
   const pop = ease.back(clamp01((t - t0) / 0.5));
   return (
     <AbsoluteFill style={{ transform: `scale(${1 + exit * 0.25})`, filter: exit > 0.02 ? `blur(${exit * 14}px)` : "none" }}>
-      {t >= 26.2 ? (
+      {t >= temos - 0.35 ? (
         <AbsoluteFill style={{ opacity: mapIn, transform: `translateY(${(1 - mapIn) * 420}px)` }}>
           <MapTerrain cam={cam} />
           {/* blend the map's horizon into the brand backdrop */}

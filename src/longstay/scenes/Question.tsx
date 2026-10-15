@@ -19,7 +19,7 @@ export const Question: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
   const pag = wordTime("L02", "pagasse");
   const enter = ease.out(clamp01((t - t0) / 0.5));
   // push-in during the gap bar, then whip out at the drop
-  const push = ease.in(clamp01((t - 5.8) / (t1 - 5.8)));
+  const push = ease.in(clamp01((t - (t1 - 1.88)) / 1.88));
   const whip = ease.in(clamp01((t - (t1 - 0.32)) / 0.32));
   const gridW = 7 * CELL + 6 * GAP;
   const rangeP = ease.inOut(clamp01((t - (mes.a - 0.1)) / 1.0));

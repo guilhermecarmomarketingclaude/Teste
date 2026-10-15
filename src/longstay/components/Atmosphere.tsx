@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, random, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, random, staticFile, useCurrentFrame } from "remotion";
 import { C, H, W } from "../brand";
 
 // Brand backdrop: pale sky gradient, dot grid and a slow drifting glow.
@@ -54,18 +54,16 @@ export const DotGrid: React.FC<{ opacity?: number; offsetY?: number; color?: str
   </svg>
 );
 
-// Fine film grain; seeded per frame so it moves like real grain.
+// Fine film grain: eight pre-baked noise plates cycled per frame (much cheaper than an SVG
+// feTurbulence at 1080x1920 in the software renderer, same look).
 export const Grain: React.FC<{ opacity?: number }> = ({ opacity = 0.06 }) => {
   const frame = useCurrentFrame();
-  const seed = Math.floor(random(`grain-${frame}`) * 1000);
+  const k = Math.floor(random(`grain-${frame}`) * 8);
   return (
-    <svg width={W} height={H} style={{ position: "absolute", inset: 0, opacity, mixBlendMode: "overlay", pointerEvents: "none" }}>
-      <filter id={`g${seed}`}>
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={seed} stitchTiles="stitch" />
-        <feColorMatrix type="saturate" values="0" />
-      </filter>
-      <rect width={W} height={H} filter={`url(#g${seed})`} />
-    </svg>
+    <Img
+      src={staticFile(`longstay/grain/g${k}.jpg`)}
+      style={{ position: "absolute", left: 0, top: 0, width: W, height: H, opacity: opacity * 1.6, mixBlendMode: "overlay", pointerEvents: "none" }}
+    />
   );
 };
 

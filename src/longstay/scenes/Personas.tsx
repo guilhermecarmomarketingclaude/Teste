@@ -2,24 +2,25 @@ import React from "react";
 import { AbsoluteFill, Img, random, staticFile } from "remotion";
 import { C, FONT, SAFE, clamp01, ease, mix } from "../brand";
 import { Kinetic } from "../components/Kinetic";
-import { IBox, ICalendar, ICap, IFlag, ILaptop, IPin, ISnow, ISun, IWifi } from "../components/Icons";
+import { ICalendar, ICap, IFlag, IPin, ISnow, ISun, IWifi } from "../components/Icons";
 import { shadow } from "../components/UI";
 import { ShapeSpec, bbox, lerpPts, shapePts, toPath } from "../components/Morph";
-import { vo, wordTime, wordsAt } from "../data/timeline";
+import { TL, vo, wordTime, wordsAt } from "../data/timeline";
 
-// 7.68–21.12 s: "Para quem…" — one window that changes shape for each kind of guest,
-// then opens onto the villa for "quer ficar mais tempo".
+// Drop 1 → "Para quem…": one window that changes shape for each kind of guest, then folds
+// into the first polaroid of the "memories" sequence. Steps are locked to the narration beats.
 
-type Key = "cold" | "golf" | "work" | "home" | "study" | "stay" | "full";
+type Key = "cold" | "golf" | "work" | "home" | "study" | "polaroid";
+const st = (id: string) => vo(id).start - 0.04;
 const STEPS: { key: Key; at: number; dur: number; shape: ShapeSpec }[] = [
-  { key: "cold", at: 7.68, dur: 0.5, shape: { kind: "rect", cx: 540, cy: 745, w: 700, h: 640, r: 64 } },
-  { key: "golf", at: 9.7, dur: 0.5, shape: { kind: "circle", cx: 540, cy: 745, w: 660, h: 660 } },
-  { key: "work", at: 11.95, dur: 0.5, shape: { kind: "rect", cx: 540, cy: 720, w: 840, h: 520, r: 30 } },
-  { key: "home", at: 13.96, dur: 0.5, shape: { kind: "house", cx: 540, cy: 750, w: 700, h: 680 } },
-  { key: "study", at: 15.86, dur: 0.45, shape: { kind: "arch", cx: 540, cy: 748, w: 620, h: 680 } },
-  { key: "stay", at: 17.3, dur: 0.55, shape: { kind: "rect", cx: 540, cy: 812, w: 860, h: 800, r: 56 } },
-  { key: "full", at: 19.18, dur: 0.75, shape: { kind: "rect", cx: 540, cy: 960, w: 1180, h: 2060, r: 0 } },
+  { key: "cold", at: TL.music.drops[1], dur: 0.5, shape: { kind: "rect", cx: 540, cy: 745, w: 700, h: 640, r: 64 } },
+  { key: "golf", at: st("L04"), dur: 0.42, shape: { kind: "circle", cx: 540, cy: 745, w: 660, h: 660 } },
+  { key: "work", at: st("L05"), dur: 0.42, shape: { kind: "rect", cx: 540, cy: 720, w: 840, h: 520, r: 30 } },
+  { key: "home", at: st("L06"), dur: 0.42, shape: { kind: "house", cx: 540, cy: 750, w: 700, h: 680 } },
+  { key: "study", at: st("L07"), dur: 0.4, shape: { kind: "arch", cx: 540, cy: 748, w: 620, h: 680 } },
+  { key: "polaroid", at: st("L08"), dur: 0.42, shape: { kind: "rect", cx: 540, cy: 958, w: 300, h: 316, r: 4 } },
 ];
+export const PERSONA_END = STEPS[5].at + STEPS[5].dur;
 
 const PTS = STEPS.map((s) => shapePts(s.shape));
 
@@ -48,8 +49,8 @@ export const Personas: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
   const pts = shapeNow(t);
   const d = toPath(pts);
   const bb = bbox(pts);
-  const full = clamp01((t - STEPS[6].at) / STEPS[6].dur);
-  const border = 1 - ease.inOut(full);
+  const border = 1;
+  const endFade = 1 - clamp01((t - (PERSONA_END + 0.02)) / 0.1);
   // gentle float of the whole window
   const fy = Math.sin(t * 1.6) * 6 * border;
   const s = mix(0.45, 1, enter);
@@ -59,7 +60,7 @@ export const Personas: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
     <AbsoluteFill>
       <Headline t={t} />
       {/* window shadow + plate */}
-      <AbsoluteFill style={{ transform: winTransform, transformOrigin: winOrigin, opacity: clamp01(enter * 2) }}>
+      <AbsoluteFill style={{ transform: winTransform, transformOrigin: winOrigin, opacity: clamp01(enter * 2) * endFade }}>
         <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
           <defs>
             <filter id="winShadow" x="-30%" y="-30%" width="160%" height="160%">
@@ -74,7 +75,11 @@ export const Personas: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
           {vis(t, 2) > 0 ? <Work t={t} o={vis(t, 2)} bb={bb} /> : null}
           {vis(t, 3) > 0 ? <HomeV t={t} o={vis(t, 3)} bb={bb} /> : null}
           {vis(t, 4) > 0 ? <Study t={t} o={vis(t, 4)} bb={bb} /> : null}
-          {t >= STEPS[5].at ? <Villa t={t} o={clamp01((t - (STEPS[5].at + 0.06)) / 0.3)} /> : null}
+          {t >= STEPS[5].at ? (
+            <AbsoluteFill style={{ opacity: clamp01((t - (STEPS[5].at + 0.06)) / 0.22) }}>
+              <Plate src="longstay/img/loc_quarteira.jpg" bb={bb} />
+            </AbsoluteFill>
+          ) : null}
         </AbsoluteFill>
         <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", pointerEvents: "none" }}>
           <path d={d} fill="none" stroke="#fff" strokeWidth={14 * border} strokeLinejoin="round" opacity={border} />
@@ -86,7 +91,6 @@ export const Personas: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
       <WorkFront t={t} />
       <HomeFront t={t} />
       <StudyFront t={t} />
-      <StayFront t={t} />
       <Phrases t={t} />
     </AbsoluteFill>
   );
@@ -271,10 +275,10 @@ const FLAKES = Array.from({ length: 90 }).map((_, i) => ({
 }));
 
 const Cold: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
-  const foge = wordTime("L03", "foge").a;
+  const foge = wordTime("L03", "fugir").a;
   const warm = ease.inOut(clamp01((t - (foge + 0.05)) / 0.85));
   const R = mix(-160, 900, warm);
-  const lt = t - 7.4;
+  const lt = t - (STEPS[0].at - 0.28);
   return (
     <AbsoluteFill style={{ opacity: o }}>
       {/* winter */}
@@ -365,10 +369,10 @@ const Cold: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
 };
 
 const ColdFront: React.FC<{ t: number; bb: BB }> = ({ t }) => {
-  if (t < 7.6 || t > STEPS[1].at + 0.5) return null;
-  const foge = wordTime("L03", "foge").a;
+  if (t < STEPS[0].at - 0.08 || t > STEPS[1].at + 0.5) return null;
+  const foge = wordTime("L03", "fugir").a;
   const inv = wordTime("L03", "inverno.").a;
-  const appear = clamp01((t - 7.95) / 0.4);
+  const appear = clamp01((t - (STEPS[0].at + 0.27)) / 0.4);
   const out = ease.in(clamp01((t - STEPS[1].at) / 0.3));
   const flip = ease.inOut(clamp01((t - (foge + 0.35)) / 0.6));
   const temp = Math.round(mix(2, 17, flip));
@@ -549,7 +553,7 @@ const GolfFront: React.FC<{ t: number; bb: BB }> = ({ t }) => {
           })}
         </div>
       ) : null}
-      <Postcard t={t} at={golfe + 0.05} out={STEPS[2].at - 0.05} src="longstay/img/loc_valedolobo.jpg" label="Vale do Lobo" x={70} y={418} rot={-6} w={250} />
+      <FieldCard t={t} at={golfe - 0.05} out={STEPS[2].at - 0.05} x={64} y={404} label="Campo de golfe" value="Vilamoura" />
     </AbsoluteFill>
   );
 };
@@ -558,21 +562,60 @@ const GolfFront: React.FC<{ t: number; bb: BB }> = ({ t }) => {
 
 const Work: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const lt = t - STEPS[2].at;
+  const call = ease.out(clamp01((lt - 0.18) / 0.4));
+  const tiles = [
+    { i: "AM", c: "#FFB347" },
+    { i: "JS", c: "#7FC8A9" },
+    { i: "+3", c: C.blue },
+  ];
   return (
     <AbsoluteFill style={{ opacity: o }}>
-      <Img
-        src={staticFile("longstay/img/listing.jpg")}
+      {/* a different home, defocused like a call's virtual background */}
+      <Plate src="longstay/img/th_dining.jpg" bb={bb} blur={9} zoom={1.12 - lt * 0.02} />
+      <div style={{ position: "absolute", left: bb.x, top: bb.y, width: bb.w, height: bb.h, background: "rgba(246,249,252,0.18)" }} />
+      {/* window chrome */}
+      <div style={{ position: "absolute", left: bb.x + 26, top: bb.y + 22, display: "flex", gap: 10 }}>
+        {["#FF6B6B", "#FFD166", "#06D6A0"].map((c) => (
+          <span key={c} style={{ width: 16, height: 16, borderRadius: 99, background: c }} />
+        ))}
+      </div>
+      {/* video call */}
+      <div
         style={{
           position: "absolute",
-          left: 540 - 520,
-          top: 720 - 290,
-          width: 1040,
-          height: 580,
-          objectFit: "cover",
-          transform: `scale(${1.1 - lt * 0.025}) translateX(${lt * -8}px)`,
+          left: 540 - 300,
+          top: 720 - 150,
+          width: 600,
+          display: "flex",
+          gap: 16,
+          transform: `translateY(${(1 - call) * 40}px) scale(${mix(0.9, 1, call)})`,
+          opacity: call,
         }}
-      />
-      {/* screen glass sheen */}
+      >
+        {tiles.map((tile, k) => (
+          <div
+            key={k}
+            style={{
+              flex: 1,
+              height: 190,
+              borderRadius: 22,
+              background: "rgba(18,28,39,0.55)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 14px 26px -14px rgba(0,0,0,0.6)",
+              outline: k === 0 ? `4px solid ${C.blue}` : "none",
+            }}
+          >
+            <div style={{ width: 92, height: 92, borderRadius: 99, background: tile.c, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT.body, fontWeight: 600, fontSize: 32, color: "#fff" }}>{tile.i}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ position: "absolute", left: 540 - 120, top: 720 + 70, width: 240, display: "flex", justifyContent: "center", gap: 18, opacity: call }}>
+        {[0, 1, 2].map((k) => (
+          <span key={k} style={{ width: 58, height: 58, borderRadius: 99, background: k === 2 ? "#FF5A5F" : "rgba(255,255,255,0.92)", boxShadow: "0 8px 16px -8px rgba(0,0,0,0.5)" }} />
+        ))}
+      </div>
       <div
         style={{
           position: "absolute",
@@ -653,7 +696,7 @@ const WorkFront: React.FC<{ t: number }> = ({ t }) => {
           </div>
         </div>
       ) : null}
-      <Postcard t={t} at={qual + 0.2} out={STEPS[3].at - 0.05} src="longstay/img/loc_vilamoura.jpg" label="Vilamoura" x={64} y={404} rot={-5} w={230} />
+
     </AbsoluteFill>
   );
 };
@@ -664,7 +707,7 @@ const HomeV: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const lt = t - STEPS[3].at;
   return (
     <AbsoluteFill style={{ opacity: o, transform: `scale(${mix(1.12, 1, ease.out(clamp01(lt / 0.6)))})`, transformOrigin: "540px 750px" }}>
-      <Plate src="longstay/img/loc_faro.jpg" bb={bb} blur={5} zoom={1.08 + lt * 0.03} pos="50% 40%" />
+      <Plate src="longstay/img/loc_olhao.jpg" bb={bb} blur={5} zoom={1.08 + lt * 0.03} pos="50% 40%" />
       <div style={{ position: "absolute", left: bb.x, top: bb.y, width: bb.w, height: bb.h, background: "linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(255,255,255,0.35) 100%)" }} />
     </AbsoluteFill>
   );
@@ -782,7 +825,7 @@ const HomeFront: React.FC<{ t: number }> = ({ t }) => {
           </svg>
         </div>
       ) : null}
-      <Postcard t={t} at={casas - 0.1} out={STEPS[4].at - 0.05} src="longstay/img/loc_faro.jpg" label="Faro" x={680} y={860} rot={5} w={230} />
+      <Postcard t={t} at={casas - 0.1} out={STEPS[4].at - 0.05} src="longstay/img/loc_olhao.jpg" label="Olhão" x={680} y={860} rot={5} w={230} />
     </AbsoluteFill>
   );
 };
@@ -793,7 +836,7 @@ const Study: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const lt = t - STEPS[4].at;
   return (
     <AbsoluteFill style={{ opacity: o, transform: `scale(${mix(1.12, 1, ease.out(clamp01(lt / 0.6)))})`, transformOrigin: "540px 748px" }}>
-      <Plate src="longstay/img/loc_olhao.jpg" bb={bb} blur={5} zoom={1.08 + lt * 0.04} />
+      <Plate src="longstay/img/loc_faro.jpg" bb={bb} blur={5} zoom={1.08 + lt * 0.04} />
     </AbsoluteFill>
   );
 };
@@ -851,105 +894,79 @@ const StudyFront: React.FC<{ t: number }> = ({ t }) => {
           </svg>
         </div>
       ) : null}
-      <Postcard t={t} at={est - 0.05} out={STEPS[5].at - 0.05} src="longstay/img/loc_olhao.jpg" label="Olhão" x={700} y={440} rot={6} w={220} />
+      <Postcard t={t} at={est - 0.05} out={STEPS[5].at - 0.05} src="longstay/img/loc_faro.jpg" label="Faro" x={700} y={440} rot={6} w={220} />
+      <UniChip t={t} at={est + 0.05} out={STEPS[5].at - 0.05} />
     </AbsoluteFill>
   );
 };
 
-/* ------------------------------------------------------------ 6. stay */
+/* ------------------------------------------------------------ extras */
 
-// The villa sits full-frame behind the window so the window can simply open up.
-export const VillaPlate: React.FC<{ t: number; style?: React.CSSProperties }> = ({ t, style }) => {
-  const z = 1.0 + clamp01((t - 17.3) / 8) * 0.1;
+// Form-style field ("Campo de golfe: Vilamoura") that types itself in.
+const FieldCard: React.FC<{ t: number; at: number; out: number; x: number; y: number; label: string; value: string }> = ({ t, at, out, x, y, label, value }) => {
+  const p = ease.back(clamp01((t - at) / 0.4));
+  const q = ease.in(clamp01((t - out) / 0.3));
+  if (p <= 0 || q >= 1) return null;
+  const typed = Math.floor(clamp01((t - at - 0.12) / 0.42) * value.length);
+  const caret = Math.floor((t - at) * 3) % 2 === 0;
   return (
-    <Img
-      src={staticFile("longstay/img/villa.jpg")}
+    <div
       style={{
         position: "absolute",
-        left: 0,
-        top: 0,
-        width: 1080,
-        height: 1920,
-        objectFit: "cover",
-        transform: `scale(${z}) translateY(${(z - 1) * 260}px)`,
-        transformOrigin: "50% 62%",
-        ...style,
+        left: x,
+        top: y,
+        width: 470,
+        padding: "20px 28px 22px",
+        borderRadius: 26,
+        background: "rgba(255,255,255,0.97)",
+        boxShadow: shadow.card,
+        border: `2px solid ${C.blue}`,
+        transform: `translateY(${(1 - p) * 50 - q * 40}px) scale(${mix(0.7, 1, p)}) rotate(${-3 * (1 - p)}deg)`,
+        opacity: clamp01(p * 2) * (1 - q),
+        filter: q > 0.02 ? `blur(${q * 10}px)` : "none",
+        fontFamily: FONT.body,
       }}
-    />
+    >
+      <div style={{ fontWeight: 600, fontSize: 24, letterSpacing: "0.12em", color: C.blueText, textTransform: "uppercase" }}>{label}</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+        <IPin size={38} color={C.blue} stroke={2.4} />
+        <span style={{ fontFamily: FONT.display, fontWeight: 800, fontSize: 58, color: C.ink, letterSpacing: "-0.02em" }}>
+          {value.slice(0, Math.max(1, typed))}
+          <span style={{ opacity: caret && typed < value.length + 1 ? 1 : 0, color: C.blue, fontWeight: 400 }}>|</span>
+        </span>
+        <span style={{ marginLeft: "auto", display: "flex", color: C.blue }}>
+          <IFlag size={40} stroke={2.2} />
+        </span>
+      </div>
+    </div>
   );
 };
 
-const Villa: React.FC<{ t: number; o: number }> = ({ t, o }) => <AbsoluteFill style={{ opacity: o }}>{<VillaPlate t={t} />}</AbsoluteFill>;
-
-const BADGES = [
-  { I: ISun, x: 118, y: 470 },
-  { I: IFlag, x: 962, y: 520 },
-  { I: ILaptop, x: 96, y: 900 },
-  { I: IBox, x: 984, y: 980 },
-  { I: ICap, x: 540, y: 1206 },
-];
-
-const StayFront: React.FC<{ t: number }> = ({ t }) => {
-  const at = STEPS[5].at;
-  if (t < at) return null;
-  const words = wordsAt("L08");
-  const l1 = words.slice(0, 4); // Ou para quem, simplesmente,
-  const l2 = words.slice(4); // quer ficar mais tempo.
-  const open = STEPS[6].at;
+const UniChip: React.FC<{ t: number; at: number; out: number }> = ({ t, at, out }) => {
+  const p = ease.back(clamp01((t - at) / 0.4));
+  const q = ease.in(clamp01((t - out) / 0.3));
+  if (p <= 0 || q >= 1) return null;
   return (
-    <>
-      {BADGES.map((b, i) => {
-        const p = ease.back(clamp01((t - (at + 0.25 + i * 0.07)) / 0.4));
-        const q = ease.in(clamp01((t - (open - 0.05 + i * 0.03)) / 0.45));
-        if (p <= 0 || q >= 1) return null;
-        const dx = (b.x - 540) * q * 0.9;
-        const dy = (b.y - 800) * q * 0.9;
-        const bob = Math.sin(t * 2.2 + i) * 8;
-        return (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              left: b.x - 54 + dx,
-              top: b.y - 54 + bob + dy,
-              width: 108,
-              height: 108,
-              borderRadius: 999,
-              background: C.white,
-              boxShadow: shadow.card,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transform: `scale(${p * (1 - q * 0.5)})`,
-              opacity: 1 - q,
-              filter: q > 0.02 ? `blur(${q * 10}px)` : "none",
-            }}
-          >
-            <b.I size={52} color={C.blue} stroke={2.2} />
-          </div>
-        );
-      })}
-      <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: SAFE.top + 30, display: "flex", justifyContent: "center" }}>
-        <Kinetic t={t} words={l1} fontSize={64} weight={800} exitAt={open - 0.02} exitDur={0.3} accent={["simplesmente,"]} lineHeight={1.05} />
+    <div style={{ position: "absolute", left: 64, top: 436, display: "flex", opacity: clamp01(p * 2) * (1 - q) }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+          padding: "14px 26px 14px 18px",
+          borderRadius: 999,
+          background: C.white,
+          boxShadow: shadow.chip,
+          fontFamily: FONT.body,
+          fontWeight: 600,
+          fontSize: 28,
+          color: C.ink,
+          transform: `scale(${mix(0.5, 1, p)}) rotate(-3deg)`,
+          transformOrigin: "0% 50%",
+        }}
+      >
+        <ICap size={34} color={C.blue} stroke={2.2} /> Universidade do Algarve
       </div>
-      <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: SAFE.top + 24, display: "flex", justifyContent: "center" }}>
-        <Kinetic
-          t={t}
-          words={l2}
-          fontSize={112}
-          weight={800}
-          accent={["mais", "tempo."]}
-          underline="tempo."
-          breakAfter={["ficar"]}
-          hideBefore={open - 0.05}
-          exitAt={21.05}
-          exitDur={0.4}
-          exitMode="blur"
-          lineHeight={1.0}
-          shadow="0 6px 30px rgba(255,240,220,0.65)"
-        />
-      </div>
-    </>
+    </div>
   );
 };
-
