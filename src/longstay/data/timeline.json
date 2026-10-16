@@ -1475,28 +1475,49 @@
    "gain": -11
   },
   {
-   "t": 38.89,
+   "t": 38.74,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 39.06,
+   "t": 38.86,
+   "name": "swish2_3",
+   "gain": -15,
+   "align": "onset",
+   "pan": -0.2
+  },
+  {
+   "t": 39.22,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 39.23,
-   "name": "click_a",
-   "gain": -12,
-   "align": "onset"
+   "t": 39.34,
+   "name": "swish2_3",
+   "gain": -15,
+   "align": "onset",
+   "pan": 0.2
   },
   {
    "t": 39.558,
    "name": "whoosh_short_b",
    "gain": -13,
    "align": "onset"
+  },
+  {
+   "t": 39.56,
+   "name": "click_a",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 39.82,
+   "name": "swish2_3",
+   "gain": -15,
+   "align": "onset",
+   "pan": 0.0
   },
   {
    "t": 39.928,

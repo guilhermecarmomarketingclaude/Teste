@@ -5,9 +5,17 @@ import { C, FONT, SAFE, clamp01, ease, mix } from "../brand";
 import { Kinetic } from "../components/Kinetic";
 import { ICheck, IHome, ISofa, IWifi } from "../components/Icons";
 import { Chip, shadow } from "../components/UI";
-import { wordTime, wordsAt } from "../data/timeline";
+import { TL, wordTime, wordsAt } from "../data/timeline";
 
-// 29.8–33.6 s: a real living room, "Totalmente equipadas", then local support around the clock.
+// "Totalmente equipadas" over the client's own rooms (cut on the beat), then local support 24/7.
+const BEAT = TL.music.beat;
+const CUTS = [38.88, 39.36, 39.84]; // beats of bar 20 after the typologies (38.4 + n·0.48)
+const SHOTS = [
+  { src: "longstay/v3/clips/c_living.mp4", rate: 0.7, from: 0 },
+  { src: "longstay/v3/clips/c_kitchen.mp4", rate: 0.8, from: 0.6 },
+  { src: "longstay/v3/clips/c_bed1.mp4", rate: 0.8, from: 0.3 },
+  { src: "longstay/v3/clips/c_pool.mp4", rate: 0.8, from: 0.2 },
+];
 export const Homes: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, t1 }) => {
   const words = wordsAt("L10");
   const h1 = words.slice(0, 2); // Totalmente equipadas,
@@ -18,10 +26,12 @@ export const Homes: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, 
   const lt = t - t0;
   const dof = ease.inOut(clamp01((t - (com - 0.15)) / 0.5));
   const exit = ease.in(clamp01((t - (t1 - 0.3)) / 0.3));
+  const sinceCut = Math.min(...CUTS.map((c) => (t >= c ? t - c : 9)), t - t0);
+  const punch = Math.max(0, 1 - sinceCut / (BEAT * 0.6));
   const chips = [
-    { label: "Mobilada", icon: <ISofa size={34} stroke={2.2} />, at: t0 + 0.25 },
-    { label: "Cozinha equipada", icon: <IHome size={34} stroke={2.2} />, at: t0 + 0.42 },
-    { label: "Wi‑Fi", icon: <IWifi size={34} stroke={2.2} />, at: t0 + 0.59 },
+    { label: "Mobilada", icon: <ISofa size={34} stroke={2.2} />, at: t0 + 0.1 },
+    { label: "Cozinha equipada", icon: <IHome size={34} stroke={2.2} />, at: CUTS[0] + 0.04 },
+    { label: "Wi‑Fi", icon: <IWifi size={34} stroke={2.2} />, at: CUTS[1] - 0.1 },
   ];
   return (
     <AbsoluteFill style={{ opacity: 1 - exit, transform: `scale(${1 - exit * 0.06})` }}>
@@ -33,12 +43,16 @@ export const Homes: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, 
             top: 0,
             width: 1160,
             height: 2062,
-            transform: `translateX(${-lt * 14}px) scale(${1.02 + lt * 0.012})`,
+            transform: `translateX(${-lt * 14}px) scale(${(1.02 + lt * 0.012) * (1 + punch * 0.05)})`,
             filter: dof > 0 ? `blur(${dof * 14}px) brightness(${1 - dof * 0.06})` : undefined,
           }}
         >
-          {/* the client's own footage: a real HD Properties living room, slowed down */}
-          <Clip src="longstay/v3/clips/c_living.mp4" at={t0 - 0.1} dur={t1 - t0 + 0.2} rate={0.7} />
+          {/* the client's own footage, cut on the beat: living room → kitchen → bedroom → pool */}
+          {SHOTS.map((sh, i) => {
+            const a = i === 0 ? t0 - 0.1 : CUTS[i - 1];
+            const b = i < SHOTS.length - 1 ? CUTS[i] : t1 + 0.1;
+            return <Clip key={sh.src} src={sh.src} at={a} dur={b - a} rate={sh.rate} startAt={sh.from} />;
+          })}
         </div>
         {/* keep the ceiling bright enough for dark type */}
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(246,249,252,0.7) 0%, rgba(246,249,252,0) 30%)" }} />
@@ -57,7 +71,7 @@ export const Homes: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, 
         {chips.map((c, i) => {
           const a = clamp01((t - c.at) / 0.4);
           const chk = clamp01((t - (c.at + 0.3)) / 0.35);
-          const o = ease.in(clamp01((t - (com - 0.2 + i * 0.05)) / 0.3));
+          const o = ease.in(clamp01((t - (com - 0.05 + i * 0.05)) / 0.3));
           return (
             <div key={c.label} style={{ transform: `translateX(${-o * 200}px)`, opacity: 1 - o, filter: o > 0.02 ? `blur(${o * 10}px)` : "none" }}>
               <Chip label={c.label} icon={c.icon} appear={a} checked={chk} size={36} />

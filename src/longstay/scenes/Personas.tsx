@@ -358,6 +358,8 @@ const Golf: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
     <AbsoluteFill style={{ opacity: o, transform: `scale(${mix(1.12, 1, ease.out(clamp01(lt / 0.6)))})`, transformOrigin: "540px 745px" }}>
       <div style={{ position: "absolute", left: bb.x - 40, top: bb.y - 40, width: bb.w + 80, height: bb.h + 80 }}>
         <Clip src="longstay/v3/clips/s_golf.mp4" at={golfe + 0.05 - 1.7} dur={3.95} />
+        {/* first, the client's own drone shot over the course */}
+        <Clip src="longstay/v3/clips/c_golf_drone2.mp4" at={STEPS[1].at - 0.3} dur={golfe - 0.3 - (STEPS[1].at - 0.3)} startAt={0.4} />
       </div>
     </AbsoluteFill>
   );

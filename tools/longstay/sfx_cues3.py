@@ -124,8 +124,11 @@ cue(w("T01", "cada") - 0.06, "pop_b", -12, align="onset")
 cue(y1 - 0.62, "whoosh_deep_b", -11)
 # ---------------- homes (V2 +2 bars)
 m0 = tl["scenes"]["homes"][0]
-for k in range(3):
-    cue(m0 + 0.25 + k * 0.17 + 0.3, "click_a", -12, align="onset")
+cuts = [38.88, 39.36, 39.84]  # beat cuts between the client's rooms
+for k, ct in enumerate(cuts):
+    cue(ct - 0.02, "swish2_3", -15, align="onset", pan=[-0.2, 0.2, 0.0][k])
+for at in (m0 + 0.1, cuts[0] + 0.04, cuts[1] - 0.1):  # amenity chips tick
+    cue(at + 0.3, "click_a", -12, align="onset")
 com = w("L10", "com")
 cue(com - 0.05, "whoosh_short_b", -13, align="onset")
 cue(com + 0.32, "pop_b", -14, align="onset")

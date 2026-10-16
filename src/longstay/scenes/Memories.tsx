@@ -14,7 +14,7 @@ const W = 340; // polaroid width (photo ≈ 302 × 318, matching the persona win
 const PICS = [
   { src: "longstay/v3/tex/primula_terrace.jpg", cap: "Dia 1", x: 540, y: 958, r: 0, from: [0, 0] },
   { src: "longstay/v3/tex/quarteira_beach_view.jpg", cap: "Dia 4", x: 286, y: 905, r: -12, from: [-900, 200] },
-  { src: "longstay/v3/tex/villa_malvas_pool.jpg", cap: "Dia 9", x: 772, y: 870, r: 9, from: [900, -100] },
+  { src: "longstay/v3/tex/c_pool_still.jpg", cap: "Dia 9", x: 772, y: 870, r: 9, from: [900, -100] },
   { src: "longstay/v3/tex/gold_marina.jpg", cap: "Dia 13", x: 322, y: 1040, r: 7, from: [-800, 700] },
   { src: "longstay/v3/tex/villa_popa_golf.jpg", cap: "Dia 18", x: 732, y: 1010, r: -8, from: [800, 800] },
   { src: "longstay/v3/tex/skyview_bedroom.jpg", cap: "Dia 23", x: 548, y: 820, r: 4, from: [0, -1100] },
