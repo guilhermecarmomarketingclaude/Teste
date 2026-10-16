@@ -28,6 +28,8 @@ await renderMedia({
   browserExecutable,
   chromiumOptions,
   concurrency,
+  // review renders: RENDER_SCALE=0.5 → 540×960
+  scale: parseFloat(process.env.RENDER_SCALE || "1"),
   onProgress: ({ progress, renderedFrames, encodedFrames, stitchStage }) => {
     const p = Math.floor(progress * 100);
     if (p !== last) {
