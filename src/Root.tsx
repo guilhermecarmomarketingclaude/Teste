@@ -13,7 +13,17 @@ export const RemotionRoot: React.FC = () => {
         fps={TL.fps}
         width={1080}
         height={1920}
-        defaultProps={{ showSafeZone: false, mix: "longstay/mix/mix.wav" }}
+        defaultProps={{ showSafeZone: false, mix: "longstay/mix/mix3.wav" }}
+      />
+      {/* preview: same film at 30 fps (half the frames to render) */}
+      <Composition
+        id="LongStay30"
+        component={LongStay}
+        durationInFrames={Math.round(TL.duration * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ showSafeZone: false, mix: "longstay/mix/mix3.wav" }}
       />
     </>
   );

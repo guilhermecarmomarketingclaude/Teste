@@ -1,17 +1,17 @@
 // Render the LongStay composition to MP4.
-// usage: node scripts/render.mjs out.mp4 [crf] [fps-scale: 1|0.5] [concurrency]
+// usage: node scripts/render.mjs out.mp4 [crf] [composition id] [concurrency] [mix wav in public/]
 import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
 import path from "node:path";
 
-const [out, crfArg, , concArg] = process.argv.slice(2);
+const [out, crfArg, compArg, concArg, mixArg] = process.argv.slice(2);
 const crf = crfArg ? parseInt(crfArg, 10) : 18;
 const concurrency = concArg ? parseInt(concArg, 10) : 4;
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts"), webpackOverride: (c) => c });
-const inputProps = { showSafeZone: false, mix: "longstay/mix/mix.wav" };
+const inputProps = { showSafeZone: false, mix: mixArg || "longstay/mix/mix3.wav" };
 const browserExecutable = process.env.REMOTION_CHROME;
 const chromiumOptions = { gl: "swangle" };
-const composition = await selectComposition({ serveUrl, id: "LongStay", inputProps, browserExecutable, chromiumOptions });
+const composition = await selectComposition({ serveUrl, id: compArg || "LongStay", inputProps, browserExecutable, chromiumOptions });
 let last = -1;
 const t0 = Date.now();
 await renderMedia({

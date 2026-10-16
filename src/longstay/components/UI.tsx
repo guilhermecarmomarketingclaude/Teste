@@ -33,8 +33,8 @@ export const SectionLabel: React.FC<{ n: string; label: string; p: number; style
         ...style,
       }}
     >
-      <span style={{ color: dark ? "#9ED9FA" : C.blue, letterSpacing: "0.05em" }}>{n}</span>
-      <span style={{ display: "block", height: 2, width: mix(0, 110, e), background: dark ? "#9ED9FA" : C.blue, borderRadius: 2 }} />
+      <span style={{ color: dark ? "#FFFFFF" : C.blue, letterSpacing: "0.05em" }}>{n}</span>
+      <span style={{ display: "block", height: 2, width: mix(0, 110, e), background: dark ? "#FFFFFF" : C.blue, borderRadius: 2 }} />
       <span style={{ transform: `translateX(${(1 - e) * 20}px)` }}>{label}</span>
     </div>
   );
@@ -64,7 +64,7 @@ export const Chip: React.FC<{
         borderRadius: 999,
         background: bg,
         boxShadow: shadow.chip,
-        border: `1.5px solid rgba(31,166,235,${mix(0.18, 0, act)})`,
+        border: `1.5px solid rgba(35,164,235,${mix(0.18, 0, act)})`,
         fontFamily: FONT.body,
         fontWeight: 600,
         fontSize: size,
@@ -132,12 +132,12 @@ export const Button: React.FC<{ label: string; press?: number; style?: React.CSS
         gap: 16,
         padding: "28px 46px",
         borderRadius: 999,
-        background: dark ? C.ink : `linear-gradient(180deg, #37B3F0 0%, ${C.blue} 100%)`,
+        background: dark ? C.ink : C.blue,
         color: C.white,
         fontFamily: FONT.body,
         fontWeight: 600,
         fontSize: 36,
-        boxShadow: `0 ${mix(22, 8, pr)}px ${mix(40, 18, pr)}px -14px rgba(31,166,235,0.65)`,
+        boxShadow: `0 ${mix(22, 8, pr)}px ${mix(40, 18, pr)}px -14px rgba(35,164,235,0.65)`,
         transform: `scale(${mix(1, 0.94, pr)})`,
         whiteSpace: "nowrap",
         ...style,

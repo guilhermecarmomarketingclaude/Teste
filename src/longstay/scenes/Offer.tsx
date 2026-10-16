@@ -5,6 +5,7 @@ import { Kinetic } from "../components/Kinetic";
 import { IMoon } from "../components/Icons";
 import { shadow } from "../components/UI";
 import { wordTime, wordsAt } from "../data/timeline";
+import { Stage3D, Text3D, measure3D, useFont3D, wy } from "../components/Type3D";
 
 // 33.6–40.2 s: the longer you stay the less you pay → 28+ days → −30% on the drop (38.40).
 export const Offer: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, t1 }) => {
@@ -84,14 +85,16 @@ const PriceGraph: React.FC<{ t: number; at: number }> = ({ t, at }) => {
     <div
       style={{
         position: "absolute",
-        left: 80,
+        left: 40,
         top: 640,
         width: 920,
+        transformOrigin: "50% 50%",
         padding: "34px 40px 30px",
         borderRadius: 44,
         background: "rgba(255,255,255,0.97)",
         boxShadow: shadow.card,
-        transform: `translateY(${(1 - p) * 120}px) scale(${mix(0.85, 1, p)})`,
+        // scaled to 0.78 so the card (and its '28+ noites' tag) stays clear of the Reels action column
+        transform: `translateY(${(1 - p) * 120}px) scale(${mix(0.85, 1, p) * 0.78})`,
         opacity: clamp01(p * 2),
         fontFamily: FONT.body,
       }}
@@ -184,7 +187,7 @@ const DayCounter: React.FC<{ t: number; from: number; n28: number }> = ({ t, fro
                 height: 50,
                 borderRadius: 14,
                 background: on > 0.5 ? C.blue : "rgba(255,255,255,0.9)",
-                boxShadow: on > 0.5 ? "0 8px 16px -8px rgba(31,166,235,0.8)" : shadow.soft,
+                boxShadow: on > 0.5 ? "0 8px 16px -8px rgba(35,164,235,0.8)" : shadow.soft,
                 transform: `scale(${1 + Math.sin(on * Math.PI) * 0.2})`,
               }}
             />
@@ -195,13 +198,13 @@ const DayCounter: React.FC<{ t: number; from: number; n28: number }> = ({ t, fro
   );
 };
 
-export const OFFER_BG = `radial-gradient(1400px 1400px at 540px 760px, #3BB8F2 0%, ${C.blue} 45%, ${C.blueDeep} 100%)`;
+export const OFFER_BG = C.blue;
 
 const SPARKS = Array.from({ length: 46 }).map((_, i) => ({
   a: random(`sa${i}`) * Math.PI * 2,
   v: 600 + random(`sv${i}`) * 1100,
   s: 8 + random(`ss${i}`) * 18,
-  c: random(`sc${i}`) > 0.6 ? "#FFFFFF" : random(`sc2${i}`) > 0.5 ? "#9ED9FA" : "#FFD27A",
+  c: random(`sc${i}`) > 0.6 ? "#FFFFFF" : random(`sc2${i}`) > 0.5 ? "#BFE5FA" : "#FFFFFF",
   sq: random(`sq${i}`) > 0.5,
 }));
 
@@ -215,8 +218,8 @@ const Discount: React.FC<{ t: number; drop: number; exit: number }> = ({ t, drop
   const chip = ease.back(clamp01((t - (desc.a + 0.5)) / 0.45));
   const settle = Math.sin(clamp01((lt - 0.36) / 0.5) * Math.PI) * (1 - clamp01((lt - 0.36) / 0.5));
   const drift = lt * 0.025;
-  // extrusion layers for a chunky 3D numeral
-  const layers = 14;
+  useFont3D();
+  const S30 = Math.min(300, 300 * (820 / Math.max(1, measure3D("−30%", 300))));
   return (
     <AbsoluteFill>
       <AbsoluteFill
@@ -250,44 +253,24 @@ const Discount: React.FC<{ t: number; drop: number; exit: number }> = ({ t, drop
           />
         );
       })}
-      <AbsoluteFill style={{ perspective: 1400 }}>
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            top: 560,
-            display: "flex",
-            justifyContent: "center",
-            transformStyle: "preserve-3d",
-            transform: `scale(${mix(2.3, 1, sE) * (1 + settle * 0.04) * (1 + drift)}) rotateX(${mix(38, 8, sE) - lt * 2}deg) rotateY(${mix(-30, -4, sE) + Math.sin(lt * 1.2) * 3}deg)`,
-            filter: slam < 1 ? `blur(${(1 - sE) * 18}px)` : "none",
-            opacity: clamp01(slam * 4),
-          }}
-        >
-          <div style={{ position: "relative", fontFamily: FONT.display, fontWeight: 900, fontSize: 262, lineHeight: 1, letterSpacing: "-0.04em" }}>
-            {Array.from({ length: layers }).map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  position: i === 0 ? "relative" : "absolute",
-                  left: 0,
-                  top: 0,
-                  color: i === layers - 1 ? C.white : `rgb(${Math.round(mix(10, 22, i / layers))},${Math.round(mix(70, 110, i / layers))},${Math.round(mix(120, 175, i / layers))})`,
-                  transform: `translateZ(${i * 3.2}px)`,
-                  display: "flex",
-                  alignItems: "center",
-                  whiteSpace: "nowrap",
-                  textShadow: i === layers - 1 ? "0 0 40px rgba(255,255,255,0.35)" : undefined,
-                }}
-              >
-                <span style={{ display: "inline-block", width: 92, height: 28, borderRadius: 9, background: "currentColor", marginRight: 18, marginTop: 16 }} />
-                30%
-              </div>
-            ))}
-          </div>
-        </div>
-      </AbsoluteFill>
+      {/* real extruded 3D numeral, slammed in on the drop */}
+      <Stage3D cam={{ x: -60, y: -110, pitch: 0.03, yaw: -0.017 + Math.sin(lt * 1.2) * 0.012, dolly: drift * 900 }}>
+        <Text3D
+          text="−30%"
+          size={S30}
+          depth={S30 * 0.4}
+          bevel={S30 * 0.03}
+          face={C.white}
+          side={"#64636C"}
+          y={wy(690)}
+          z={mix(1700, 0, sE)}
+          rx={mix(-0.95, 0, sE) + Math.sin(lt * 1.1) * 0.035}
+          ry={mix(0.85, 0, sE) + Math.sin(lt * 0.8) * 0.1}
+          rz={mix(0.25, 0, sE)}
+          scale={1 + settle * 0.05}
+          opacity={clamp01(slam * 4)}
+        />
+      </Stage3D>
       <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: 905, display: "flex", justifyContent: "center" }}>
         <Kinetic t={t} words={words} fontSize={96} weight={800} color={C.white} mode="pop" lineHeight={1} />
       </div>

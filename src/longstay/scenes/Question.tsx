@@ -106,8 +106,9 @@ export const Question: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
       </AbsoluteFill>
       {/* price per night card */}
       <PriceCard t={t} at={pag.a - 0.25} />
-      <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: 1150, display: "flex", justifyContent: "center" }}>
-        <Kinetic t={t} words={l2} fontSize={62} weight={800} accent={["menos"]} karaoke lineHeight={1.1} />
+      <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: 1122, display: "flex", justifyContent: "center" }}>
+        {/* two lines so the end of the question stays clear of the Reels action column */}
+        <Kinetic t={t} words={l2} fontSize={58} weight={800} accent={["menos"]} breakAfter={["menos"]} karaoke lineHeight={1.08} />
       </div>
     </AbsoluteFill>
   );

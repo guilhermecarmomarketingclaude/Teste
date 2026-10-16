@@ -19,7 +19,7 @@ export const ROOF = {
 
 export const LOGO_COLORS = {
   blue: C.blue,
-  dark: "#605F68",
+  dark: "#64636C",
   light: "#8F8E93",
 };
 
@@ -35,6 +35,7 @@ type Props = {
   showText?: boolean;
   roofOnly?: boolean;
   monochrome?: string;
+  noRoof?: boolean; // text only (the roof is drawn elsewhere, e.g. in 3D)
   glint?: number; // -1..2 sweep position, outside 0..1 hidden
   id?: string;
   style?: React.CSSProperties;
@@ -56,6 +57,7 @@ export const Logo: React.FC<Props> = ({
   showText = true,
   roofOnly = false,
   monochrome,
+  noRoof = false,
   glint = -1,
   id = "logo",
   style,
@@ -100,15 +102,19 @@ export const Logo: React.FC<Props> = ({
           <path d={ROOF.light} />
         </clipPath>
       </defs>
-      <g clipPath={`url(#${id}-cd)`}>
-        <path d={ROOF.dark} fill={col("dark")} />
-      </g>
-      <g clipPath={`url(#${id}-cl)`}>
-        <path d={ROOF.light} fill={col("light")} />
-      </g>
-      <g clipPath={`url(#${id}-cb)`}>
-        <path d={ROOF.blue} fill={col("blue")} />
-      </g>
+      {!noRoof ? (
+        <>
+          <g clipPath={`url(#${id}-cd)`}>
+            <path d={ROOF.dark} fill={col("dark")} />
+          </g>
+          <g clipPath={`url(#${id}-cl)`}>
+            <path d={ROOF.light} fill={col("light")} />
+          </g>
+          <g clipPath={`url(#${id}-cb)`}>
+            <path d={ROOF.blue} fill={col("blue")} />
+          </g>
+        </>
+      ) : null}
       {glint > -0.5 && glint < 1.5 ? (
         <g clipPath={`url(#${id}-roofclip)`}>
           <rect

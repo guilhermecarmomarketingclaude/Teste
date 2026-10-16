@@ -2,23 +2,25 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { C, FONT, SAFE, clamp01, ease, mix } from "../brand";
 import { Kinetic } from "../components/Kinetic";
+import { Clip } from "../components/Media";
 import { TL, vo, wordTime, wordsAt } from "../data/timeline";
-import { Polaroid } from "./ColdOpen";
+import { Polaroid } from "./Polaroid";
 
-// "Ou para quem, simplesmente, quer ficar mais tempo." → a month of days lands on the table as
-// polaroids (one per shutter), then "O Algarve sabe melhor… sem pressa." with the camera
-// almost still. The pile is sucked into the centre on the build into drop 2.
+// "Ou para quem, simplesmente, quer ficar mais tempo." → a month of real HD Properties days lands on
+// the table as polaroids (one per shutter). On "O Algarve sabe melhor… sem pressa." the camera pushes
+// into the last polaroid (day 28) until it becomes the moving sea, slowed right down.
 
 const W = 340; // polaroid width (photo ≈ 302 × 318, matching the persona window's last shape)
 const PICS = [
-  { src: "longstay/img/loc_quarteira.jpg", cap: "Dia 1", x: 540, y: 958, r: 0, from: [0, 0] },
-  { src: "longstay/img/th_beach.jpg", cap: "Dia 4", x: 286, y: 905, r: -12, from: [-900, 200] },
-  { src: "longstay/img/th_villa_pool.jpg", cap: "Dia 9", x: 806, y: 880, r: 9, from: [900, -100] },
-  { src: "longstay/img/loc_vilamoura.jpg", cap: "Dia 13", x: 318, y: 1190, r: 7, from: [-800, 700] },
-  { src: "longstay/img/th_golf_sea.jpg", cap: "Dia 18", x: 790, y: 1172, r: -8, from: [800, 800] },
-  { src: "longstay/img/th_bedroom_view.jpg", cap: "Dia 23", x: 548, y: 820, r: 4, from: [0, -1100] },
-  { src: "longstay/img/th_pool_palms.jpg", cap: "Dia 28", x: 556, y: 1110, r: -3, from: [200, 1300] },
+  { src: "longstay/v3/tex/primula_terrace.jpg", cap: "Dia 1", x: 540, y: 958, r: 0, from: [0, 0] },
+  { src: "longstay/v3/tex/quarteira_beach_view.jpg", cap: "Dia 4", x: 286, y: 905, r: -12, from: [-900, 200] },
+  { src: "longstay/v3/tex/villa_malvas_pool.jpg", cap: "Dia 9", x: 772, y: 870, r: 9, from: [900, -100] },
+  { src: "longstay/v3/tex/gold_marina.jpg", cap: "Dia 13", x: 322, y: 1040, r: 7, from: [-800, 700] },
+  { src: "longstay/v3/tex/villa_popa_golf.jpg", cap: "Dia 18", x: 732, y: 1010, r: -8, from: [800, 800] },
+  { src: "longstay/v3/tex/skyview_bedroom.jpg", cap: "Dia 23", x: 548, y: 820, r: 4, from: [0, -1100] },
+  { src: "longstay/v3/tex/waves_still.jpg", cap: "Dia 28", x: 548, y: 1000, r: -3, from: [200, 1300] },
 ];
+const LAST = PICS.length - 1;
 
 export const Memories: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t1 }) => {
   const mem0 = vo("L08").start - 0.04;
@@ -30,31 +32,25 @@ export const Memories: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
   const e01 = wordsAt("E01");
   const sem = wordTime("E01", "sem").a;
   const warmIn = clamp01((t - mem0) / 0.45);
-  // camera: slow drift that nearly stops for "sem pressa"
+  // camera over the table
   const drift = clamp01((t - mem0) / (t1 - mem0));
-  const zoom = 1 + ease.out(drift) * 0.09;
-  const rot = mix(-1.2, 0.8, ease.out(drift));
+  const zoom = 1 + ease.out(drift) * 0.06;
+  const rot = mix(-1.2, 0.6, ease.out(drift));
+  // push into day 28 → full-frame sea
+  const push = ease.inOut(clamp01((t - (e01[0].a - 0.4)) / 0.8));
+  const live = clamp01((t - (e01[0].a + 0.25)) / 0.3);
   const suck = ease.in(clamp01((t - (t1 - 0.62)) / 0.62));
-  const leak = clamp01((t - 24.9) / 2.6);
+  // the polaroid's photo (0.89w × 0.9345w) must cover 1080 × 1920 at the end of the push
+  const fullS = (1.04 * 1920) / (W * 0.9345) / zoom;
   return (
     <AbsoluteFill>
       {/* warm table */}
+      <AbsoluteFill style={{ opacity: warmIn, background: "radial-gradient(1200px 1500px at 540px 880px, #FBF6EE 0%, #F2E8DA 55%, #E4D5C1 100%)" }} />
+      <AbsoluteFill style={{ opacity: warmIn * 0.5, background: "repeating-linear-gradient(90deg, rgba(160,130,95,0.05) 0 2px, rgba(0,0,0,0) 2px 9px)" }} />
       <AbsoluteFill
         style={{
-          opacity: warmIn,
-          background: "radial-gradient(1200px 1500px at 540px 880px, #FBF6EE 0%, #F2E8DA 55%, #E4D5C1 100%)",
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          opacity: warmIn * 0.5,
-          background: "repeating-linear-gradient(90deg, rgba(160,130,95,0.05) 0 2px, rgba(0,0,0,0) 2px 9px)",
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          transform: `scale(${zoom * mix(1, 0.05, suck)}) rotate(${rot + suck * 40}deg)`,
-          transformOrigin: "540px 1020px",
+          transform: `scale(${zoom * mix(1, 0.05, suck)}) rotate(${rot * (1 - push) + suck * 40}deg)`,
+          transformOrigin: "540px 960px",
           filter: suck > 0.02 ? `blur(${suck * 16}px)` : "none",
         }}
       >
@@ -64,10 +60,29 @@ export const Memories: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
           if (q <= 0) return null;
           const e = ease.out(q);
           const settle = i === 0 ? 0 : Math.sin(clamp01((t - land) / 0.25) * Math.PI) * (1 - clamp01((t - land) / 0.25));
-          const x = p.x + p.from[0] * (1 - e);
-          const y = p.y + p.from[1] * (1 - e);
-          const sc = (i === 0 ? 1 : mix(1.35, 1, e)) * (1 - settle * 0.03);
-          const r = p.r + (1 - e) * (i % 2 ? 50 : -50);
+          let x = p.x + p.from[0] * (1 - e);
+          let y = p.y + p.from[1] * (1 - e);
+          let sc = (i === 0 ? 1 : mix(1.35, 1, e)) * (1 - settle * 0.03);
+          let r = p.r + (1 - e) * (i % 2 ? 50 : -50);
+          let o = 1;
+          let blur = q < 1 && i > 0 ? (1 - e) * 6 : 0;
+          if (i === LAST) {
+            // the camera pushes into day 28
+            x = mix(x, 540, push);
+            // element box is 1.1895w tall (top at y - 0.625w); scale pivots on its centre, the photo
+            // centre sits 0.0725w above that pivot → solve for the photo centre at y = 960
+            y = mix(y, 960 + 0.0302 * W + 0.0725 * W * mix(sc, fullS, push), push);
+            sc = mix(sc, fullS, push);
+            r = mix(r, 0, push);
+          } else {
+            // the rest of the month slides out of frame
+            const away = ease.in(clamp01(push * 1.4));
+            x += (x - 540) * away * 1.4;
+            y += (y - 960) * away * 1.4;
+            o = 1 - away;
+            blur = Math.max(blur, away * 10);
+          }
+          if (o <= 0) return null;
           return (
             <div
               key={i}
@@ -76,22 +91,23 @@ export const Memories: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
                 left: x - W / 2,
                 top: y - (W * 1.25) / 2,
                 transform: `rotate(${r}deg) scale(${sc})`,
-                filter: q < 1 && i > 0 ? `blur(${(1 - e) * 6}px)` : "none",
+                filter: blur > 0.2 ? `blur(${blur}px)` : "none",
+                opacity: o,
+                zIndex: i === LAST ? 2 : 1,
               }}
             >
               <Polaroid src={p.src} w={W} caption={p.cap} />
             </div>
           );
         })}
+        {/* day 28 comes alive: the sea, slowed down */}
+        {live > 0 ? (
+          <AbsoluteFill style={{ opacity: live, transform: `scale(${1 / zoom})`, zIndex: 3, filter: "saturate(1.22) brightness(1.07) contrast(1.06)" }}>
+            <Clip src="longstay/v3/clips/s_waves.mp4" at={e01[0].a + 0.2} dur={t1 - e01[0].a} rate={0.75} />
+            <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(12,30,44,0.45) 0%, rgba(12,30,44,0) 40%)" }} />
+          </AbsoluteFill>
+        ) : null}
       </AbsoluteFill>
-      {/* low golden light drifting over the table */}
-      <AbsoluteFill
-        style={{
-          mixBlendMode: "soft-light",
-          opacity: 0.75 * Math.sin(leak * Math.PI),
-          background: `radial-gradient(900px 1300px at ${mix(100, 1000, leak)}px 700px, rgba(255,190,110,0.95), rgba(255,190,110,0) 70%)`,
-        }}
-      />
       {/* type */}
       <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: SAFE.top + 30, display: "flex", justifyContent: "center" }}>
         <Kinetic t={t} words={top1} fontSize={64} weight={800} accent={["simplesmente,"]} exitAt={top2[0].a - 0.1} exitDur={0.26} lineHeight={1.05} />
@@ -112,10 +128,10 @@ export const Memories: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
           lineHeight={1.0}
         />
       </div>
-      <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: SAFE.top + 30, textAlign: "center", opacity: 1 - suck }}>
-        <SlowLine t={t} words={e01.slice(0, 4)} size={66} color={C.ink} accent="Algarve" />
+      <div style={{ position: "absolute", left: SAFE.left, right: SAFE.left, top: SAFE.top + 40, textAlign: "center", opacity: 1 - suck }}>
+        <SlowLine t={t} words={e01.slice(0, 4)} size={66} color={C.white} accent="Algarve" />
         <div style={{ height: 12 }} />
-        <SlowLine t={t} words={e01.slice(4)} size={124} color={C.blueText} tracking from={sem} />
+        <SlowLine t={t} words={e01.slice(4)} size={124} color={C.white} tracking from={sem} />
       </div>
     </AbsoluteFill>
   );
@@ -146,9 +162,9 @@ const SlowLine: React.FC<{
               opacity: p,
               transform: `translateY(${(1 - p) * 26}px)`,
               filter: p < 1 ? `blur(${(1 - p) * 12}px)` : "none",
-              color: isAcc ? C.blueText : undefined,
+              color: isAcc ? C.blue : undefined,
               marginRight: i < words.length - 1 ? "0.26em" : 0,
-              textShadow: "0 4px 24px rgba(251,246,238,0.9)",
+              textShadow: "0 6px 30px rgba(8,24,38,0.55)",
             }}
           >
             {wd.w}

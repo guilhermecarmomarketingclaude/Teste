@@ -12,11 +12,11 @@ import { TL, wordTime, wordsAt } from "../data/timeline";
 
 type Place = { name: string; lon: number; lat: number; img?: string; big?: boolean };
 const PLACES: Place[] = [
-  { name: "Vilamoura", lon: -8.118, lat: 37.0765, img: "longstay/img/loc_vilamoura.jpg", big: true },
+  { name: "Vilamoura", lon: -8.118, lat: 37.0765, img: "longstay/v3/tex/gold_marina.jpg", big: true },
   { name: "Quarteira", lon: -8.1007, lat: 37.0697 },
   { name: "Vale do Lobo", lon: -8.064, lat: 37.051 },
   { name: "Faro", lon: -7.9304, lat: 37.0194 },
-  { name: "Olhão", lon: -7.841, lat: 37.026, img: "longstay/img/loc_olhao.jpg", big: true },
+  { name: "Olhão", lon: -7.841, lat: 37.026, img: "longstay/v3/tex/olhao_terrace.jpg", big: true },
 ];
 // coastal path (slightly inland so the line rides on the land slab)
 const PATH: [number, number][] = [

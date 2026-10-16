@@ -1,114 +1,166 @@
 {
  "fps": 60,
- "duration": 54.0,
+ "duration": 56.4,
+ "nohookStart": 3.84,
  "vo": [
   {
+   "id": "H01",
+   "file": "longstay/narration3/H01.wav",
+   "start": 0.06,
+   "dur": 2.483,
+   "text": "Pare. Não reserve o Algarve à semana."
+  },
+  {
    "id": "L01",
-   "file": "longstay/narration2/L01.wav",
+   "file": "longstay/narration3/L01.wav",
    "start": 3.95,
    "dur": 2.188,
    "text": "Uma semana no Algarve passa a voar."
   },
   {
    "id": "L02",
-   "file": "longstay/narration2/L02.wav",
+   "file": "longstay/narration3/L02.wav",
    "start": 7.02,
    "dur": 2.938,
    "text": "E se ficasse um mês… e pagasse menos por noite?"
   },
   {
    "id": "L03",
-   "file": "longstay/narration2/L03.wav",
+   "file": "longstay/narration3/L03.wav",
    "start": 11.56,
    "dur": 2.263,
    "text": "Para quem quer fugir ao frio do inverno."
   },
   {
    "id": "L04",
-   "file": "longstay/narration2/L04.wav",
+   "file": "longstay/narration3/L04.wav",
    "start": 13.96,
    "dur": 1.956,
    "text": "Para quem joga golfe o ano inteiro."
   },
   {
    "id": "L05",
-   "file": "longstay/narration2/L05.wav",
+   "file": "longstay/narration3/L05.wav",
    "start": 16.36,
    "dur": 1.722,
    "text": "Para quem trabalha de qualquer lado."
   },
   {
    "id": "L06",
-   "file": "longstay/narration2/L06.wav",
+   "file": "longstay/narration3/L06.wav",
    "start": 18.28,
    "dur": 1.653,
    "text": "Para quem está entre casas."
   },
   {
    "id": "L07",
-   "file": "longstay/narration2/L07.wav",
+   "file": "longstay/narration3/L07.wav",
    "start": 20.2,
    "dur": 1.084,
    "text": "Para quem vem estudar."
   },
   {
    "id": "L08",
-   "file": "longstay/narration2/L08.wav",
+   "file": "longstay/narration3/L08.wav",
    "start": 21.64,
    "dur": 2.679,
    "text": "Ou para quem, simplesmente, quer ficar mais tempo."
   },
   {
    "id": "E01",
-   "file": "longstay/narration2/E01.wav",
+   "file": "longstay/narration3/E01.wav",
    "start": 25.06,
    "dur": 2.566,
    "text": "O Algarve sabe melhor… sem pressa."
   },
   {
    "id": "L09",
-   "file": "longstay/narration2/L09.wav",
+   "file": "longstay/narration3/L09.wav",
    "start": 29.22,
-   "dur": 4.43,
+   "dur": 4.34,
    "text": "Na HD Properties, temos casas prontas a viver, de Vilamoura a Olhão."
   },
   {
+   "id": "T01",
+   "file": "longstay/narration3/T01.wav",
+   "start": 34.08,
+   "dur": 3.736,
+   "text": "Do estúdio à moradia com piscina, há uma casa para cada orçamento."
+  },
+  {
    "id": "L10",
-   "file": "longstay/narration2/L10.wav",
-   "start": 34.62,
+   "file": "longstay/narration3/L10.wav",
+   "start": 38.46,
    "dur": 3.312,
    "text": "Totalmente equipadas, com apoio local 24 horas por dia."
   },
   {
    "id": "L11",
-   "file": "longstay/narration2/L11.wav",
-   "start": 39.4,
+   "file": "longstay/narration3/L11.wav",
+   "start": 43.24,
    "dur": 2.134,
    "text": "E quanto mais tempo fica, menos paga:"
   },
   {
    "id": "L12",
-   "file": "longstay/narration2/L12.wav",
-   "start": 41.984,
+   "file": "longstay/narration3/L12.wav",
+   "start": 45.824,
    "dur": 3.599,
    "text": "em estadias com mais de 28 dias, tem 30% de desconto."
   },
   {
-   "id": "L13",
-   "file": "longstay/narration2/L13.wav",
-   "start": 46.22,
-   "dur": 1.506,
-   "text": "Reserve já a sua estadia."
+   "id": "S01",
+   "file": "longstay/narration3/S01.wav",
+   "start": 49.98,
+   "dur": 1.176,
+   "text": "HD Properties."
   },
   {
-   "id": "L14",
-   "file": "longstay/narration2/L14.wav",
-   "start": 48.22,
-   "dur": 2.24,
-   "text": "HD Properties. Fale connosco."
+   "id": "C01",
+   "file": "longstay/narration3/C01.wav",
+   "start": 51.115,
+   "dur": 2.871,
+   "text": "Reserve já a sua estadia, ou fale connosco."
   }
  ],
  "words": {
+  "H01": [
+   [
+    "Pare.",
+    0.046,
+    0.287
+   ],
+   [
+    "Não",
+    0.769,
+    0.991
+   ],
+   [
+    "reserve",
+    1.028,
+    1.38
+   ],
+   [
+    "o",
+    1.398,
+    1.454
+   ],
+   [
+    "Algarve",
+    1.491,
+    1.824
+   ],
+   [
+    "à",
+    1.861,
+    1.88
+   ],
+   [
+    "semana.",
+    1.972,
+    2.306
+   ]
+  ],
   "L01": [
    [
     "Uma",
@@ -446,52 +498,114 @@
    [
     "Properties,",
     0.583,
-    1.12
+    1.06
    ],
    [
     "temos",
-    1.269,
-    1.509
+    1.179,
+    1.419
    ],
    [
     "casas",
-    1.528,
-    1.824
+    1.438,
+    1.734
    ],
    [
     "prontas",
-    1.954,
-    2.287
+    1.864,
+    2.197
    ],
    [
     "a",
-    2.324,
-    2.361
+    2.234,
+    2.271
    ],
    [
     "viver,",
-    2.417,
-    2.787
+    2.327,
+    2.697
    ],
    [
     "de",
-    3.046,
-    3.12
+    2.956,
+    3.03
    ],
    [
     "Vilamoura",
-    3.139,
-    3.639
+    3.049,
+    3.549
    ],
    [
     "a",
-    3.806,
-    3.88
+    3.716,
+    3.79
    ],
    [
     "Olhão.",
-    3.917,
-    4.25
+    3.827,
+    4.16
+   ]
+  ],
+  "T01": [
+   [
+    "Do",
+    0.046,
+    0.102
+   ],
+   [
+    "estúdio",
+    0.157,
+    0.528
+   ],
+   [
+    "à",
+    0.583,
+    0.639
+   ],
+   [
+    "moradia",
+    0.657,
+    0.991
+   ],
+   [
+    "com",
+    1.065,
+    1.157
+   ],
+   [
+    "piscina,",
+    1.213,
+    1.602
+   ],
+   [
+    "há",
+    1.843,
+    1.935
+   ],
+   [
+    "uma",
+    1.972,
+    2.194
+   ],
+   [
+    "casa",
+    2.231,
+    2.509
+   ],
+   [
+    "para",
+    2.62,
+    2.731
+   ],
+   [
+    "cada",
+    2.861,
+    3.009
+   ],
+   [
+    "orçamento.",
+    3.046,
+    3.583
    ]
   ],
   "L10": [
@@ -635,16 +749,28 @@
     3.769
    ]
   ],
-  "L13": [
+  "S01": [
+   [
+    "HD",
+    0.046,
+    0.343
+   ],
+   [
+    "Properties.",
+    0.435,
+    0.981
+   ]
+  ],
+  "C01": [
    [
     "Reserve",
-    0.139,
-    0.435
+    0.046,
+    0.417
    ],
    [
     "já",
     0.509,
-    0.657
+    0.639
    ],
    [
     "a",
@@ -654,39 +780,32 @@
    [
     "sua",
     0.806,
-    0.954
+    0.935
    ],
    [
-    "estadia.",
-    1.028,
-    1.694
-   ]
-  ],
-  "L14": [
-   [
-    "HD",
-    0.046,
-    0.306
+    "estadia,",
+    0.954,
+    1.454
    ],
    [
-    "Properties.",
-    0.398,
-    0.954
+    "ou",
+    1.769,
+    1.898
    ],
    [
-    "Fale",
-    1.398,
-    1.546
+    "fale",
+    2.065,
+    2.25
    ],
    [
     "connosco.",
-    1.62,
-    2.065
+    2.287,
+    2.713
    ]
   ]
  },
  "scenes": {
-  "cold": [
+  "hook3": [
    0.0,
    3.84
   ],
@@ -708,23 +827,23 @@
   ],
   "brand": [
    28.8,
-   34.5
+   34.0
+  ],
+  "typo": [
+   33.9,
+   38.34
   ],
   "homes": [
-   34.5,
-   38.6
+   38.34,
+   42.44
   ],
   "offer": [
-   38.6,
-   46.1
+   42.44,
+   49.94
   ],
   "cta": [
-   46.1,
-   48.15
-  ],
-  "end": [
-   48.15,
-   54.0
+   49.94,
+   56.4
   ]
  },
  "music": {
@@ -734,8 +853,8 @@
   "bar": 1.92,
   "segments": [
    [
-    116.696,
-    120.536,
+    85.976,
+    89.816,
     0.0
    ],
    [
@@ -770,123 +889,155 @@
    ],
    [
     116.696,
-    126.296,
+    130.136,
     28.8
    ],
    [
     34.136,
     39.896,
-    38.4
+    42.24
    ],
    [
     39.896,
     47.576,
-    44.16
+    48.0
    ]
   ],
-  "stop": 51.839999999999996,
+  "stop": 54.72,
   "drops": [
    0.0,
    11.52,
    28.799999999999997,
-   44.16
+   48.0
   ],
-  "tapeStop": [
-   3.36,
-   3.84
-  ]
+  "tapeStop": null,
+  "hookIn": 0.62
  },
  "sfx": [
   {
    "t": 0.0,
+   "name": "whoosh_short_b",
+   "gain": -9,
+   "align": "onset",
+   "hook": true
+  },
+  {
+   "t": 0.12,
    "name": "hit2_3",
-   "gain": -2,
-   "align": "onset"
+   "gain": -1,
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 0.0,
+   "t": 0.12,
    "name": "subdrop2_4",
-   "gain": -3,
-   "align": "onset"
+   "gain": -2,
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 0.02,
+   "t": 0.13,
+   "name": "shutter2_1",
+   "gain": -8,
+   "align": "onset",
+   "hook": true
+  },
+  {
+   "t": 0.14,
    "name": "glitch2_1",
    "gain": -14,
    "align": "onset",
-   "dur": 0.25
+   "dur": 0.22,
+   "hook": true
   },
   {
-   "t": 0.48,
-   "name": "snap2_1",
-   "gain": 0,
-   "align": "peak"
+   "t": 0.779,
+   "name": "swish2_3",
+   "gain": -15,
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 0.96,
-   "name": "snap2_2",
-   "gain": 0,
-   "align": "peak"
+   "t": 1.038,
+   "name": "swish2_3",
+   "gain": -19,
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 1.44,
-   "name": "shutter2_1",
-   "gain": -4,
-   "align": "onset"
+   "t": 1.408,
+   "name": "swish2_3",
+   "gain": -21,
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 1.92,
-   "name": "shutter2_1",
-   "gain": -4,
-   "align": "onset"
+   "t": 1.501,
+   "name": "swish2_3",
+   "gain": -17,
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 2.4,
+   "t": 1.901,
    "name": "pop_b",
-   "gain": -6,
-   "align": "onset"
+   "gain": -13,
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 2.44,
-   "name": "sparkle_b",
-   "gain": -12,
-   "align": "onset"
-  },
-  {
-   "t": 2.88,
-   "name": "shutter2_1",
+   "t": 2.406,
+   "name": "swish2_1",
    "gain": -4,
-   "align": "onset"
+   "align": "onset",
+   "hook": true
   },
   {
-   "t": 3.12,
-   "name": "snap2_1",
-   "gain": -3,
-   "align": "peak"
+   "t": 2.416,
+   "name": "glitch2_2",
+   "gain": -13,
+   "align": "onset",
+   "dur": 0.16,
+   "hook": true
+  },
+  {
+   "t": 2.426,
+   "name": "subdrop2_1",
+   "gain": -8,
+   "align": "onset",
+   "hook": true
+  },
+  {
+   "t": 3.84,
+   "name": "riser_a",
+   "gain": -13,
+   "hook": true,
+   "from": 2.95
   },
   {
    "t": 3.84,
    "name": "suck2_1",
-   "gain": -4,
-   "align": 0.7
+   "gain": -7,
+   "align": 0.7,
+   "hook": true
   },
   {
    "t": 3.86,
    "name": "snap2_4",
-   "gain": -4,
+   "gain": -3,
    "align": "onset",
    "dur": 0.6
   },
   {
    "t": 3.9,
    "name": "whoosh_short_b",
-   "gain": -14,
+   "gain": -15,
    "align": "onset"
   },
   {
    "t": 4.02,
    "name": "pages_b",
-   "gain": -17,
+   "gain": -18,
    "align": "onset",
    "dur": 0.6
   },
@@ -898,7 +1049,7 @@
   {
    "t": 5.361,
    "name": "pages_a",
-   "gain": -13,
+   "gain": -14,
    "align": "onset",
    "dur": 1.0,
    "fadein": 0.05
@@ -906,18 +1057,18 @@
   {
    "t": 6.542,
    "name": "swish2_1",
-   "gain": -9
+   "gain": -10
   },
   {
    "t": 6.84,
    "name": "swish2_3",
-   "gain": -12,
+   "gain": -13,
    "align": "onset"
   },
   {
    "t": 7.1,
    "name": "ticks_b",
-   "gain": -23,
+   "gain": -24,
    "align": "onset",
    "dur": 0.8
   },
@@ -930,25 +1081,25 @@
   {
    "t": 8.487,
    "name": "pop_b",
-   "gain": -12,
+   "gain": -13,
    "align": "onset"
   },
   {
    "t": 8.648,
    "name": "chime_b",
-   "gain": -17,
+   "gain": -18,
    "align": "onset"
   },
   {
    "t": 11.52,
    "name": "riser_a",
-   "gain": -12,
+   "gain": -13,
    "from": 10.0
   },
   {
    "t": 11.52,
    "name": "suck2_2",
-   "gain": -6,
+   "gain": -7,
    "align": 1.45
   },
   {
@@ -979,34 +1130,27 @@
    "align": "onset"
   },
   {
-   "t": 12.48,
-   "name": "ticks_a",
-   "gain": -24,
-   "align": "onset",
-   "dur": 0.6
-  },
-  {
    "t": 13.9,
    "name": "swish2_3",
-   "gain": -15,
+   "gain": -16,
    "align": "onset"
   },
   {
    "t": 13.92,
    "name": "snap2_1",
-   "gain": -2,
+   "gain": -3,
    "align": "peak"
   },
   {
-   "t": 14.108,
+   "t": 14.658,
    "name": "golf_b",
-   "gain": 4,
+   "gain": 3,
    "align": "onset"
   },
   {
-   "t": 14.678,
+   "t": 14.728,
    "name": "typing_b",
-   "gain": -17,
+   "gain": -18,
    "align": "onset",
    "dur": 0.45
   },
@@ -1018,21 +1162,15 @@
    "dur": 0.8
   },
   {
-   "t": 15.108,
-   "name": "click_a",
-   "gain": -9,
-   "align": "onset"
-  },
-  {
    "t": 16.3,
    "name": "swish2_3",
-   "gain": -15,
+   "gain": -16,
    "align": "onset"
   },
   {
    "t": 16.32,
    "name": "snap2_2",
-   "gain": -2,
+   "gain": -3,
    "align": "peak"
   },
   {
@@ -1055,28 +1193,22 @@
    "align": "onset"
   },
   {
+   "t": 17.386,
+   "name": "pop_b",
+   "gain": -16,
+   "align": "onset"
+  },
+  {
    "t": 18.22,
    "name": "swish2_3",
-   "gain": -15,
+   "gain": -16,
    "align": "onset"
   },
   {
    "t": 18.24,
    "name": "snap2_1",
-   "gain": -2,
+   "gain": -3,
    "align": "peak"
-  },
-  {
-   "t": 18.834,
-   "name": "box_b",
-   "gain": -10,
-   "align": "onset"
-  },
-  {
-   "t": 19.054,
-   "name": "box_a",
-   "gain": -10,
-   "align": "onset"
   },
   {
    "t": 19.188,
@@ -1085,32 +1217,32 @@
    "align": "onset"
   },
   {
-   "t": 19.255,
-   "name": "box_b",
-   "gain": -10,
+   "t": 19.258,
+   "name": "pop_b",
+   "gain": -17,
    "align": "onset"
   },
   {
    "t": 20.14,
    "name": "swish2_3",
-   "gain": -15,
+   "gain": -16,
    "align": "onset"
   },
   {
    "t": 20.16,
    "name": "snap2_2",
-   "gain": -2,
+   "gain": -3,
    "align": "peak"
-  },
-  {
-   "t": 20.34,
-   "name": "book_b",
-   "gain": -12,
-   "align": "onset"
   },
   {
    "t": 20.583,
    "name": "swoosh_b",
+   "gain": -16,
+   "align": "onset"
+  },
+  {
+   "t": 20.733,
+   "name": "pop_b",
    "gain": -15,
    "align": "onset"
   },
@@ -1170,26 +1302,31 @@
   {
    "t": 23.97,
    "name": "sparkle_a",
-   "gain": -12,
+   "gain": -13,
    "align": "onset"
   },
   {
-   "t": 24.96,
+   "t": 24.706,
+   "name": "whoosh_deep_b",
+   "gain": -14
+  },
+  {
+   "t": 24.906,
    "name": "waves_b",
-   "gain": -16,
+   "gain": -12,
    "align": "onset",
-   "fadein": 0.9,
-   "dur": 3.6
+   "fadein": 0.6,
+   "dur": 3.9
   },
   {
    "t": 28.8,
    "name": "riser_b",
-   "gain": -11
+   "gain": -12
   },
   {
    "t": 28.8,
    "name": "suck2_2",
-   "gain": -5,
+   "gain": -6,
    "align": 1.45
   },
   {
@@ -1222,122 +1359,197 @@
    "gain": -14
   },
   {
-   "t": 32.359,
+   "t": 32.269,
    "name": "swoosh_b",
    "gain": -18,
    "align": "onset"
   },
   {
-   "t": 32.429,
+   "t": 32.339,
    "name": "pop_b",
    "gain": -13,
    "align": "onset"
   },
   {
-   "t": 32.673,
+   "t": 32.583,
    "name": "tap_a",
    "gain": -8,
    "align": "onset"
   },
   {
-   "t": 32.868,
+   "t": 32.778,
    "name": "tap_a",
    "gain": -8,
    "align": "onset"
   },
   {
-   "t": 33.062,
+   "t": 32.972,
    "name": "tap_a",
    "gain": -8,
    "align": "onset"
   },
   {
-   "t": 33.207,
+   "t": 33.117,
    "name": "pop_b",
    "gain": -13,
    "align": "onset"
   },
   {
-   "t": 34.3,
-   "name": "swish2_1",
+   "t": 33.85,
+   "name": "whoosh_deep_a",
    "gain": -10
   },
   {
-   "t": 35.05,
+   "t": 34.197,
+   "name": "pop_b",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 34.617,
+   "name": "whoosh_short_a",
+   "gain": -8,
+   "align": "onset"
+  },
+  {
+   "t": 34.791,
+   "name": "tap_a",
+   "gain": -11,
+   "align": "onset",
+   "pan": -0.3
+  },
+  {
+   "t": 34.965,
+   "name": "tap_a",
+   "gain": -11,
+   "align": "onset",
+   "pan": 0.0
+  },
+  {
+   "t": 35.139,
+   "name": "tap_a",
+   "gain": -11,
+   "align": "onset",
+   "pan": 0.3
+  },
+  {
+   "t": 35.233,
+   "name": "pop_b",
+   "gain": -11,
+   "align": "onset"
+  },
+  {
+   "t": 35.343,
+   "name": "sparkle_b",
+   "gain": -15,
+   "align": "onset"
+  },
+  {
+   "t": 35.773,
+   "name": "swoosh_b",
+   "gain": -13,
+   "align": "onset"
+  },
+  {
+   "t": 35.823,
+   "name": "ticks_a",
+   "gain": -20,
+   "align": "onset",
+   "dur": 0.9
+  },
+  {
+   "t": 35.992,
+   "name": "pop_b",
+   "gain": -15,
+   "align": "onset"
+  },
+  {
+   "t": 36.881,
+   "name": "pop_b",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 37.72,
+   "name": "whoosh_deep_b",
+   "gain": -11
+  },
+  {
+   "t": 38.89,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 35.22,
+   "t": 39.06,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 35.39,
+   "t": 39.23,
    "name": "click_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 35.718,
+   "t": 39.558,
    "name": "whoosh_short_b",
    "gain": -13,
    "align": "onset"
   },
   {
-   "t": 36.088,
+   "t": 39.928,
    "name": "pop_b",
    "gain": -14,
    "align": "onset"
   },
   {
-   "t": 36.463,
+   "t": 40.303,
    "name": "ticks_a",
    "gain": -21,
    "align": "onset",
    "dur": 0.9
   },
   {
-   "t": 36.883,
+   "t": 40.723,
    "name": "notify_a",
    "gain": -11,
    "align": "onset"
   },
   {
-   "t": 38.45,
+   "t": 42.29,
    "name": "swish2_3",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 38.75,
+   "t": 42.59,
    "name": "swoosh_b",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 39.2,
+   "t": 43.04,
    "name": "ticks_b",
    "gain": -24,
    "align": "onset",
    "dur": 1.4
   },
   {
-   "t": 40.74,
+   "t": 44.58,
    "name": "pop_b",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 41.836,
+   "t": 45.676,
    "name": "swish2_3",
    "gain": -11,
    "align": "onset"
   },
   {
-   "t": 42.136,
+   "t": 45.976,
    "name": "ticks_a",
    "gain": -26,
    "align": "onset",
@@ -1345,114 +1557,154 @@
    "lp": 5000
   },
   {
-   "t": 43.169,
+   "t": 47.009,
    "name": "pop_b",
    "gain": -16,
    "align": "onset"
   },
   {
-   "t": 44.14,
+   "t": 47.98,
    "name": "subdrop2_4",
    "gain": -1,
    "align": "onset"
   },
   {
-   "t": 44.14,
+   "t": 47.98,
    "name": "hit2_3",
    "gain": -6,
    "align": "onset",
    "lp": 700
   },
   {
-   "t": 44.16,
+   "t": 48.0,
    "name": "riser_a",
    "gain": -17,
-   "from": 43.45
+   "from": 47.29
   },
   {
-   "t": 44.16,
+   "t": 48.0,
    "name": "suck2_1",
    "gain": -7,
    "align": 0.7
   },
   {
-   "t": 44.443,
+   "t": 48.283,
    "name": "pop_b",
    "gain": -14,
    "align": "onset"
   },
   {
-   "t": 44.46,
+   "t": 48.3,
    "name": "sparkle_b",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 44.993,
+   "t": 48.833,
    "name": "pop_b",
    "gain": -19,
    "align": "onset"
   },
   {
-   "t": 46.1,
-   "name": "whoosh_deep_a",
-   "gain": -10
-  },
-  {
-   "t": 46.35,
-   "name": "swoosh_b",
-   "gain": -15,
-   "align": "onset"
-  },
-  {
-   "t": 47.368,
-   "name": "tap_a",
-   "gain": -8,
-   "align": "onset"
-  },
-  {
-   "t": 47.388,
-   "name": "click_a",
-   "gain": -15,
-   "align": "onset"
-  },
-  {
-   "t": 48.146,
-   "name": "swoosh_a",
-   "gain": -13
-  },
-  {
-   "t": 48.15,
-   "name": "snap2_1",
-   "gain": -4,
-   "align": "peak"
-  },
-  {
-   "t": 49.568,
-   "name": "pop_b",
+   "t": 49.586,
+   "name": "whoosh_short_a",
    "gain": -12,
    "align": "onset"
   },
   {
-   "t": 49.968,
-   "name": "pop_b",
+   "t": 49.94,
+   "name": "whoosh_deep_a",
+   "gain": -10
+  },
+  {
+   "t": 49.986,
+   "name": "tap_a",
+   "gain": -9,
+   "align": "onset",
+   "pan": -0.3
+  },
+  {
+   "t": 50.056,
+   "name": "tap_a",
+   "gain": -10,
+   "align": "onset",
+   "pan": 0.3
+  },
+  {
+   "t": 50.056,
+   "name": "sparkle_a",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 50.126,
+   "name": "tap_a",
+   "gain": -11,
+   "align": "onset",
+   "pan": 0.0
+  },
+  {
+   "t": 51.101,
+   "name": "swish2_3",
    "gain": -15,
    "align": "onset"
   },
   {
-   "t": 51.84,
+   "t": 52.119,
+   "name": "pop_b",
+   "gain": -11,
+   "align": "onset"
+  },
+  {
+   "t": 52.769,
+   "name": "tap_a",
+   "gain": -7,
+   "align": "onset"
+  },
+  {
+   "t": 52.789,
+   "name": "click_a",
+   "gain": -14,
+   "align": "onset"
+  },
+  {
+   "t": 53.1,
+   "name": "pop_b",
+   "gain": -13,
+   "align": "onset"
+  },
+  {
+   "t": 53.948,
+   "name": "tap_a",
+   "gain": -7,
+   "align": "onset"
+  },
+  {
+   "t": 53.968,
+   "name": "click_a",
+   "gain": -14,
+   "align": "onset"
+  },
+  {
+   "t": 54.178,
+   "name": "pop_b",
+   "gain": -17,
+   "align": "onset"
+  },
+  {
+   "t": 54.72,
    "name": "hit2_3",
    "gain": -3,
    "align": "onset"
   },
   {
-   "t": 51.84,
+   "t": 54.72,
    "name": "subdrop2_4",
    "gain": -3,
    "align": "onset"
   },
   {
-   "t": 51.89,
+   "t": 54.77,
    "name": "sparkle_b",
    "gain": -10,
    "align": "onset"

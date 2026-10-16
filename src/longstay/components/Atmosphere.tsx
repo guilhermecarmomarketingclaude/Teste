@@ -16,7 +16,7 @@ export const Backdrop: React.FC<{ t: number; glow?: number; dots?: number; tint?
       <AbsoluteFill
         style={{
           opacity: 0.9 * glow,
-          background: `radial-gradient(900px 900px at ${gx}px ${gy}px, rgba(31,166,235,0.13), rgba(31,166,235,0) 70%)`,
+          background: `radial-gradient(900px 900px at ${gx}px ${gy}px, rgba(35,164,235,0.13), rgba(35,164,235,0) 70%)`,
         }}
       />
       <AbsoluteFill

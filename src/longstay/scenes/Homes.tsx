@@ -1,5 +1,6 @@
 import React from "react";
-import { AbsoluteFill, Img, staticFile } from "remotion";
+import { AbsoluteFill } from "remotion";
+import { Clip } from "../components/Media";
 import { C, FONT, SAFE, clamp01, ease, mix } from "../brand";
 import { Kinetic } from "../components/Kinetic";
 import { ICheck, IHome, ISofa, IWifi } from "../components/Icons";
@@ -25,19 +26,20 @@ export const Homes: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, 
   return (
     <AbsoluteFill style={{ opacity: 1 - exit, transform: `scale(${1 - exit * 0.06})` }}>
       <AbsoluteFill style={{ transform: `scale(${mix(1.3, 1, inP)})`, filter: inP < 1 ? `blur(${(1 - inP) * 16}px)` : "none" }}>
-        <Img
-          src={staticFile("longstay/img/interior.jpg")}
+        <div
           style={{
             position: "absolute",
             left: -40,
             top: 0,
             width: 1160,
             height: 2062,
-            objectFit: "cover",
             transform: `translateX(${-lt * 14}px) scale(${1.02 + lt * 0.012})`,
             filter: dof > 0 ? `blur(${dof * 14}px) brightness(${1 - dof * 0.06})` : undefined,
           }}
-        />
+        >
+          {/* the client's own footage: a real HD Properties living room, slowed down */}
+          <Clip src="longstay/v3/clips/c_living.mp4" at={t0 - 0.1} dur={t1 - t0 + 0.2} rate={0.7} />
+        </div>
         {/* keep the ceiling bright enough for dark type */}
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(246,249,252,0.7) 0%, rgba(246,249,252,0) 30%)" }} />
         <AbsoluteFill style={{ background: `rgba(238,243,248,${dof * 0.35})` }} />
@@ -81,9 +83,9 @@ const SupportCard: React.FC<{ t: number }> = ({ t }) => {
     <div
       style={{
         position: "absolute",
-        left: 92,
+        left: 120,
         top: 610,
-        width: 896,
+        width: 800,
         transform: `translateY(${(1 - p) * 520}px) rotateX(${(1 - p) * 18}deg)`,
         transformOrigin: "50% 100%",
         opacity: clamp01(p * 2),

@@ -1,11 +1,12 @@
 import React from "react";
-import { AbsoluteFill, Img, random, staticFile } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { C, FONT, SAFE, clamp01, ease, mix } from "../brand";
 import { Kinetic } from "../components/Kinetic";
 import { ICalendar, ICap, IFlag, IPin, ISnow, ISun, IWifi } from "../components/Icons";
 import { shadow } from "../components/UI";
 import { ShapeSpec, bbox, lerpPts, shapePts, toPath } from "../components/Morph";
 import { TL, vo, wordTime, wordsAt } from "../data/timeline";
+import { Clip } from "../components/Media";
 
 // Drop 1 → "Para quem…": one window that changes shape for each kind of guest, then folds
 // into the first polaroid of the "memories" sequence. Steps are locked to the narration beats.
@@ -77,7 +78,7 @@ export const Personas: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t
           {vis(t, 4) > 0 ? <Study t={t} o={vis(t, 4)} bb={bb} /> : null}
           {t >= STEPS[5].at ? (
             <AbsoluteFill style={{ opacity: clamp01((t - (STEPS[5].at + 0.06)) / 0.22) }}>
-              <Plate src="longstay/img/loc_quarteira.jpg" bb={bb} />
+              <Plate src="longstay/v3/tex/primula_terrace.jpg" bb={bb} />
             </AbsoluteFill>
           ) : null}
         </AbsoluteFill>
@@ -266,58 +267,17 @@ const Pill: React.FC<{ children: React.ReactNode; style?: React.CSSProperties; p
 
 /* ------------------------------------------------------------ 1. cold */
 
-const FLAKES = Array.from({ length: 90 }).map((_, i) => ({
-  x: random(`fx${i}`) * 900 - 100,
-  y: random(`fy${i}`) * 900,
-  s: 3 + random(`fs${i}`) * 9,
-  v: 90 + random(`fv${i}`) * 170,
-  ph: random(`fp${i}`) * 6.28,
-}));
-
 const Cold: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const foge = wordTime("L03", "fugir").a;
   const warm = ease.inOut(clamp01((t - (foge + 0.05)) / 0.85));
   const R = mix(-160, 900, warm);
-  const lt = t - (STEPS[0].at - 0.28);
   return (
     <AbsoluteFill style={{ opacity: o }}>
-      {/* winter */}
-      <div
-        style={{
-          position: "absolute",
-          left: bb.x - 40,
-          top: bb.y - 40,
-          width: bb.w + 80,
-          height: bb.h + 80,
-          background: "linear-gradient(180deg, #7F93A8 0%, #A9B9C9 55%, #DCE4EC 100%)",
-        }}
-      />
-      {/* distant snowy hills */}
-      <svg style={{ position: "absolute", left: bb.x - 40, top: bb.y + bb.h * 0.55, width: bb.w + 80, height: bb.h * 0.5 }} viewBox="0 0 100 50" preserveAspectRatio="none">
-        <path d="M0,22 C18,10 30,18 46,12 C62,6 78,16 100,10 L100,50 L0,50 Z" fill="#E9EFF5" />
-        <path d="M0,32 C20,24 40,30 60,24 C76,19 88,26 100,22 L100,50 L0,50 Z" fill="#F7FAFC" />
-      </svg>
-      {FLAKES.map((f, i) => {
-        const y = ((f.y + lt * f.v) % 900) - 60;
-        const x = f.x + Math.sin(lt * 1.3 + f.ph) * 18 + lt * 20;
-        const near = f.s > 9;
-        return (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              left: bb.x + (x % (bb.w + 60)) - 30,
-              top: bb.y + y,
-              width: f.s,
-              height: f.s,
-              borderRadius: 99,
-              background: "#fff",
-              opacity: 0.9 * (1 - warm),
-              filter: near ? "blur(2px)" : f.s < 5 ? "blur(0.6px)" : "none",
-            }}
-          />
-        );
-      })}
+      {/* winter: real footage, cooled down */}
+      <div style={{ position: "absolute", left: bb.x - 40, top: bb.y - 40, width: bb.w + 80, height: bb.h + 80, filter: "saturate(0.75) brightness(1.04)" }}>
+        <Clip src="longstay/v3/clips/s_cold.mp4" at={STEPS[0].at - 0.35} dur={3.9} />
+      </div>
+      <div style={{ position: "absolute", left: bb.x, top: bb.y, width: bb.w, height: bb.h, background: "rgba(120,160,200,0.16)", mixBlendMode: "multiply", opacity: 1 - warm }} />
       {/* frost around the edges */}
       <div
         style={{
@@ -326,7 +286,7 @@ const Cold: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
           top: bb.y,
           width: bb.w,
           height: bb.h,
-          background: "radial-gradient(70% 70% at 50% 50%, rgba(255,255,255,0) 55%, rgba(255,255,255,0.75) 100%)",
+          background: "radial-gradient(70% 70% at 50% 50%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.6) 100%)",
           opacity: 1 - warm,
         }}
       />
@@ -339,7 +299,7 @@ const Cold: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
           maskImage: `radial-gradient(circle at ${bb.x + bb.w * 0.5}px ${bb.y + bb.h * 0.55}px, #000 ${R}px, transparent ${R + 120}px)`,
         }}
       >
-        <Plate src="longstay/img/loc_quarteira.jpg" bb={bb} blur={7} zoom={mix(1.18, 1.08, warm)} />
+        <Plate src="longstay/v3/tex/quarteira_beach_view.jpg" bb={bb} blur={2} zoom={mix(1.18, 1.08, warm)} />
         <div
           style={{
             position: "absolute",
@@ -383,7 +343,7 @@ const ColdFront: React.FC<{ t: number; bb: BB }> = ({ t }) => {
         <span style={{ display: "flex", color: warm ? C.sun : "#7FA3C4" }}>{warm ? <ISun size={46} stroke={2.4} /> : <ISnow size={46} stroke={2.4} />}</span>
         <span style={{ fontFamily: FONT.display, fontWeight: 800, fontSize: 48, minWidth: 84 }}>{temp}°</span>
       </Pill>
-      <Postcard t={t} at={inv - 0.05} out={STEPS[1].at - 0.05} src="longstay/img/loc_quarteira.jpg" label="Quarteira" x={636} y={850} rot={5} w={250} />
+      <Postcard t={t} at={inv - 0.05} out={STEPS[1].at - 0.05} src="longstay/v3/tex/maresia_balcony.jpg" label="Quarteira" x={636} y={850} rot={5} w={250} />
     </>
   );
 };
@@ -392,34 +352,13 @@ const ColdFront: React.FC<{ t: number; bb: BB }> = ({ t }) => {
 
 const Golf: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const lt = t - STEPS[1].at;
+  const golfe = wordTime("L04", "golfe").a;
+  // the swing's impact (1.7 s into the clip) lands on "golfe"
   return (
     <AbsoluteFill style={{ opacity: o, transform: `scale(${mix(1.12, 1, ease.out(clamp01(lt / 0.6)))})`, transformOrigin: "540px 745px" }}>
-      <Plate src="longstay/img/loc_valedolobo.jpg" bb={bb} blur={6} zoom={1.1 + lt * 0.03} pos="40% 60%" />
-      {/* putting green */}
-      <div
-        style={{
-          position: "absolute",
-          left: 540 - 300,
-          top: 745 - 40,
-          width: 600,
-          height: 300,
-          borderRadius: "50%",
-          background: "radial-gradient(60% 60% at 50% 45%, #9BD38A 0%, #6DB466 60%, rgba(80,160,80,0) 100%)",
-          opacity: 0.92,
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          left: 540 - 300,
-          top: 745 - 40,
-          width: 600,
-          height: 300,
-          borderRadius: "50%",
-          background: "repeating-linear-gradient(100deg, rgba(255,255,255,0.08) 0 38px, rgba(255,255,255,0) 38px 76px)",
-          WebkitMaskImage: "radial-gradient(closest-side, #000 70%, transparent 100%)",
-        }}
-      />
+      <div style={{ position: "absolute", left: bb.x - 40, top: bb.y - 40, width: bb.w + 80, height: bb.h + 80 }}>
+        <Clip src="longstay/v3/clips/s_golf.mp4" at={golfe + 0.05 - 1.7} dur={3.95} />
+      </div>
     </AbsoluteFill>
   );
 };
@@ -430,86 +369,11 @@ const GolfFront: React.FC<{ t: number; bb: BB }> = ({ t }) => {
   const ano = wordTime("L04", "ano").a;
   const out = ease.in(clamp01((t - STEPS[2].at) / 0.3));
   const fade = 1 - out;
-  // hole and flag
-  const hx = 640;
-  const hy = 850;
-  const flagIn = ease.back(clamp01((t - (STEPS[1].at + 0.25)) / 0.45));
-  // ball flight
-  const t0 = golfe - 0.55;
-  const fl = clamp01((t - t0) / 0.75);
-  const sx = 300;
-  const sy = 1000;
-  const bx = mix(sx, hx - 50, fl);
-  const by = mix(sy, hy + 6, fl) - Math.sin(fl * Math.PI) * 330;
-  const roll = clamp01((t - (t0 + 0.75)) / 0.35);
-  const ballX = fl < 1 ? bx : mix(hx - 50, hx, ease.out(roll));
-  const ballY = fl < 1 ? by : hy + 6 - Math.sin(roll * Math.PI) * 6;
-  const inHole = roll >= 1;
-  const sink = clamp01((t - (t0 + 1.1)) / 0.15);
-  const ballS = fl < 1 ? mix(1.25, 0.8, fl) : 0.8;
-  const trail = Array.from({ length: 22 }).map((_, i) => {
-    const f = (i / 21) * fl;
-    return [mix(sx, hx - 50, f), mix(sy, hy + 6, f) - Math.sin(f * Math.PI) * 330];
-  });
   const months = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
   const mp = clamp01((t - (ano - 0.15)) / 0.85);
   const stripIn = clamp01((t - (ano - 0.45)) / 0.35);
   return (
     <AbsoluteFill style={{ opacity: fade, filter: out > 0.02 ? `blur(${out * 10}px)` : "none" }}>
-      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
-        {/* hole */}
-        <ellipse cx={hx} cy={hy + 14} rx={24 * flagIn} ry={9 * flagIn} fill="#1C3320" opacity={0.85} />
-        {/* dotted trajectory */}
-        {fl > 0 ? (
-          <polyline
-            points={trail.map((q) => q.join(",")).join(" ")}
-            fill="none"
-            stroke="#fff"
-            strokeWidth={5}
-            strokeDasharray="2 16"
-            strokeLinecap="round"
-            opacity={0.95 * (1 - clamp01((t - (t0 + 1.2)) / 0.4))}
-          />
-        ) : null}
-        {/* flag */}
-        <g transform={`translate(${hx},${hy + 12}) scale(1,${flagIn})`}>
-          <line x1={0} y1={0} x2={0} y2={-230} stroke="#F7F7F7" strokeWidth={6} strokeLinecap="round" />
-          <path
-            d={`M3,-228 Q${46 + Math.sin(t * 7) * 6},${-214 + Math.sin(t * 5) * 3} ${92 + Math.sin(t * 6) * 5},-200 Q${48 + Math.sin(t * 7 + 1) * 5},${-186 + Math.sin(t * 5) * 3} 3,-172 Z`}
-            fill={C.blue}
-          />
-        </g>
-      </svg>
-      {/* ball */}
-      {fl > 0 && sink < 1 ? (
-        <div
-          style={{
-            position: "absolute",
-            left: ballX - 22,
-            top: ballY - 22,
-            width: 44,
-            height: 44,
-            borderRadius: 99,
-            background: "radial-gradient(circle at 35% 30%, #FFFFFF 0%, #F1F3F5 45%, #C9CFD6 100%)",
-            boxShadow: "0 10px 16px -6px rgba(0,0,0,0.45)",
-            transform: `scale(${ballS * (1 - sink)})`,
-          }}
-        />
-      ) : null}
-      {inHole ? (
-        <div
-          style={{
-            position: "absolute",
-            left: hx - 70,
-            top: hy + 14 - 70,
-            width: 140,
-            height: 140,
-            borderRadius: 999,
-            border: `4px solid rgba(255,255,255,${1 - clamp01((t - (t0 + 1.1)) / 0.5)})`,
-            transform: `scaleY(0.4) scale(${mix(0.2, 1.4, ease.out(clamp01((t - (t0 + 1.1)) / 0.5)))})`,
-          }}
-        />
-      ) : null}
       {/* twelve months, all of them good */}
       {stripIn > 0 ? (
         <div
@@ -562,58 +426,16 @@ const GolfFront: React.FC<{ t: number; bb: BB }> = ({ t }) => {
 
 const Work: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const lt = t - STEPS[2].at;
-  const call = ease.out(clamp01((lt - 0.18) / 0.4));
-  const tiles = [
-    { i: "AM", c: "#FFB347" },
-    { i: "JS", c: "#7FC8A9" },
-    { i: "+3", c: C.blue },
-  ];
   return (
     <AbsoluteFill style={{ opacity: o }}>
-      {/* a different home, defocused like a call's virtual background */}
-      <Plate src="longstay/img/th_dining.jpg" bb={bb} blur={9} zoom={1.12 - lt * 0.02} />
-      <div style={{ position: "absolute", left: bb.x, top: bb.y, width: bb.w, height: bb.h, background: "rgba(246,249,252,0.18)" }} />
+      {/* someone working from a bright room, real footage */}
+      <div style={{ position: "absolute", left: bb.x - 40, top: bb.y - 40, width: bb.w + 80, height: bb.h + 80, transform: `scale(${1.04 + lt * 0.015})` }}>
+        <Clip src="longstay/v3/clips/s_work.mp4" at={STEPS[2].at - 0.3} dur={3.95} />
+      </div>
       {/* window chrome */}
       <div style={{ position: "absolute", left: bb.x + 26, top: bb.y + 22, display: "flex", gap: 10 }}>
         {["#FF6B6B", "#FFD166", "#06D6A0"].map((c) => (
-          <span key={c} style={{ width: 16, height: 16, borderRadius: 99, background: c }} />
-        ))}
-      </div>
-      {/* video call */}
-      <div
-        style={{
-          position: "absolute",
-          left: 540 - 300,
-          top: 720 - 150,
-          width: 600,
-          display: "flex",
-          gap: 16,
-          transform: `translateY(${(1 - call) * 40}px) scale(${mix(0.9, 1, call)})`,
-          opacity: call,
-        }}
-      >
-        {tiles.map((tile, k) => (
-          <div
-            key={k}
-            style={{
-              flex: 1,
-              height: 190,
-              borderRadius: 22,
-              background: "rgba(18,28,39,0.55)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 14px 26px -14px rgba(0,0,0,0.6)",
-              outline: k === 0 ? `4px solid ${C.blue}` : "none",
-            }}
-          >
-            <div style={{ width: 92, height: 92, borderRadius: 99, background: tile.c, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT.body, fontWeight: 600, fontSize: 32, color: "#fff" }}>{tile.i}</div>
-          </div>
-        ))}
-      </div>
-      <div style={{ position: "absolute", left: 540 - 120, top: 720 + 70, width: 240, display: "flex", justifyContent: "center", gap: 18, opacity: call }}>
-        {[0, 1, 2].map((k) => (
-          <span key={k} style={{ width: 58, height: 58, borderRadius: 99, background: k === 2 ? "#FF5A5F" : "rgba(255,255,255,0.92)", boxShadow: "0 8px 16px -8px rgba(0,0,0,0.5)" }} />
+          <span key={c} style={{ width: 16, height: 16, borderRadius: 99, background: c, boxShadow: "0 2px 6px rgba(0,0,0,0.25)" }} />
         ))}
       </div>
       <div
@@ -623,7 +445,7 @@ const Work: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
           top: bb.y,
           width: bb.w,
           height: bb.h,
-          background: "linear-gradient(120deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 35%)",
+          background: "linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 35%)",
         }}
       />
     </AbsoluteFill>
@@ -696,7 +518,7 @@ const WorkFront: React.FC<{ t: number }> = ({ t }) => {
           </div>
         </div>
       ) : null}
-
+      <Postcard t={t} at={qual + 0.1} out={STEPS[3].at - 0.05} src="longstay/v3/tex/studio_alcharb_desk.jpg" label="Vilamoura" x={96} y={404} rot={-5} w={230} />
     </AbsoluteFill>
   );
 };
@@ -707,95 +529,22 @@ const HomeV: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const lt = t - STEPS[3].at;
   return (
     <AbsoluteFill style={{ opacity: o, transform: `scale(${mix(1.12, 1, ease.out(clamp01(lt / 0.6)))})`, transformOrigin: "540px 750px" }}>
-      <Plate src="longstay/img/loc_olhao.jpg" bb={bb} blur={5} zoom={1.08 + lt * 0.03} pos="50% 40%" />
-      <div style={{ position: "absolute", left: bb.x, top: bb.y, width: bb.w, height: bb.h, background: "linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(255,255,255,0.35) 100%)" }} />
+      <div style={{ position: "absolute", left: bb.x - 40, top: bb.y - 40, width: bb.w + 80, height: bb.h + 80, transform: `scale(${1.02 + lt * 0.02})` }}>
+        <Clip src="longstay/v3/clips/s_pack.mp4" at={STEPS[3].at - 0.25} dur={3.95} />
+      </div>
     </AbsoluteFill>
   );
 };
-
-const Cube: React.FC<{ w: number; h: number; d: number; tape?: boolean; label?: boolean }> = ({ w, h, d, tape = true, label }) => (
-  <div style={{ position: "relative", width: w, height: h, transformStyle: "preserve-3d" }}>
-    {/* front */}
-    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,#DDB88E,#C99D6E)", borderRadius: 6, transform: `translateZ(${d / 2}px)` }}>
-      {tape ? <div style={{ position: "absolute", left: "44%", width: "12%", top: 0, height: "38%", background: "rgba(245,228,200,0.85)" }} /> : null}
-      {label ? (
-        <div style={{ position: "absolute", left: "12%", bottom: "16%", width: "40%", height: "22%", background: "rgba(255,255,255,0.85)", borderRadius: 4 }} />
-      ) : null}
-    </div>
-    {/* top */}
-    <div
-      style={{
-        position: "absolute",
-        left: 0,
-        top: 0,
-        width: w,
-        height: d,
-        background: "linear-gradient(180deg,#EED2AE,#E3C29A)",
-        transformOrigin: "50% 0%",
-        transform: `translateZ(${d / 2}px) rotateX(90deg)`,
-        borderRadius: 6,
-      }}
-    >
-      {tape ? <div style={{ position: "absolute", left: "44%", width: "12%", top: 0, height: "100%", background: "rgba(245,228,200,0.9)" }} /> : null}
-    </div>
-    {/* side */}
-    <div
-      style={{
-        position: "absolute",
-        left: w,
-        top: 0,
-        width: d,
-        height: h,
-        background: "linear-gradient(180deg,#C4966A,#AD8156)",
-        transformOrigin: "0% 50%",
-        transform: `translateZ(${d / 2}px) rotateY(90deg)`,
-        borderRadius: 6,
-      }}
-    />
-  </div>
-);
 
 const HomeFront: React.FC<{ t: number }> = ({ t }) => {
   const at = STEPS[3].at;
   if (t < at || t > STEPS[4].at + 0.4) return null;
   const out = ease.in(clamp01((t - STEPS[4].at) / 0.3));
-  const entre = wordTime("L06", "entre").a;
   const casas = wordTime("L06", "casas.").a;
-  const drops = [
-    { at: at + 0.35, x: 170, y: 1004, w: 190, h: 140, d: 120, r: -4, label: true },
-    { at: at + 0.6, x: 330, y: 1018, w: 160, h: 120, d: 110, r: 3 },
-    { at: entre - 0.05, x: 215, y: 874, w: 150, h: 120, d: 100, r: 6 },
-  ];
   const key = clamp01((t - (casas - 0.2)) / 1.2);
   const swing = Math.sin(key * 9) * 26 * (1 - key) * 1 + 0;
   return (
     <AbsoluteFill style={{ opacity: 1 - out, filter: out > 0.02 ? `blur(${out * 10}px)` : "none" }}>
-      {drops.map((b, i) => {
-        const p = clamp01((t - b.at) / 0.42);
-        if (p <= 0) return null;
-        // fall + small bounce
-        const fall = p < 0.7 ? ease.in(p / 0.7) : 1;
-        const bounce = p >= 0.7 ? Math.sin(((p - 0.7) / 0.3) * Math.PI) * 0.06 : 0;
-        const y = mix(-900, 0, fall) - bounce * 200;
-        const sq = p >= 0.7 ? 1 - Math.sin(((p - 0.7) / 0.3) * Math.PI) * 0.06 : 1;
-        return (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              left: b.x,
-              top: b.y - b.h,
-              perspective: 900,
-              transform: `translateY(${y}px) rotate(${b.r * (1 - fall * 0.4)}deg) scaleY(${sq})`,
-              transformOrigin: "50% 100%",
-            }}
-          >
-            <div style={{ transformStyle: "preserve-3d", transform: "rotateX(-18deg) rotateY(-24deg)" }}>
-              <Cube w={b.w} h={b.h} d={b.d} label={b.label} />
-            </div>
-          </div>
-        );
-      })}
       {/* house key with an HD tag, swinging in */}
       {key > 0 ? (
         <div
@@ -825,7 +574,7 @@ const HomeFront: React.FC<{ t: number }> = ({ t }) => {
           </svg>
         </div>
       ) : null}
-      <Postcard t={t} at={casas - 0.1} out={STEPS[4].at - 0.05} src="longstay/img/loc_olhao.jpg" label="Olhão" x={680} y={860} rot={5} w={230} />
+      <Postcard t={t} at={casas - 0.1} out={STEPS[4].at - 0.05} src="longstay/v3/tex/olhao_terrace.jpg" label="Olhão" x={680} y={860} rot={5} w={230} />
     </AbsoluteFill>
   );
 };
@@ -836,7 +585,9 @@ const Study: React.FC<{ t: number; o: number; bb: BB }> = ({ t, o, bb }) => {
   const lt = t - STEPS[4].at;
   return (
     <AbsoluteFill style={{ opacity: o, transform: `scale(${mix(1.12, 1, ease.out(clamp01(lt / 0.6)))})`, transformOrigin: "540px 748px" }}>
-      <Plate src="longstay/img/loc_faro.jpg" bb={bb} blur={5} zoom={1.08 + lt * 0.04} />
+      <div style={{ position: "absolute", left: bb.x - 40, top: bb.y - 40, width: bb.w + 80, height: bb.h + 80, transform: `scale(${1.02 + lt * 0.03})` }}>
+        <Clip src="longstay/v3/clips/s_students.mp4" at={STEPS[4].at - 0.25} dur={3.95} />
+      </div>
     </AbsoluteFill>
   );
 };
@@ -846,55 +597,9 @@ const StudyFront: React.FC<{ t: number }> = ({ t }) => {
   if (t < at || t > STEPS[5].at + 0.4) return null;
   const out = ease.in(clamp01((t - STEPS[5].at) / 0.3));
   const est = wordTime("L07", "estudar.").a;
-  const toss = clamp01((t - (est - 0.2)) / 0.9);
-  const y = -Math.sin(toss * Math.PI) * 300;
-  const books = ease.back(clamp01((t - (at + 0.2)) / 0.45));
   return (
     <AbsoluteFill style={{ opacity: 1 - out, filter: out > 0.02 ? `blur(${out * 10}px)` : "none" }}>
-      {/* books */}
-      <div style={{ position: "absolute", left: 300, top: 960, transform: `translateY(${(1 - books) * 120}px)`, opacity: clamp01(books * 2) }}>
-        {[
-          { w: 300, c: C.blue, dx: 0 },
-          { w: 270, c: "#5E5D66", dx: 18 },
-          { w: 286, c: "#8FB9D6", dx: 6 },
-        ].map((b, i) => (
-          <div
-            key={i}
-            style={{
-              width: b.w,
-              height: 44,
-              marginLeft: b.dx,
-              marginTop: i ? -2 : 0,
-              borderRadius: 10,
-              background: b.c,
-              boxShadow: "0 10px 18px -10px rgba(18,28,39,0.5)",
-              position: "relative",
-            }}
-          >
-            <div style={{ position: "absolute", right: 14, top: 8, bottom: 8, width: 30, borderRadius: 4, background: "rgba(255,255,255,0.85)" }} />
-          </div>
-        ))}
-      </div>
-      {/* mortarboard toss */}
-      {toss > 0 ? (
-        <div
-          style={{
-            position: "absolute",
-            left: 470,
-            top: 760,
-            transform: `translateY(${y}px) rotate(${toss * 380}deg) scale(${1 + Math.sin(toss * Math.PI) * 0.2})`,
-            filter: "drop-shadow(0 18px 18px rgba(18,28,39,0.35))",
-          }}
-        >
-          <svg width={180} height={140} viewBox="0 0 180 140">
-            <path d="M90,12 L172,48 L90,84 L8,48 Z" fill={C.ink} />
-            <path d="M40,64 L40,98 Q90,124 140,98 L140,64 L90,86 Z" fill="#26323F" />
-            <path d="M90,48 L150,72 L150,112" stroke="#FFB347" strokeWidth={5} fill="none" strokeLinecap="round" />
-            <circle cx={150} cy={116} r={7} fill="#FFB347" />
-          </svg>
-        </div>
-      ) : null}
-      <Postcard t={t} at={est - 0.05} out={STEPS[5].at - 0.05} src="longstay/img/loc_faro.jpg" label="Faro" x={700} y={440} rot={6} w={220} />
+      <Postcard t={t} at={est - 0.05} out={STEPS[5].at - 0.05} src="longstay/v3/tex/faro_traditional.jpg" label="Faro" x={700} y={440} rot={6} w={220} />
       <UniChip t={t} at={est + 0.05} out={STEPS[5].at - 0.05} />
     </AbsoluteFill>
   );

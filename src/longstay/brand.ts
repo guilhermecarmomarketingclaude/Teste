@@ -8,11 +8,12 @@ export const C = {
   inkSoft: "#3A4756",
   muted: "#7C8A99",
   line: "#D8E2EB",
-  blue: "#1FA6EB",
-  blueText: "#1E8FCB",
-  blueDeep: "#0F6FA8",
-  blueSoft: "#DCEFFB",
-  greyDark: "#5E5D66",
+  // HD Properties logo blue, measured on the logo itself — every blue element uses exactly this
+  blue: "#23A4EB",
+  blueText: "#23A4EB",
+  blueDeep: "#23A4EB",
+  blueSoft: "#DEF1FC", // 14% tint of the logo blue, only for soft fills
+  greyDark: "#64636C",
   greyLight: "#8F8E93",
   white: "#FFFFFF",
   sea: "#D6E8F5",
@@ -36,6 +37,9 @@ export const SAFE = {
   left: 64,
   right: W - 64,
 };
+// Reels right-hand action column (like / comment / share / audio): keep text and key UI
+// out of x > colX once below colY.
+export const SAFE_COL = { x: 940, y: 980 };
 export const SAFE_W = SAFE.right - SAFE.left;
 export const SAFE_H = SAFE.bottom - SAFE.top;
 export const SAFE_CX = W / 2;

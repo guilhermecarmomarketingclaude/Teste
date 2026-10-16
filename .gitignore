@@ -9,3 +9,9 @@ out
 # Longstay reel: the mix contains licensed music, keep it out of the repo
 public/longstay/mix/
 public/longstay/music/
+
+# Longstay V3 footage: Mixkit stock clips may not be redistributed as raw files, and the client's
+# own footage (and frames taken from it) stays private. See tools/longstay/MEDIA_V3.md to rebuild.
+public/longstay/v3/clips/
+public/longstay/v3/img/
+public/longstay/v3/tex/waves_still.jpg

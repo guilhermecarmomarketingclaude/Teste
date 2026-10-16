@@ -1,17 +1,27 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { C, FONT, SAFE, clamp01, ease, mix } from "../brand";
 import { Kinetic } from "../components/Kinetic";
-import { ICalendar, IFlag, ISun, ISuitcase, IHome, IMoon, IPin } from "../components/Icons";
+import { ICalendar } from "../components/Icons";
 import { shadow } from "../components/UI";
 import { wordTime, wordsAt } from "../data/timeline";
 
 const DAYS = ["SEG", "TER", "QUA", "QUI", "SEX", "SÁB", "DOM"];
-const ICONS = [ISuitcase, ISun, IPin, IFlag, IHome, ISun, IMoon];
+// a week of real HD Properties days
+const PHOTOS = [
+  "longstay/v3/tex/quarteira_balcony_beach.jpg",
+  "longstay/v3/tex/vilamoura_marina_terrace.jpg",
+  "longstay/v3/tex/villa_malvas_pool.jpg",
+  "longstay/v3/tex/faro_ria_view.jpg",
+  "longstay/v3/tex/olhao_terrace.jpg",
+  "longstay/v3/tex/villa_hd_pool.jpg",
+  "longstay/v3/tex/sunset_wine.jpg",
+];
 
 // 0–3.2 s: seven day cards on a 3D carousel; on "passa a voar" they tear off and fly away.
 export const Hook: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, t1 }) => {
-  const lt = t - t0;
+  // cards start 0.3 s before the cut, so the no-hook version opens on a moving frame
+  const lt = t - (t0 - 0.3);
   const passa = wordTime("L01", "passa").a;
   const voar = wordTime("L01", "voar.");
   const words = wordsAt("L01");
@@ -28,9 +38,9 @@ export const Hook: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, t
           style={{
             position: "absolute",
             left: 540,
-            top: 1240,
+            top: 1365,
             transformStyle: "preserve-3d",
-            transform: `translateZ(${camZ * 0.6}px) rotateX(${mix(22, 12, ease.inOut(clamp01(lt / 2.4)))}deg) rotateY(${camRot * 0.6}deg)`,
+            transform: `translateZ(${camZ * 0.6}px) rotateX(${mix(22, 12, ease.inOut(clamp01(lt / 2.4)))}deg) rotateY(${camRot * 0.6}deg) scale(1.28)`,
           }}
         >
           {DAYS.map((d, i) => {
@@ -45,7 +55,6 @@ export const Hook: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, t
             const rad = (theta * Math.PI) / 180;
             const cx = Math.sin(rad) * R;
             const cy = -Math.cos(rad) * R;
-            const Icon = ICONS[i];
             const tx = cx + fly * (k * 140 + 60);
             const ty = cy + mix(300, 0, pin) - fly * 1700;
             const tz = i * 3 + fly * 900;
@@ -88,21 +97,23 @@ export const Hook: React.FC<{ t: number; t0: number; t1: number }> = ({ t, t0, t
                 >
                   {d}
                 </div>
-                <div
-                  style={{
-                    fontFamily: FONT.display,
-                    fontWeight: 800,
-                    fontSize: 106,
-                    color: C.ink,
-                    textAlign: "center",
-                    lineHeight: "134px",
-                    letterSpacing: "-0.04em",
-                  }}
-                >
-                  {i + 1}
-                </div>
-                <div style={{ display: "flex", justifyContent: "center", color: C.blue }}>
-                  <Icon size={40} stroke={2} />
+                <div style={{ position: "absolute", left: 0, right: 0, top: 58, bottom: 0, overflow: "hidden" }}>
+                  <Img src={staticFile(PHOTOS[i])} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${1.08 - Math.min(1, lt / 3) * 0.06})` }} />
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 12,
+                      bottom: 10,
+                      fontFamily: FONT.display,
+                      fontWeight: 800,
+                      fontSize: 44,
+                      color: C.white,
+                      letterSpacing: "-0.03em",
+                      textShadow: "0 3px 12px rgba(10,25,40,0.55)",
+                    }}
+                  >
+                    {i + 1}
+                  </div>
                 </div>
               </div>
             );
